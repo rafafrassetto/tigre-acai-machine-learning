@@ -5,12 +5,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { AlertTriangle, Package, ShoppingCart, TrendingUp, Users } from "lucide-react"
+import { AlertTriangle, Package, ShoppingCart, TrendingUp, Users, LogOut } from "lucide-react"
 import { ProdutoForm } from "./components/produto-form"
 import { FornecedorForm } from "./components/fornecedor-form"
 import { EstoqueManager } from "./components/estoque-manager"
 import { PedidosManager } from "./components/pedidos-manager"
 import { RelatoriosManager } from "./components/relatorios-manager"
+import { Login } from "./components/login"
 import { useLocalStorage } from "./hooks/use-local-storage"
 
 export interface Produto {
@@ -49,25 +50,33 @@ export interface Movimentacao {
 }
 
 export default function Dashboard() {
+  const [isAuthenticated, setIsAuthenticated] = useLocalStorage<boolean>("isAuthenticated", false)
   const [produtos, setProdutos] = useLocalStorage<Produto[]>("produtos", [])
   const [fornecedores, setFornecedores] = useLocalStorage<Fornecedor[]>("fornecedores", [])
   const [movimentacoes, setMovimentacoes] = useLocalStorage<Movimentacao[]>("movimentacoes", [])
   const [activeTab, setActiveTab] = useState("dashboard")
 
-  // Produtos com estoque baixo
   const produtosEstoqueBaixo = produtos.filter((p) => p.quantidadeEstoque <= p.pontoReposicao)
-
-  // Estatísticas do dashboard
   const totalProdutos = produtos.length
   const totalFornecedores = fornecedores.length
   const valorTotalEstoque = produtos.reduce((total, p) => total + p.quantidadeEstoque * p.custoUnitario, 0)
 
+  if (!isAuthenticated) {
+    return <Login onLogin={setIsAuthenticated} />
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto p-6">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Sistema de Gestão - Sorveteria</h1>
-          <p className="text-gray-600 mt-2">Controle completo do seu estoque e pedidos</p>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Sistema de Gestão - Sorveteria</h1>
+            <p className="text-gray-600 mt-2">Controle completo do seu estoque e pedidos</p>
+          </div>
+          <Button variant="outline" onClick={() => setIsAuthenticated(false)}>
+            <LogOut className="h-4 w-4 mr-2" />
+            Sair
+          </Button>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
@@ -81,7 +90,6 @@ export default function Dashboard() {
           </TabsList>
 
           <TabsContent value="dashboard" className="space-y-6">
-            {/* Cards de estatísticas */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -126,7 +134,6 @@ export default function Dashboard() {
               </Card>
             </div>
 
-            {/* Alertas de estoque baixo */}
             {produtosEstoqueBaixo.length > 0 && (
               <Card className="border-red-200 bg-red-50">
                 <CardHeader>
@@ -170,7 +177,6 @@ export default function Dashboard() {
               </Card>
             )}
 
-            {/* Movimentações recentes */}
             <Card>
               <CardHeader>
                 <CardTitle>Movimentações Recentes</CardTitle>
