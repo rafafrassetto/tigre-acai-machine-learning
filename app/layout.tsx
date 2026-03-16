@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Sistema de Gestão - Sorveteria",
   description: "Sistema completo de gestão de estoque para sorveteria",
-    generator: 'v0.dev'
+    
 }
 
 export default function RootLayout({
