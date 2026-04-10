@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -13,6 +11,7 @@ import { PedidosManager } from "./components/pedidos-manager"
 import { RelatoriosManager } from "./components/relatorios-manager"
 import { Login } from "./components/login"
 import { useLocalStorage } from "./hooks/use-local-storage"
+import { useMongoSync } from "./hooks/use-mongo-sync"
 
 export interface Produto {
   id: string
@@ -51,9 +50,9 @@ export interface Movimentacao {
 
 export default function Dashboard() {
   const [isAuthenticated, setIsAuthenticated] = useLocalStorage<boolean>("isAuthenticated", false)
-  const [produtos, setProdutos] = useLocalStorage<Produto[]>("produtos", [])
-  const [fornecedores, setFornecedores] = useLocalStorage<Fornecedor[]>("fornecedores", [])
-  const [movimentacoes, setMovimentacoes] = useLocalStorage<Movimentacao[]>("movimentacoes", [])
+  const [produtos, setProdutos] = useMongoSync<Produto[]>("produtos", [])
+  const [fornecedores, setFornecedores] = useMongoSync<Fornecedor[]>("fornecedores", [])
+  const [movimentacoes, setMovimentacoes] = useMongoSync<Movimentacao[]>("movimentacoes", [])
   const [activeTab, setActiveTab] = useState("dashboard")
 
   const produtosEstoqueBaixo = produtos.filter((p) => p.quantidadeEstoque <= p.pontoReposicao)

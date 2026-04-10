@@ -30,7 +30,7 @@ export function PedidosManager({ produtos, fornecedores, produtosEstoqueBaixo }:
   const adicionarProdutosEstoqueBaixo = () => {
     const novosItens = produtosEstoqueBaixo.map((produto) => ({
       produtoId: produto.id,
-      quantidade: produto.pontoReposicao * 2, // Sugestão: 2x o ponto de reposição
+      quantidade: produto.pontoReposicao * 2,
     }))
     setItensPedido(novosItens)
   }
@@ -102,7 +102,7 @@ export function PedidosManager({ produtos, fornecedores, produtosEstoqueBaixo }:
     if (!fornecedor) return
 
     const mensagem = gerarMensagemWhatsApp(fornecedorId, itens)
-    const telefone = fornecedor.telefone.replace(/\D/g, "") // Remove formatação
+    const telefone = fornecedor.telefone.replace(/\D/g, "")
     const url = `https://wa.me/55${telefone}?text=${encodeURIComponent(mensagem)}`
     window.open(url, "_blank")
   }
@@ -122,7 +122,6 @@ export function PedidosManager({ produtos, fornecedores, produtosEstoqueBaixo }:
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Botão para adicionar produtos com estoque baixo */}
           {produtosEstoqueBaixo.length > 0 && (
             <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
               <h4 className="font-medium text-red-800 mb-2">Produtos com Estoque Baixo</h4>
@@ -135,7 +134,6 @@ export function PedidosManager({ produtos, fornecedores, produtosEstoqueBaixo }:
             </div>
           )}
 
-          {/* Seleção de produtos */}
           <div>
             <h4 className="font-medium mb-3">Selecionar Produtos para Pedido</h4>
             <div className="space-y-2 max-h-60 overflow-y-auto">
@@ -190,7 +188,6 @@ export function PedidosManager({ produtos, fornecedores, produtosEstoqueBaixo }:
         </CardContent>
       </Card>
 
-      {/* Pedidos agrupados por fornecedor */}
       {Object.keys(grupos).length > 0 && (
         <Card>
           <CardHeader>
