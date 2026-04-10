@@ -15,6 +15,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ coll
   }
 }
 
+
 export async function POST(request: Request, { params }: { params: Promise<{ collection: string }> }) {
   try {
     const { collection } = await params
