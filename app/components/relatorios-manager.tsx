@@ -19,7 +19,6 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
   const [periodoSelecionado, setPeriodoSelecionado] = useState("30") // dias
   const [fornecedorSelecionado, setFornecedorSelecionado] = useState("todos")
 
-  // Filtrar movimentações por período
   const getMovimentacoesPorPeriodo = (dias: number) => {
     const dataLimite = new Date()
     dataLimite.setDate(dataLimite.getDate() - dias)
@@ -27,12 +26,10 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
     return movimentacoes.filter((mov) => new Date(mov.data) >= dataLimite)
   }
 
-  // Relatório de produtos em estoque baixo
   const getProdutosEstoqueBaixo = () => {
     return produtos.filter((p) => p.quantidadeEstoque <= p.pontoReposicao)
   }
 
-  // Relatório de compras por fornecedor
   const getComprasPorFornecedor = () => {
     const compras: { [fornecedorId: string]: { quantidade: number; valor: number; itens: number } } = {}
 
@@ -54,7 +51,6 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
     return compras
   }
 
-  // Relatório de variação de preços
   const getVariacaoPrecos = () => {
     const variacoes: { [produtoId: string]: { atual: number; anterior: number; variacao: number } } = {}
 
@@ -75,7 +71,6 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
     return variacoes
   }
 
-  // Consumo médio por produto
   const getConsumoMedio = () => {
     const consumo: { [produtoId: string]: { totalSaidas: number; diasComMovimento: number; mediaDiaria: number } } = {}
 
@@ -85,7 +80,6 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
       const saidas = movimentacoesPeriodo.filter((mov) => mov.produtoId === produto.id && mov.tipo === "saida")
       const totalSaidas = saidas.reduce((total, mov) => total + mov.quantidade, 0)
 
-      // Contar dias únicos com movimentação
       const diasUnicos = new Set(saidas.map((mov) => new Date(mov.data).toDateString())).size
 
       consumo[produto.id] = {
@@ -99,7 +93,6 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
   }
 
   const exportarRelatorio = (tipo: string) => {
-    // Implementação básica de exportação
     let dados = ""
 
     switch (tipo) {
