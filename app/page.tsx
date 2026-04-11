@@ -14,6 +14,7 @@ import { RelatoriosManager } from "./components/relatorios-manager"
 import { Login } from "./components/login"
 import { useLocalStorage } from "./hooks/use-local-storage"
 import { useMongoSync } from "./hooks/use-mongo-sync"
+import { ChatWidget } from "./components/chat-widget"
 
 export interface Produto {
   id: string
@@ -244,8 +245,10 @@ export default function Dashboard() {
           <TabsContent value="relatorios">
             <RelatoriosManager produtos={produtos} fornecedores={fornecedores} movimentacoes={movimentacoes} />
           </TabsContent>
+
         </Tabs>
       </div>
+          <ChatWidget produtos={produtos} movimentacoes={movimentacoes} />
     </div>
   )
 }
