@@ -4,7 +4,6 @@ import { GoogleGenerativeAI } from "@google/generative-ai"
 
 export const dynamic = "force-dynamic"
 
-// Inicializa o SDK do Gemini (certifique-se de ter o arquivo .env.local configurado)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "")
 
 export async function GET(request: Request, { params }: { params: Promise<{ collection: string }> }) {

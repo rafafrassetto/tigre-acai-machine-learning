@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -79,15 +78,14 @@ export function FornecedorForm({ fornecedores, setFornecedores }: FornecedorForm
     }
   }
 
-  const formatPhone = (phone: string) => {
-    // Remove todos os caracteres não numéricos
-    const numbers = phone.replace(/\D/g, "")
-
-    // Aplica a máscara (XX) XXXXX-XXXX
-    if (numbers.length <= 11) {
-      return numbers.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")
+  const formatPhone = (phone?: string) => {
+    if (!phone) return "N/A"
+    const phoneString = String(phone)
+    const numbers = phoneString.replace(/\D/g, "")
+    if (numbers.length >= 10 && numbers.length <= 11) {
+      return numbers.replace(/(\d{2})(\d{4,5})(\d{4})/, "($1) $2-$3")
     }
-    return phone
+    return phoneString
   }
 
   return (
@@ -159,12 +157,12 @@ export function FornecedorForm({ fornecedores, setFornecedores }: FornecedorForm
             </div>
 
             <div>
-              <Label htmlFor="observacoes">Observações</Label>
+              <Label htmlFor="observacoes">Observacoes</Label>
               <Textarea
                 id="observacoes"
                 value={formData.observacoes}
                 onChange={(e) => setFormData({ ...formData, observacoes: e.target.value })}
-                placeholder="Ex: Entregas às terças e quintas, Desconto para pagamento à vista"
+                placeholder="Ex: Entregas às terças e quintas"
                 rows={3}
               />
             </div>
@@ -196,39 +194,33 @@ export function FornecedorForm({ fornecedores, setFornecedores }: FornecedorForm
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg mb-2">{fornecedor.nome}</h3>
-
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
                         <div className="flex items-center gap-2">
                           <Phone className="h-4 w-4" />
                           <span>{formatPhone(fornecedor.telefone)}</span>
                         </div>
-
                         {fornecedor.cnpj && (
                           <div>
                             <span className="font-medium">CNPJ:</span> {fornecedor.cnpj}
                           </div>
                         )}
-
                         {fornecedor.condicoesPagamento && (
                           <div>
                             <span className="font-medium">Pagamento:</span> {fornecedor.condicoesPagamento}
                           </div>
                         )}
                       </div>
-
                       {fornecedor.endereco && (
                         <div className="mt-2 text-sm text-gray-600">
                           <span className="font-medium">Endereço:</span> {fornecedor.endereco}
                         </div>
                       )}
-
                       {fornecedor.observacoes && (
                         <div className="mt-2 text-sm text-gray-600">
                           <span className="font-medium">Obs:</span> {fornecedor.observacoes}
                         </div>
                       )}
                     </div>
-
                     <div className="flex gap-2 ml-4">
                       <Button size="sm" variant="outline" onClick={() => handleEdit(fornecedor)}>
                         <Edit className="h-4 w-4" />
