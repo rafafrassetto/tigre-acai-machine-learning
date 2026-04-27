@@ -7,10 +7,11 @@ export function useMongoSync<T>(key: string, initialValue: T) {
     fetch(`/api/${key}`)
       .then(res => res.json())
       .then(data => {
-        if (data && data.length > 0) {
+        if (Array.isArray(data)) {
           setStoredValue(data as unknown as T)
         }
       })
+      .catch(err => console.error("Erro ao sincronizar do Mongo:", err))
   }, [key])
 
   const setValue = (value: T | ((val: T) => T)) => {
@@ -21,7 +22,7 @@ export function useMongoSync<T>(key: string, initialValue: T) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(valueToStore),
-    })
+    }).catch(err => console.error("Erro ao salvar no Mongo:", err))
   }
 
   return [storedValue, setValue] as const

@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Sparkles, Send, User, Loader2 } from "lucide-react"
+import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock } from "lucide-react"
+import { useMongoSync } from "../hooks/use-mongo-sync"
 import type { Produto, Movimentacao } from "../page"
 
 interface ChatWidgetProps {
@@ -16,19 +17,36 @@ interface Message {
   content: string
 }
 
+interface ChatSession {
+  id: string
+  title: string
+  messages: Message[]
+  updatedAt: number
+}
+
+const INITIAL_MESSAGE: Message = { 
+  role: "assistant", 
+  content: "Olá! Sou seu assistente de IA. Como posso ajudar com a gestão de estoque hoje?" 
+}
+
 export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Olá! Sou seu assistente de IA. Como posso ajudar com a gestão de estoque hoje?" }
-  ])
+  const [view, setView] = useState<"history" | "chat">("history")
+  
+  const [sessions, setSessions] = useMongoSync<ChatSession[]>("historico_chats", [])
+  const [currentSessionId, setCurrentSessionId] = useState<string | null>(null)
+  const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE])
+  
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
+    if (view === "chat") {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
+  }, [messages, view])
 
   const getResumoEstoque = () => {
     return produtos.map(p => ({
@@ -39,6 +57,33 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
       pontoReposicao: p.pontoReposicao,
       status: p.quantidadeEstoque <= p.pontoReposicao ? "BAIXO" : "NORMAL"
     }))
+  }
+
+  const handleNewChat = () => {
+    setCurrentSessionId(null)
+    setMessages([INITIAL_MESSAGE])
+    setView("chat")
+  }
+
+  const handleSelectSession = (id: string) => {
+    const session = sessions.find(s => s.id === id)
+    if (session) {
+      setCurrentSessionId(session.id)
+      setMessages(session.messages)
+      setView("chat")
+    }
+  }
+
+  const handleDeleteSession = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation()
+    const updatedSessions = sessions.filter(s => s.id !== id)
+    setSessions(updatedSessions)
+    
+    if (currentSessionId === id) {
+      setCurrentSessionId(null)
+      setMessages([INITIAL_MESSAGE])
+      setView("history")
+    }
   }
 
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -66,34 +111,34 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
       const data = await response.json()
 
       if (response.ok) {
-        setMessages([...newMessages, { role: "assistant", content: data.response }])
-      } else {
-        setMessages([...newMessages, { role: "assistant", content: "Desculpe, ocorreu um erro ao consultar a IA." }])
+        const finalMessages: Message[] = [...newMessages, { role: "assistant", content: data.response }]
+        setMessages(finalMessages)
+
+        const now = Date.now()
+        if (currentSessionId) {
+          setSessions(sessions.map(s => 
+            s.id === currentSessionId ? { ...s, messages: finalMessages, updatedAt: now } : s
+          ))
+        } else {
+          const newId = now.toString()
+          setCurrentSessionId(newId)
+          const title = userMessage.length > 35 ? userMessage.substring(0, 35) + "..." : userMessage
+          const newSession: ChatSession = { id: newId, title, messages: finalMessages, updatedAt: now }
+          setSessions([newSession, ...sessions])
+        }
       }
     } catch (error) {
-      setMessages([...newMessages, { role: "assistant", content: "Erro de conexão com o servidor." }])
+      setMessages([...newMessages, { role: "assistant", content: "Erro de conexão." }])
     } finally {
       setIsLoading(false)
     }
-  }
-
-  const handleClose = () => {
-    setIsClosing(true)
-    setTimeout(() => {
-      setIsOpen(false)
-      setIsClosing(false)
-    }, 300)
   }
 
   const formatMessage = (text: string) => {
     const parts = text.split(/(\*\*.*?\*\*)/g)
     return parts.map((part, index) => {
       if (part.startsWith("**") && part.endsWith("**")) {
-        return (
-          <strong key={index} className="font-bold">
-            {part.slice(2, -2)}
-          </strong>
-        )
+        return <strong key={index} className="font-bold">{part.slice(2, -2)}</strong>
       }
       return <span key={index}>{part}</span>
     })
@@ -103,10 +148,7 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
     return (
       <div className="fixed bottom-6 right-6 z-50 group">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
-        <Button
-          onClick={() => setIsOpen(true)}
-          className="relative h-14 w-14 rounded-full p-0 bg-slate-900 hover:bg-slate-800 text-white shadow-xl transition-transform hover:scale-105"
-        >
+        <Button onClick={() => { setView("history"); setIsOpen(true); }} className="relative h-14 w-14 rounded-full p-0 bg-slate-900 hover:bg-slate-800 text-white shadow-xl">
           <Sparkles className="h-6 w-6" />
         </Button>
       </div>
@@ -115,73 +157,91 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
 
   return (
     <>
-      <div 
-        className={`fixed inset-0 bg-slate-900/40 backdrop-blur-[1px] z-40 transition-opacity duration-100 ${
-          isClosing ? "opacity-0" : "opacity-100"
-        }`}
-        onClick={handleClose}
-      />
+      <div className={`fixed inset-0 bg-slate-900/40 backdrop-blur-[1px] z-40 transition-opacity duration-100 ${isClosing ? "opacity-0" : "opacity-100"}`} onClick={() => { setIsClosing(true); setTimeout(() => { setIsOpen(false); setIsClosing(false); }, 300); }} />
 
-      <div 
-        className={`fixed top-0 right-0 h-screen w-full sm:w-[30vw] min-w-[400px] flex flex-col shadow-2xl z-50 bg-gray-50 transition-all duration-300 ease-in-out ${
-          isClosing ? "animate-out slide-out-to-right" : "animate-in slide-in-from-right"
-        }`}
-      >
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 z-10" />
+      <div className={`fixed top-0 right-0 h-screen w-full sm:w-[30vw] min-w-[400px] flex flex-col shadow-2xl z-50 bg-gray-50 transition-all duration-300 ${isClosing ? "animate-out slide-out-to-right" : "animate-in slide-in-from-right"}`}>
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 z-30" />
         
-        <div className="flex-1 overflow-y-auto p-4 pt-8 space-y-6 bg-gray-50">
-          {messages.map((msg, index) => (
-            <div key={index} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-              <div className={`flex items-start gap-3 max-w-[85%] ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
-                <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 shadow-sm ${msg.role === "user" ? "bg-slate-800" : "bg-gradient-to-br from-blue-100 to-purple-100 border border-purple-200"}`}>
-                  {msg.role === "user" ? <User className="h-4 w-4 text-white" /> : <Sparkles className="h-4 w-4 text-purple-600" />}
-                </div>
-
-                <div className={`p-3 px-4 rounded-2xl text-sm shadow-sm whitespace-pre-wrap ${
-                  msg.role === "user" 
-                    ? "bg-slate-800 text-white rounded-tr-none" 
-                    : "bg-white border border-gray-100 rounded-tl-none text-gray-800"
-                }`}>
-                  {formatMessage(msg.content)}
-                </div>
-              </div>
-            </div>
-          ))}
-          
-          {isLoading && (
-            <div className="flex justify-start">
-              <div className="flex items-start gap-3 max-w-[85%]">
-                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 border border-purple-200 flex items-center justify-center shadow-sm">
-                  <Sparkles className="h-4 w-4 text-purple-600" />
-                </div>
-                <div className="p-3 px-4 bg-white border border-gray-100 rounded-2xl rounded-tl-none flex items-center text-gray-500 text-sm gap-2 shadow-sm">
-                  <Loader2 className="h-4 w-4 animate-spin text-purple-500" /> Pensando...
-                </div>
-              </div>
+        <div className="shrink-0 h-16 bg-slate-900 text-white flex items-center justify-between px-4 z-20">
+          {view === "chat" ? (
+            <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white">
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+          ) : (
+            <div className="font-semibold flex items-center gap-2">
+              <Clock className="h-5 w-5 text-purple-400" /> Histórico
             </div>
           )}
-          <div ref={messagesEndRef} />
+          <Button variant="ghost" size="icon" onClick={handleNewChat} className="text-white">
+            <Plus className="h-5 w-5" />
+          </Button>
         </div>
 
-        <div className="shrink-0 p-4 bg-gray-50">
-          <form onSubmit={handleSendMessage} className="flex gap-2 relative">
-            <Input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Pergunte sobre o estoque..."
-              disabled={isLoading}
-              className="flex-1 pr-12 h-12 rounded-full border-gray-300 focus-visible:ring-purple-300 shadow-sm bg-white"
-            />
-            <Button 
-              type="submit" 
-              size="icon" 
-              disabled={!input.trim() || isLoading}
-              className="absolute right-2 top-2 h-8 w-8 rounded-full bg-slate-800 hover:bg-slate-700 text-white"
-            >
-              <Send className="h-4 w-4" />
-            </Button>
-          </form>
-        </div>
+        {view === "history" ? (
+          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            {sessions.length === 0 ? (
+              <div className="flex flex-col items-center justify-center h-full text-gray-500 space-y-4">
+                <MessageSquare className="h-12 w-12 opacity-20" />
+                <p>Nenhuma conversa encontrada.</p>
+                <Button onClick={handleNewChat} variant="outline">Nova Conversa</Button>
+              </div>
+            ) : (
+              [...sessions].sort((a, b) => b.updatedAt - a.updatedAt).map(session => (
+                <div key={session.id} onClick={() => handleSelectSession(session.id)} className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:border-purple-300 group transition-all">
+                  <div className="flex items-center gap-3 overflow-hidden">
+                    <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                      <MessageSquare className="h-4 w-4 text-slate-600" />
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className="font-medium text-gray-800 truncate text-sm">{session.title}</div>
+                      <div className="text-xs text-gray-400">{new Date(session.updatedAt).toLocaleString("pt-BR")}</div>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="icon" className="text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100" onClick={(e) => handleDeleteSession(e, session.id)}>
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                </div>
+              ))
+            )}
+          </div>
+        ) : (
+          <>
+            <div className="flex-1 overflow-y-auto p-4 space-y-6 bg-gray-50">
+              {messages.map((msg, index) => (
+                <div key={index} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                  <div className={`flex items-start gap-3 max-w-[85%] ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
+                    <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${msg.role === "user" ? "bg-slate-800" : "bg-gradient-to-br from-blue-100 to-purple-100"}`}>
+                      {msg.role === "user" ? <User className="h-4 w-4 text-white" /> : <Sparkles className="h-4 w-4 text-purple-600" />}
+                    </div>
+                    <div className={`p-3 px-4 rounded-2xl text-sm shadow-sm whitespace-pre-wrap ${msg.role === "user" ? "bg-slate-800 text-white rounded-tr-none" : "bg-white border text-gray-800 rounded-tl-none"}`}>
+                      {formatMessage(msg.content)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="flex items-start gap-3">
+                    <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center"><Sparkles className="h-4 w-4 text-purple-600" /></div>
+                    <div className="p-3 px-4 bg-white border rounded-2xl flex items-center text-gray-500 text-sm gap-2">
+                      <Loader2 className="h-4 w-4 animate-spin" /> Pensando...
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+
+            <div className="shrink-0 p-4 bg-white border-t">
+              <form onSubmit={handleSendMessage} className="flex gap-2 relative">
+                <Input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Pergunte sobre o estoque..." disabled={isLoading} className="flex-1 pr-12 h-12 rounded-full bg-gray-50" />
+                <Button type="submit" size="icon" disabled={!input.trim() || isLoading} className="absolute right-2 top-2 h-8 w-8 rounded-full bg-slate-800 text-white">
+                  <Send className="h-4 w-4" />
+                </Button>
+              </form>
+            </div>
+          </>
+        )}
       </div>
     </>
   )
