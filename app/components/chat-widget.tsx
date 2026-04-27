@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock, Download } from "lucide-react"
+import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock, Download, Edit2, Check, X } from "lucide-react"
 import { useMongoSync } from "../hooks/use-mongo-sync"
 import type { Produto, Movimentacao, Fornecedor } from "../page"
 
@@ -41,6 +41,10 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
   
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  
+  const [editingSessionId, setEditingSessionId] = useState<string | null>(null)
+  const [editingTitle, setEditingTitle] = useState("")
+
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -92,6 +96,7 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
   }
 
   const handleSelectSession = (id: string) => {
+    if (editingSessionId) return
     const session = sessions.find(s => s.id === id)
     if (session) {
       setCurrentSessionId(session.id)
@@ -110,6 +115,27 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
       setMessages([INITIAL_MESSAGE])
       setView("history")
     }
+  }
+
+  const startEditing = (e: React.MouseEvent, session: ChatSession) => {
+    e.stopPropagation()
+    setEditingSessionId(session.id)
+    setEditingTitle(session.title)
+  }
+
+  const saveEdit = (e: React.MouseEvent | React.FormEvent, id: string) => {
+    e.stopPropagation()
+    if (editingTitle.trim()) {
+      setSessions(sessions.map(s => s.id === id ? { ...s, title: editingTitle.trim() } : s))
+    }
+    setEditingSessionId(null)
+    setEditingTitle("")
+  }
+
+  const cancelEdit = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setEditingSessionId(null)
+    setEditingTitle("")
   }
 
   const handleExportPDF = (e: React.MouseEvent, session: ChatSession) => {
@@ -268,23 +294,49 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
             ) : (
               [...sessions].sort((a, b) => b.updatedAt - a.updatedAt).map(session => (
                 <div key={session.id} onClick={() => handleSelectSession(session.id)} className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:border-purple-300 group transition-all">
-                  <div className="flex items-center gap-3 overflow-hidden">
+                  <div className="flex items-center gap-3 overflow-hidden flex-1">
                     <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
                       <MessageSquare className="h-4 w-4 text-slate-600" />
                     </div>
-                    <div className="overflow-hidden">
-                      <div className="font-medium text-gray-800 truncate text-sm">{session.title}</div>
-                      <div className="text-xs text-gray-400">{new Date(session.updatedAt).toLocaleString("pt-BR")}</div>
+                    {editingSessionId === session.id ? (
+                      <div className="flex-1 mr-2 flex items-center gap-1" onClick={e => e.stopPropagation()}>
+                        <Input
+                          value={editingTitle}
+                          onChange={(e) => setEditingTitle(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') saveEdit(e, session.id)
+                            if (e.key === 'Escape') cancelEdit(e)
+                          }}
+                          className="h-8 text-sm"
+                          autoFocus
+                        />
+                        <Button variant="ghost" size="icon" className="h-8 w-8 text-green-600 hover:bg-green-50 shrink-0" onClick={(e) => saveEdit(e, session.id)}>
+                          <Check className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="icon" className="h-8 w-8 text-red-600 hover:bg-red-50 shrink-0" onClick={cancelEdit}>
+                          <X className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    ) : (
+                      <div className="overflow-hidden flex-1">
+                        <div className="font-medium text-gray-800 truncate text-sm">{session.title}</div>
+                        <div className="text-xs text-gray-400">{new Date(session.updatedAt).toLocaleString("pt-BR")}</div>
+                      </div>
+                    )}
+                  </div>
+                  {editingSessionId !== session.id && (
+                    <div className="flex gap-1 shrink-0 ml-2">
+                      <Button variant="ghost" size="icon" className="text-gray-300 hover:text-purple-500 hover:bg-purple-50 opacity-0 group-hover:opacity-100 transition-all" onClick={(e) => startEditing(e, session)}>
+                        <Edit2 className="h-4 w-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="text-gray-300 hover:text-blue-500 hover:bg-blue-50 opacity-0 group-hover:opacity-100 transition-all" onClick={(e) => handleExportPDF(e, session)}>
+                        <Download className="h-4 w-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="text-gray-300 hover:text-red-500 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-all" onClick={(e) => handleDeleteSession(e, session.id)}>
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
                     </div>
-                  </div>
-                  <div className="flex gap-1">
-                    <Button variant="ghost" size="icon" className="text-gray-300 hover:text-blue-500 hover:bg-blue-50 opacity-0 group-hover:opacity-100 transition-all" onClick={(e) => handleExportPDF(e, session)}>
-                      <Download className="h-4 w-4" />
-                    </Button>
-                    <Button variant="ghost" size="icon" className="text-gray-300 hover:text-red-500 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-all" onClick={(e) => handleDeleteSession(e, session.id)}>
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  )}
                 </div>
               ))
             )}
