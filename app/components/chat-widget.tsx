@@ -107,6 +107,9 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
 
   const handleDeleteSession = (e: React.MouseEvent, id: string) => {
     e.stopPropagation()
+    
+    const sessionToBackup = sessions.find(s => s.id === id);
+
     const updatedSessions = sessions.filter(s => s.id !== id)
     setSessions(updatedSessions)
     
@@ -114,6 +117,18 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
       setCurrentSessionId(null)
       setMessages([INITIAL_MESSAGE])
       setView("history")
+    }
+
+    if (sessionToBackup) {
+      fetch("/api/drive", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(sessionToBackup)
+      }).then(res => {
+        if (!res.ok) console.error("Falha ao salvar no Google Drive");
+      }).catch(err => {
+        console.error("Erro de conexão no backup:", err);
+      });
     }
   }
 
