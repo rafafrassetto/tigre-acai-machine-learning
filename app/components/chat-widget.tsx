@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock } from "lucide-react"
 import { useMongoSync } from "../hooks/use-mongo-sync"
-import type { Produto, Movimentacao } from "../page"
+import type { Produto, Movimentacao, Fornecedor } from "../page"
 
 interface ChatWidgetProps {
   produtos: Produto[]
   movimentacoes: Movimentacao[]
+  fornecedores: Fornecedor[]
 }
 
 interface Message {
@@ -29,7 +30,7 @@ const INITIAL_MESSAGE: Message = {
   content: "Olá! Sou seu assistente de IA. Como posso ajudar com a gestão de estoque hoje?" 
 }
 
-export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
+export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
   const [view, setView] = useState<"history" | "chat">("history")
@@ -48,15 +49,24 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
     }
   }, [messages, view])
 
-  const getResumoEstoque = () => {
-    return produtos.map(p => ({
-      nome: p.nome,
-      categoria: p.categoria,
-      estoqueAtual: p.quantidadeEstoque,
-      unidade: p.unidadeMedida,
-      pontoReposicao: p.pontoReposicao,
-      status: p.quantidadeEstoque <= p.pontoReposicao ? "BAIXO" : "NORMAL"
-    }))
+  const getContextoIA = () => {
+    return {
+      produtos: produtos.map(p => ({
+        nome: p.nome,
+        categoria: p.categoria,
+        estoqueAtual: p.quantidadeEstoque,
+        unidade: p.unidadeMedida,
+        pontoReposicao: p.pontoReposicao,
+        status: p.quantidadeEstoque <= p.pontoReposicao ? "BAIXO" : "NORMAL"
+      })),
+      fornecedores: fornecedores.map(f => ({
+        nome: f.nome,
+        telefone: f.telefone || "Não cadastrado",
+        cnpj: f.cnpj || "Não cadastrado",
+        condicoesPagamento: f.condicoesPagamento || "Não informado",
+        observacoes: f.observacoes || "Sem observações"
+      }))
+    }
   }
 
   const handleNewChat = () => {
@@ -104,7 +114,7 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
         body: JSON.stringify({
           message: userMessage,
           history: messages.slice(1), 
-          estoqueContext: getResumoEstoque(),
+          estoqueContext: getContextoIA(),
         }),
       })
 
@@ -126,6 +136,8 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
           const newSession: ChatSession = { id: newId, title, messages: finalMessages, updatedAt: now }
           setSessions([newSession, ...sessions])
         }
+      } else {
+        setMessages([...newMessages, { role: "assistant", content: "Desculpe, ocorreu um erro ao consultar a IA." }])
       }
     } catch (error) {
       setMessages([...newMessages, { role: "assistant", content: "Erro de conexão." }])
@@ -164,7 +176,7 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
         
         <div className="shrink-0 h-16 bg-slate-900 text-white flex items-center justify-between px-4 z-20">
           {view === "chat" ? (
-            <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white">
+            <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white hover:bg-slate-800">
               <ArrowLeft className="h-5 w-5" />
             </Button>
           ) : (
@@ -172,7 +184,7 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
               <Clock className="h-5 w-5 text-purple-400" /> Histórico
             </div>
           )}
-          <Button variant="ghost" size="icon" onClick={handleNewChat} className="text-white">
+          <Button variant="ghost" size="icon" onClick={handleNewChat} className="text-white hover:bg-slate-800">
             <Plus className="h-5 w-5" />
           </Button>
         </div>
@@ -235,7 +247,7 @@ export function ChatWidget({ produtos, movimentacoes }: ChatWidgetProps) {
             <div className="shrink-0 p-4 bg-white border-t">
               <form onSubmit={handleSendMessage} className="flex gap-2 relative">
                 <Input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Pergunte sobre o estoque..." disabled={isLoading} className="flex-1 pr-12 h-12 rounded-full bg-gray-50" />
-                <Button type="submit" size="icon" disabled={!input.trim() || isLoading} className="absolute right-2 top-2 h-8 w-8 rounded-full bg-slate-800 text-white">
+                <Button type="submit" size="icon" disabled={!input.trim() || isLoading} className="absolute right-2 top-2 h-8 w-8 rounded-full bg-slate-800 hover:bg-slate-700 text-white transition-all">
                   <Send className="h-4 w-4" />
                 </Button>
               </form>
