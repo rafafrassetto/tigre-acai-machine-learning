@@ -28,9 +28,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
     const { collection } = await params
     const body = await request.json()
 
-    // ==========================================
-    // LÓGICA DO CHAT IA (GEMINI)
-    // ==========================================
     if (collection === "chat") {
       const { message, history, estoqueContext } = body
 
@@ -40,20 +37,23 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
 
       const model = genAI.getGenerativeModel({
         model: "gemini-2.5-flash",
-        systemInstruction: `Você é um assistente virtual integrado a um sistema de gerenciamento de estoque de uma açaiteria/sorveteria. 
+        systemInstruction: `Você é um assistente virtual especialista em um sistema de gerenciamento de estoque de uma açaiteria/sorveteria. 
+        Você recebe um objeto JSON contendo três listas: 'produtos', 'fornecedores' e 'ultimasMovimentacoes'. NUNCA confunda produtos com fornecedores. Fornecedores são as empresas/pessoas. Produtos são os itens de estoque.
         
-        Você tem DOIS modos de agir:
+        Você tem TRÊS modos de agir. O seu comportamento depende ESTRITAMENTE da intenção do usuário:
         
-        MODO 1 - CONVERSA: Se o usuário fizer uma pergunta, responda de forma amigável usando os dados do estoque:
+        MODO 1 - CONVERSA (Leitura e Dúvidas):
+        Se o usuário fizer perguntas, consultar quantidades, quiser saber sobre saídas de estoque ou informações de fornecedores, responda de forma clara, amigável e direta usando os dados abaixo:
         DADOS: ${JSON.stringify(estoqueContext)}
         
-        MODO 2 - INSERÇÃO DE PRODUTO: Se o usuário pedir para CADASTRAR, REGISTRAR, ADICIONAR ou INSERIR um novo produto ou quantidade (Ex: "Registrar sorvete de morango 15 litros"), você NÃO deve responder com texto normal. 
-        Você DEVE responder EXATAMENTE e APENAS com um objeto JSON válido, seguindo estritamente esta interface:
-        
+        MODO 2 - INSERÇÃO DE PRODUTO: 
+        Se o usuário pedir para CADASTRAR, REGISTRAR, ADICIONAR ou INSERIR um novo produto ou quantidade de estoque (Ex: "Registrar sorvete de morango 15 litros"). 
+        Você DEVE responder EXATAMENTE e APENAS com um objeto JSON válido, sem NENHUM texto antes ou depois. NUNCA use aspas triplas de código (\`\`\`).
+        Formato obrigatório:
         {
           "acao": "INSERIR_PRODUTO",
           "produto": {
-            "nome": "Nome deduzido",
+            "nome": "Nome do produto",
             "categoria": "sorvete",
             "quantidadeEstoque": 15,
             "unidadeMedida": "Litros",
@@ -64,7 +64,14 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
           }
         }
         
-        Atenção: No MODO 2, não escreva NENHUM texto antes ou depois do JSON. Não use crases (\`\`\`).`
+        MODO 3 - REMOÇÃO DE PRODUTO:
+        Se o usuário pedir EXPLICITAMENTE para DELETAR, REMOVER, EXCLUIR ou APAGAR um produto do estoque (Ex: "Remova o copo de 500ml do estoque").
+        Você DEVE responder EXATAMENTE e APENAS com um objeto JSON válido, sem texto. NUNCA use aspas triplas de código (\`\`\`).
+        Formato obrigatório:
+        {
+          "acao": "REMOVER_PRODUTO",
+          "nomeProduto": "nome exato ou parte do nome do produto a ser removido"
+        }`
       })
 
       const formattedHistory = history.map((msg: any) => ({
@@ -76,9 +83,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       const result = await chat.sendMessage(message)
       let responseText = result.response.text()
 
-      // ----------------------------------------------------
-      // PASSO 1: Tentar ler o JSON de forma isolada
-      // ----------------------------------------------------
       let iaCommand = null;
       try {
         const cleanJsonString = responseText.replace(/```json\n?|\n?```/g, '').trim()
@@ -86,12 +90,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
           iaCommand = JSON.parse(cleanJsonString)
         }
       } catch (parseError) {
-        // Não é JSON ou o JSON veio quebrado, a vida segue e responseText é enviado como texto normal.
       }
 
-      // ----------------------------------------------------
-      // PASSO 2: Executar no Banco de Dados (se for um comando)
-      // ----------------------------------------------------
       if (iaCommand && iaCommand.acao === "INSERIR_PRODUTO" && iaCommand.produto) {
         try {
           const client = await clientPromise
@@ -106,37 +106,47 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
             custoUnitario: Number(iaCommand.produto.custoUnitario) || 0,
             fornecedorId: iaCommand.produto.fornecedorId || "",
             pontoReposicao: Number(iaCommand.produto.pontoReposicao) || 5,
-            observacoes: iaCommand.produto.observacoes || "Adicionado por IA"
+            observacoes: iaCommand.produto.observacoes || "Adicionado via IA"
           }
           
           await db.collection("produtos").insertOne(novoProduto)
           
-          // Sucesso no banco! Substitui o JSON feio por uma mensagem bonitinha:
-          responseText = `✅ Concluído! Registrei **${novoProduto.quantidadeEstoque} ${novoProduto.unidadeMedida} de ${novoProduto.nome}** no sistema.\n\nRecarregue a página para ver as alterações na tabela.`
+          responseText = `✅ Concluído! Registrei **${novoProduto.quantidadeEstoque} ${novoProduto.unidadeMedida} de ${novoProduto.nome}** no sistema.\n\nRecarregue a página para atualizar as tabelas.`
           
         } catch (dbError) {
           console.error("Erro no MongoDB:", dbError)
-          // O banco falhou! Substitui o JSON feio por uma mensagem de erro pro usuário:
-          responseText = `❌ Entendi que você quer cadastrar o produto "${iaCommand.produto.nome}", mas ocorreu um erro no serviço, tente novamente mais tarde.`
+          responseText = `❌ Ocorreu um erro no banco de dados ao tentar cadastrar "${iaCommand.produto.nome}". Tente novamente.`
+        }
+      } else if (iaCommand && iaCommand.acao === "REMOVER_PRODUTO" && iaCommand.nomeProduto) {
+        try {
+          const client = await clientPromise
+          const db = client.db("tigre_acai")
+          
+          const regex = new RegExp(iaCommand.nomeProduto, "i")
+          const deleteResult = await db.collection("produtos").deleteMany({ nome: regex })
+          
+          if (deleteResult.deletedCount > 0) {
+            responseText = `🗑️ Concluído! Removi **${deleteResult.deletedCount} produto(s)** correspondente(s) a "${iaCommand.nomeProduto}" do seu estoque.\n\nRecarregue a página para atualizar as tabelas.`
+          } else {
+            responseText = `⚠️ Não encontrei nenhum produto com o nome parecido com "${iaCommand.nomeProduto}" para remover. Verifique o nome e tente novamente.`
+          }
+        } catch (dbError) {
+          console.error("Erro no MongoDB:", dbError)
+          responseText = `❌ Ocorreu um erro no banco de dados ao tentar remover o produto. Tente novamente.`
         }
       } else if (iaCommand) {
-        // Se a IA mandou um JSON com uma ação que não conhecemos, evitamos mostrar o JSON.
-        responseText = "🤖 Processo não reconhecido. Tente pedir de outra forma."
+        responseText = "🤖 Processo JSON não reconhecido pela minha lógica. Tente pedir de forma mais clara."
       }
 
       return NextResponse.json({ response: responseText })
     }
 
-    // ==========================================
-    // LÓGICA PADRÃO (SINCRONIZAÇÃO MONGODB)
-    // ==========================================
     const client = await clientPromise
     const db = client.db("tigre_acai")
 
     await db.collection(collection).deleteMany({})
     
     if (Array.isArray(body) && body.length > 0) {
-      // Remove o _id gerado pelo Mongo para evitar conflitos na reinserção
       const dataWithoutMongoId = body.map(({ _id, ...rest }: any) => rest)
       await db.collection(collection).insertMany(dataWithoutMongoId)
     }

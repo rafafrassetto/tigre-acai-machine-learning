@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock } from "lucide-react"
+import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock, Download } from "lucide-react"
 import { useMongoSync } from "../hooks/use-mongo-sync"
 import type { Produto, Movimentacao, Fornecedor } from "../page"
 
@@ -51,21 +51,37 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
 
   const getContextoIA = () => {
     return {
-      produtos: produtos.map(p => ({
-        nome: p.nome,
-        categoria: p.categoria,
-        estoqueAtual: p.quantidadeEstoque,
-        unidade: p.unidadeMedida,
-        pontoReposicao: p.pontoReposicao,
-        status: p.quantidadeEstoque <= p.pontoReposicao ? "BAIXO" : "NORMAL"
-      })),
+      produtos: produtos.map(p => {
+        const fornecedorVinculado = fornecedores.find(f => f.id === p.fornecedorId)
+        return {
+          nome: p.nome,
+          categoria: p.categoria,
+          estoqueAtual: p.quantidadeEstoque,
+          unidade: p.unidadeMedida,
+          pontoReposicao: p.pontoReposicao,
+          nomeFornecedor: fornecedorVinculado ? fornecedorVinculado.nome : "Sem fornecedor",
+          status: p.quantidadeEstoque <= p.pontoReposicao ? "BAIXO" : "NORMAL"
+        }
+      }),
       fornecedores: fornecedores.map(f => ({
         nome: f.nome,
         telefone: f.telefone || "Não cadastrado",
         cnpj: f.cnpj || "Não cadastrado",
         condicoesPagamento: f.condicoesPagamento || "Não informado",
-        observacoes: f.observacoes || "Sem observações"
-      }))
+        observacoes: f.observacoes || "Nenhuma"
+      })),
+      ultimasMovimentacoes: movimentacoes
+        .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
+        .slice(0, 10)
+        .map(mov => {
+          const prod = produtos.find(p => p.id === mov.produtoId)
+          return {
+            produto: prod ? prod.nome : "Produto excluído",
+            tipo: mov.tipo,
+            quantidade: mov.quantidade,
+            data: new Date(mov.data).toLocaleString("pt-BR")
+          }
+        })
     }
   }
 
@@ -94,6 +110,58 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
       setMessages([INITIAL_MESSAGE])
       setView("history")
     }
+  }
+
+  const handleExportPDF = (e: React.MouseEvent, session: ChatSession) => {
+    e.stopPropagation()
+    const printWindow = window.open('', '', 'width=800,height=600')
+    if (!printWindow) return
+
+    const formatHTMLMessage = (text: string) => {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br/>')
+    }
+
+    const content = session.messages.map(msg => `
+      <div style="margin-bottom: 20px; font-family: system-ui, -apple-system, sans-serif;">
+        <div style="font-weight: bold; margin-bottom: 5px; color: ${msg.role === 'user' ? '#1e293b' : '#7e22ce'};">
+          ${msg.role === 'user' ? 'Usuário' : 'Assistente IA'}
+        </div>
+        <div style="padding: 12px; border-radius: 8px; background-color: ${msg.role === 'user' ? '#f1f5f9' : '#f3e8ff'}; border: 1px solid ${msg.role === 'user' ? '#e2e8f0' : '#e9d5ff'}; line-height: 1.5;">
+          ${formatHTMLMessage(msg.content)}
+        </div>
+      </div>
+    `).join('')
+
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Relatório de Chat - Tigre Açaí</title>
+          <meta charset="utf-8">
+        </head>
+        <body style="padding: 40px; max-width: 800px; margin: 0 auto; color: #333;">
+          <div style="border-bottom: 2px solid #e2e8f0; margin-bottom: 30px; padding-bottom: 20px;">
+            <h1 style="font-family: system-ui, sans-serif; color: #0f172a; margin: 0 0 10px 0;">Relatório de Atendimento IA</h1>
+            <p style="font-family: system-ui, sans-serif; color: #64748b; margin: 0; line-height: 1.6;">
+              <strong>Tópico:</strong> ${session.title}<br/>
+              <strong>Data:</strong> ${new Date(session.updatedAt).toLocaleString("pt-BR")}
+            </p>
+          </div>
+          ${content}
+          <script>
+            window.onload = () => {
+              setTimeout(() => {
+                window.print();
+                window.onafterprint = () => window.close();
+              }, 500);
+            }
+          </script>
+        </body>
+      </html>
+    `)
+    printWindow.document.close()
   }
 
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -209,9 +277,14 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
                       <div className="text-xs text-gray-400">{new Date(session.updatedAt).toLocaleString("pt-BR")}</div>
                     </div>
                   </div>
-                  <Button variant="ghost" size="icon" className="text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100" onClick={(e) => handleDeleteSession(e, session.id)}>
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
+                  <div className="flex gap-1">
+                    <Button variant="ghost" size="icon" className="text-gray-300 hover:text-blue-500 hover:bg-blue-50 opacity-0 group-hover:opacity-100 transition-all" onClick={(e) => handleExportPDF(e, session)}>
+                      <Download className="h-4 w-4" />
+                    </Button>
+                    <Button variant="ghost" size="icon" className="text-gray-300 hover:text-red-500 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-all" onClick={(e) => handleDeleteSession(e, session.id)}>
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
               ))
             )}
