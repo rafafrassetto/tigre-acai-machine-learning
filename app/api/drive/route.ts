@@ -5,12 +5,23 @@ export async function POST(request: Request) {
   try {
     const session = await request.json();
 
-    const auth = new google.auth.JWT(
-      process.env.GOOGLE_CLIENT_EMAIL,
-      null,
-      (process.env.GOOGLE_PRIVATE_KEY || "").replace(/\\n/g, "\n"), 
-      ["https://www.googleapis.com/auth/drive.file"]
-    );
+    const clientEmail = (process.env.GOOGLE_CLIENT_EMAIL || "").replace(/^"|"$/g, "");
+    const privateKey = (process.env.GOOGLE_PRIVATE_KEY || "")
+      .replace(/^"|"$/g, "")
+      .replace(/\\n/g, "\n");
+    const folderId = (process.env.GOOGLE_DRIVE_FOLDER_ID || "").replace(/^"|"$/g, "");
+
+    if (!clientEmail || !privateKey || !folderId) {
+      return NextResponse.json({ success: false, error: "Credenciais ausentes" }, { status: 500 });
+    }
+
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: clientEmail,
+        private_key: privateKey,
+      },
+      scopes: ["https://www.googleapis.com/auth/drive.file"],
+    });
 
     const drive = google.drive({ version: "v3", auth });
 
@@ -29,7 +40,7 @@ export async function POST(request: Request) {
 
     const fileMetadata = {
       name: `Backup_${session.title.replace(/[^a-zA-Z0-9 ]/g, '').trim().substring(0, 30)}_${Date.now()}.txt`,
-      parents: [process.env.GOOGLE_DRIVE_FOLDER_ID || "1hyceUOJrea8dqGawmI8EmGpBio3HEHs1"],
+      parents: [folderId],
     };
 
     const media = {
@@ -46,7 +57,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, fileId: response.data.id });
 
   } catch (error) {
-    console.error("Erro crítico ao fazer upload no Drive:", error);
+    console.error(error);
     return NextResponse.json({ success: false, error: "Falha no upload do Drive" }, { status: 500 });
   }
 }
