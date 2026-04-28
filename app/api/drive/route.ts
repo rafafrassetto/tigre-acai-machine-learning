@@ -9,9 +9,9 @@ export async function POST(request: Request) {
     const privateKey = (process.env.GOOGLE_PRIVATE_KEY || "")
       .replace(/^"|"$/g, "")
       .replace(/\\n/g, "\n");
-    const folderId = (process.env.GOOGLE_DRIVE_FOLDER_ID || "").replace(/^"|"$/g, "");
+    const spreadsheetId = (process.env.GOOGLE_SHEET_ID || "").replace(/^"|"$/g, "");
 
-    if (!clientEmail || !privateKey || !folderId) {
+    if (!clientEmail || !privateKey || !spreadsheetId) {
       return NextResponse.json({ success: false, error: "Credenciais ausentes" }, { status: 500 });
     }
 
@@ -20,44 +20,33 @@ export async function POST(request: Request) {
         client_email: clientEmail,
         private_key: privateKey,
       },
-      scopes: ["https://www.googleapis.com/auth/drive.file"],
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
 
-    const drive = google.drive({ version: "v3", auth });
+    const sheets = google.sheets({ version: "v4", auth });
 
-    let fileContent = `==================================================\n`;
-    fileContent += `    RELATÓRIO DE ATENDIMENTO IA - TIGRE AÇAÍ\n`;
-    fileContent += `==================================================\n\n`;
-    fileContent += `Tópico: ${session.title}\n`;
-    fileContent += `Data do Backup: ${new Date().toLocaleString('pt-BR')}\n`;
-    fileContent += `--------------------------------------------------\n\n`;
-
+    let chatContent = "";
     session.messages.forEach((msg: any) => {
       const roleName = msg.role === "user" ? "USUÁRIO" : "ASSISTENTE IA";
       const cleanMsg = msg.content.replace(/\*\*(.*?)\*\*/g, '$1');
-      fileContent += `[${roleName}]:\n${cleanMsg}\n\n`;
+      chatContent += `[${roleName}]:\n${cleanMsg}\n\n`;
     });
 
-    const fileMetadata = {
-      name: `Backup_${session.title.replace(/[^a-zA-Z0-9 ]/g, '').trim().substring(0, 30)}_${Date.now()}.txt`,
-      parents: [folderId],
-    };
-
-    const media = {
-      mimeType: "text/plain",
-      body: fileContent,
-    };
-
-    const response = await drive.files.create({
-      requestBody: fileMetadata,
-      media: media,
-      fields: "id",
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: spreadsheetId,
+      range: "A1",
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        values: [
+          [new Date().toLocaleString('pt-BR'), session.title, chatContent]
+        ],
+      },
     });
 
-    return NextResponse.json({ success: true, fileId: response.data.id });
+    return NextResponse.json({ success: true });
 
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ success: false, error: "Falha no upload do Drive" }, { status: 500 });
+    return NextResponse.json({ success: false, error: "Falha no Sheets" }, { status: 500 });
   }
 }
