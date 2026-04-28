@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
-          [new Date().toLocaleString('pt-BR'), session.title, chatContent]
+          [new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }), session.title, chatContent]
         ],
       },
     });
