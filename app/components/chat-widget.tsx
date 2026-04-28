@@ -13,6 +13,7 @@ interface ChatWidgetProps {
   fornecedores: Fornecedor[]
 }
 
+
 interface Message {
   role: "user" | "assistant"
   content: string
