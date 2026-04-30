@@ -133,21 +133,21 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       }))
 
       async function tryAI(primaryModel: string) {
+        // Filtrar modelos que possuem chave configurada
         const modelsToTry = [
           primaryModel,
           "llama-3.3-70b-versatile",
           "llama-3.1-8b-instant",
-          "gemini-1.5-flash",
-          "gpt-4o-mini"
-        ].filter((m, i, self) => m && self.indexOf(m) === i)
+          process.env.GEMINI_API_KEY ? "gemini-1.5-flash" : null,
+          process.env.OPENAI_API_KEY ? "gpt-4o-mini" : null,
+          process.env.ANTHROPIC_API_KEY ? "claude-3-5-sonnet-latest" : null
+        ].filter((m, i, self) => m && self.indexOf(m) === i) as string[]
 
-        let lastError: any = null
         let errorDetails = ""
 
         for (const currentModel of modelsToTry) {
           try {
             if (currentModel.toLowerCase().includes("gemini")) {
-              if (!process.env.GEMINI_API_KEY) throw new Error("Chave Gemini ausente")
               const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
               const chat = geminiModel.startChat({
                 history: [
@@ -164,11 +164,10 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
               return { 
                 text: result.response.text(), 
                 modelUsed: "gemini-1.5-flash",
-                usage: { total: 0, remaining: 0, limit: 0 } // Gemini não expõe facilmente o limite no corpo
+                usage: { total: 0, remaining: 0, limit: 0 }
               }
 
             } else if (currentModel.toLowerCase().startsWith("gpt-")) {
-              if (!process.env.OPENAI_API_KEY) throw new Error("Chave OpenAI ausente")
               const completion = await openai.chat.completions.create({
                 model: currentModel,
                 messages: [
@@ -185,9 +184,22 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
                 usage: { total: completion.usage?.total_tokens || 0, remaining: 0, limit: 0 }
               }
 
+            } else if (currentModel.toLowerCase().startsWith("claude-")) {
+              const completion = await anthropic.messages.create({
+                model: currentModel as any,
+                system: buildSystemPrompt(contextJson, memoriaTexto),
+                messages: [...formattedHistory, { role: "user", content: message }],
+                temperature: 0.2,
+                max_tokens: 2048,
+              })
+              return { 
+                text: (completion.content[0] as any).text || "", 
+                modelUsed: currentModel,
+                usage: { total: 0, remaining: 0, limit: 0 }
+              }
+
             } else {
               if (!process.env.GROK_APO) throw new Error("Chave Groq ausente")
-              // Usar .withResponse() para pegar os headers de rate limit
               const { data, response } = await groq.chat.completions.create({
                 messages: [
                   { role: "system", content: buildSystemPrompt(contextJson, memoriaTexto) },
@@ -215,18 +227,21 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
           } catch (error: any) {
             console.error(`Erro com o modelo ${currentModel}:`, error.message)
             errorDetails += `[${currentModel}: ${error.message}] `
-            lastError = error
             continue
           }
         }
-        throw new Error(errorDetails || "Falha em todos os modelos")
+        throw new Error("Limite de cota atingido em todos os modelos.")
       }
 
       let aiResult
       try {
         aiResult = await tryAI(model)
       } catch (error: any) {
-        return NextResponse.json({ response: `⚠️ Todos os modelos de IA falharam ou excederam o limite: ${error.message}` })
+        // MENSAGEM AMIGÁVEL PARA O USUÁRIO
+        return NextResponse.json({ 
+          response: "⚠️ Todas as IAs estão sobrecarregadas ou atingiram o limite de uso diário. Por favor, aguarde alguns minutos e tente novamente.",
+          modelUsed: "ERRO DE COTA"
+        })
       }
 
       let responseText = aiResult.text
