@@ -125,6 +125,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
     const body = await request.json()
 
     if (collection === "chat") {
+      const { message, history, estoqueContext, model } = body
+
       // Buscar memória de longo prazo
       const client = await clientPromise
       const db = client.db("tigre_acai")
