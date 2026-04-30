@@ -86,6 +86,7 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
       observacoes: produto.observacoes || "",
     })
     setEditingId(produto.id)
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   const handleDelete = (id: string) => {

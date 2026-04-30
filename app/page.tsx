@@ -5,7 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { AlertTriangle, Package, ShoppingCart, TrendingUp, Users, LogOut } from "lucide-react"
+import { AlertTriangle, Package, ShoppingCart, TrendingUp, Users, LogOut, Search } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 import { ProdutoForm } from "./components/produto-form"
 import { FornecedorForm } from "./components/fornecedor-form"
 import { EstoqueManager } from "./components/estoque-manager"
@@ -57,6 +59,18 @@ export default function Dashboard() {
   const [fornecedores, setFornecedores] = useMongoSync<Fornecedor[]>("fornecedores", [])
   const [movimentacoes, setMovimentacoes] = useMongoSync<Movimentacao[]>("movimentacoes", [])
   const [activeTab, setActiveTab] = useState("dashboard")
+  
+  const [searchTermProdutos, setSearchTermProdutos] = useState("")
+  const [searchTermFornecedores, setSearchTermFornecedores] = useState("")
+
+  const produtosFiltrados = produtos.filter((p) => 
+    p.nome.toLowerCase().includes(searchTermProdutos.toLowerCase()) ||
+    p.categoria.toLowerCase().includes(searchTermProdutos.toLowerCase())
+  )
+
+  const fornecedoresFiltrados = fornecedores.filter((f) => 
+    f.nome.toLowerCase().includes(searchTermFornecedores.toLowerCase())
+  )
 
   const produtosEstoqueBaixo = produtos.filter((p) => p.quantidadeEstoque <= p.pontoReposicao)
   const totalProdutos = produtos.length
@@ -72,7 +86,7 @@ export default function Dashboard() {
       <div className="container mx-auto p-6">
         <div className="mb-8 flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Sistema de Gestão - Sorveteria</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Tigre Açaí - Sistema de Gestão</h1>
             <p className="text-gray-600 mt-2">Controle completo do seu estoque e pedidos</p>
           </div>
           <Button variant="outline" onClick={() => setIsAuthenticated(false)}>
@@ -93,25 +107,88 @@ export default function Dashboard() {
 
           <TabsContent value="dashboard" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Total de Produtos</CardTitle>
-                  <Package className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{totalProdutos}</div>
-                </CardContent>
-              </Card>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="cursor-pointer hover:bg-gray-50 transition-colors">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <CardTitle className="text-sm font-medium">Total de Produtos</CardTitle>
+                      <Package className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">{totalProdutos}</div>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>Produtos Cadastrados</DialogTitle>
+                  </DialogHeader>
+                  <div className="flex items-center gap-2 mt-4 mb-4">
+                    <Search className="w-4 h-4 text-gray-400" />
+                    <Input 
+                      placeholder="Pesquisar produto..." 
+                      value={searchTermProdutos}
+                      onChange={(e) => setSearchTermProdutos(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    {produtosFiltrados.length === 0 ? (
+                      <p className="text-center text-gray-500 py-4">Nenhum produto encontrado.</p>
+                    ) : (
+                      produtosFiltrados.map(p => (
+                        <div key={p.id} className="p-3 border rounded flex justify-between items-center">
+                          <div>
+                            <p className="font-semibold">{p.nome}</p>
+                            <p className="text-xs text-gray-500">{p.categoria} - R$ {p.custoUnitario}</p>
+                          </div>
+                          <Badge>{p.quantidadeEstoque} {p.unidadeMedida}</Badge>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </DialogContent>
+              </Dialog>
 
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Fornecedores</CardTitle>
-                  <Users className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{totalFornecedores}</div>
-                </CardContent>
-              </Card>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="cursor-pointer hover:bg-gray-50 transition-colors">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <CardTitle className="text-sm font-medium">Fornecedores</CardTitle>
+                      <Users className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">{totalFornecedores}</div>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>Fornecedores Cadastrados</DialogTitle>
+                  </DialogHeader>
+                  <div className="flex items-center gap-2 mt-4 mb-4">
+                    <Search className="w-4 h-4 text-gray-400" />
+                    <Input 
+                      placeholder="Pesquisar fornecedor..." 
+                      value={searchTermFornecedores}
+                      onChange={(e) => setSearchTermFornecedores(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    {fornecedoresFiltrados.length === 0 ? (
+                      <p className="text-center text-gray-500 py-4">Nenhum fornecedor encontrado.</p>
+                    ) : (
+                      fornecedoresFiltrados.map(f => (
+                        <div key={f.id} className="p-3 border rounded flex justify-between items-center">
+                          <div>
+                            <p className="font-semibold">{f.nome}</p>
+                            <p className="text-xs text-gray-500">{f.telefone} {f.cnpj ? `- CNPJ: ${f.cnpj}` : ''}</p>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </DialogContent>
+              </Dialog>
 
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

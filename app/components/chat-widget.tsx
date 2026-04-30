@@ -34,7 +34,7 @@ interface ChatSession {
 
 const INITIAL_MESSAGE: Message = { 
   role: "assistant", 
-  content: "Olá! Sou seu assistente de IA. Como posso ajudar com a gestão de estoque hoje?" 
+  content: "Olá! Sou o 🐯 Tigre IA. Como posso ajudar você hoje?" 
 }
 
 export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {

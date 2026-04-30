@@ -7,6 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BarChart3, TrendingUp, Package, Users, Calendar, Download } from "lucide-react"
+import jsPDF from "jspdf"
+import autoTable from "jspdf-autotable"
 import type { Produto, Fornecedor, Movimentacao } from "../page"
 
 interface RelatoriosManagerProps {
@@ -93,31 +95,62 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
   }
 
   const exportarRelatorio = (tipo: string) => {
-    let dados = ""
+    const doc = new jsPDF()
+    const dataAtual = new Date().toLocaleDateString("pt-BR")
+
+    // Cabeçalho do PDF
+    doc.setFontSize(20)
+    doc.setTextColor(40, 40, 40)
+    doc.text("Tigre Açaí", 14, 22)
+    
+    doc.setFontSize(14)
+    doc.setTextColor(100, 100, 100)
+    
+    let titulo = ""
+    let head = [[]] as string[][]
+    let body = [] as (string | number)[][]
 
     switch (tipo) {
       case "estoque-baixo":
-        dados = "Relatório de Estoque Baixo\n\n"
-        getProdutosEstoqueBaixo().forEach((produto) => {
-          dados += `${produto.nome}: ${produto.quantidadeEstoque} ${produto.unidadeMedida} (Mín: ${produto.pontoReposicao})\n`
-        })
+        titulo = "Relatório de Estoque Baixo"
+        head = [["Produto", "Categoria", "Estoque Atual", "Ponto Mínimo", "Sugestão de Pedido"]]
+        body = getProdutosEstoqueBaixo().map(produto => [
+          produto.nome,
+          produto.categoria,
+          `${produto.quantidadeEstoque} ${produto.unidadeMedida}`,
+          `${produto.pontoReposicao} ${produto.unidadeMedida}`,
+          `${produto.pontoReposicao * 2} ${produto.unidadeMedida}`
+        ])
         break
+
       case "compras-fornecedor":
-        dados = "Relatório de Compras por Fornecedor\n\n"
-        Object.entries(getComprasPorFornecedor()).forEach(([fornecedorId, dados_compra]) => {
+        titulo = "Relatório de Compras por Fornecedor"
+        head = [["Fornecedor", "Qtd Compras", "Itens Comprados", "Valor Total (R$)"]]
+        body = Object.entries(getComprasPorFornecedor()).map(([fornecedorId, dados]) => {
           const fornecedor = fornecedores.find((f) => f.id === fornecedorId)
-          dados += `${fornecedor?.nome}: R$ ${dados_compra.valor.toFixed(2)} (${dados_compra.itens} compras)\n`
+          return [
+            fornecedor?.nome || "Desconhecido",
+            dados.itens,
+            dados.quantidade.toFixed(2),
+            `R$ ${dados.valor.toFixed(2)}`
+          ]
         })
         break
     }
 
-    const blob = new Blob([dados], { type: "text/plain" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = `relatorio-${tipo}-${new Date().toISOString().split("T")[0]}.txt`
-    a.click()
-    URL.revokeObjectURL(url)
+    doc.text(`${titulo} - ${dataAtual}`, 14, 32)
+
+    autoTable(doc, {
+      startY: 40,
+      head: head,
+      body: body,
+      theme: "grid",
+      styles: { fontSize: 10, cellPadding: 3 },
+      headStyles: { fillColor: [41, 128, 185], textColor: 255 },
+      alternateRowStyles: { fillColor: [245, 245, 245] }
+    })
+
+    doc.save(`relatorio-${tipo}-${new Date().toISOString().split("T")[0]}.pdf`)
   }
 
   const produtosEstoqueBaixo = getProdutosEstoqueBaixo()

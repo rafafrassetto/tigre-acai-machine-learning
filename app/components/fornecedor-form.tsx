@@ -70,6 +70,7 @@ export function FornecedorForm({ fornecedores, setFornecedores }: FornecedorForm
       observacoes: fornecedor.observacoes || "",
     })
     setEditingId(fornecedor.id)
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   const handleDelete = (id: string) => {
