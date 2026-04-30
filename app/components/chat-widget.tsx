@@ -74,7 +74,13 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
   const [editingSessionId, setEditingSessionId] = useState<string | null>(null)
   const [editingTitle, setEditingTitle] = useState("")
   const [activeModelName, setActiveModelName] = useState<string | null>(null)
-  const [tokenUsage, setTokenUsage] = useState<{ used: number, remaining: number, limit: number } | null>(null)
+  const [tokenUsage, setTokenUsage] = useState<{ used: number, remaining: number, limit: number, speed: number } | null>(null)
+
+  // Carregar último estado do localStorage se existir
+  useEffect(() => {
+    const savedUsage = localStorage.getItem("tigre_ai_usage")
+    if (savedUsage) setTokenUsage(JSON.parse(savedUsage))
+  }, [])
 
   const handleDownloadReport = () => {
     const reportContent = `🐯 RELATÓRIO DE AUDITORIA E TREINAMENTO IA - TIGRE AÇAÍ
@@ -324,6 +330,7 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
     setMessages(newMessages)
     setIsLoading(true)
 
+    const startTime = performance.now()
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -335,6 +342,9 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
           model: selectedModel
         }),
       })
+
+      const endTime = performance.now()
+      const durationInSeconds = (endTime - startTime) / 1000
 
       let data: any
       try {
@@ -348,11 +358,14 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
       }
 
       if (data.usage) {
-        setTokenUsage({
+        const usageData = {
           used: data.usage.total,
           remaining: data.usage.remaining,
-          limit: data.usage.limit
-        })
+          limit: data.usage.limit,
+          speed: Math.round(data.usage.total / durationInSeconds)
+        }
+        setTokenUsage(usageData)
+        localStorage.setItem("tigre_ai_usage", JSON.stringify(usageData))
       }
       
       const aiResponse = data.response || data.error || "⚠️ Resposta inesperada do servidor."
@@ -426,15 +439,25 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
                 </div>
                 <div className="flex items-center gap-2">
                   {activeModelName && (
-                    <span className="text-[9px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[120px]">
+                    <span className="text-[9px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[100px]">
                       {activeModelName}
                     </span>
                   )}
-                  {tokenUsage && tokenUsage.limit > 0 && (
-                    <span className="text-[8px] font-medium text-gray-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5 flex items-center gap-1">
-                      <Cpu className="w-2 h-2" />
-                      {Math.round(tokenUsage.remaining / 1000)}k DISP.
-                    </span>
+                  {tokenUsage && (
+                    <div className="flex items-center gap-1.5">
+                      {tokenUsage.speed > 0 && (
+                        <span className="text-[8px] font-medium text-blue-400 bg-blue-500/5 px-1.5 py-0.5 rounded border border-blue-500/10 flex items-center gap-1">
+                          <Sparkles className="w-2 h-2" />
+                          {tokenUsage.speed} T/s
+                        </span>
+                      )}
+                      {tokenUsage.limit > 0 && (
+                        <span className="text-[8px] font-medium text-gray-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5 flex items-center gap-1">
+                          <Cpu className="w-2 h-2" />
+                          {Math.round(tokenUsage.remaining / 1000)}k DISP.
+                        </span>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>
