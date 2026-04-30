@@ -40,12 +40,16 @@ const INITIAL_MESSAGE: Message = {
 
 const AVAILABLE_MODELS = [
   { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Potente e inteligente" },
-  { id: "llama-3.1-70b-versatile", name: "Llama 3.1 70B", description: "Versátil para dados" },
   { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Rápido e eficiente" },
-  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Bom raciocínio" },
-  { id: "gemma2-9b-it", name: "Gemma 2 9B", description: "Modelo do Google" },
-  { id: "llama3-70b-8192", name: "Llama 3 70B", description: "Robusto" },
-  { id: "llama3-8b-8192", name: "Llama 3 8B", description: "Leve" },
+  { id: "qwen/qwen3-32b", name: "Qwen 3 32B", description: "Excelente raciocínio" },
+  { id: "meta-llama/llama-4-scout-17b-16e-instruct", name: "Llama 4 Scout", description: "Nova geração Llama" },
+  { id: "openai/gpt-oss-120b", name: "GPT-OSS 120B", description: "Modelo massivo open-source" },
+  { id: "openai/gpt-oss-20b", name: "GPT-OSS 20B", description: "Equilibrado e rápido" },
+  { id: "groq/compound", name: "Groq Compound", description: "Otimizado pela Groq" },
+  { id: "groq/compound-mini", name: "Groq Compound Mini", description: "Ultra-rápido" },
+  { id: "allam-2-7b", name: "Allam 2 7B", description: "Leve e focado" },
+  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Clássico e confiável" },
+  { id: "gemma2-9b-it", name: "Gemma 2 9B", description: "Tecnologia Google" },
 ]
 
 export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {
@@ -369,10 +373,14 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
                     </SelectTrigger>
                     <SelectContent className="bg-slate-900 border-slate-800 text-white">
                       {AVAILABLE_MODELS.map(model => (
-                        <SelectItem key={model.id} value={model.id} className="text-xs hover:bg-slate-800 focus:bg-slate-800 cursor-pointer">
+                        <SelectItem 
+                          key={model.id} 
+                          value={model.id} 
+                          className="text-xs hover:bg-slate-800 focus:bg-slate-800 focus:text-white data-[highlighted]:bg-slate-800 data-[highlighted]:text-white cursor-pointer"
+                        >
                           <div className="flex flex-col gap-0.5">
-                            <span className="font-medium">{model.name}</span>
-                            <span className="text-[10px] text-gray-400">{model.description}</span>
+                            <span className="font-medium text-inherit">{model.name}</span>
+                            <span className="text-[10px] text-gray-400 group-focus:text-gray-300">{model.description}</span>
                           </div>
                         </SelectItem>
                       ))}

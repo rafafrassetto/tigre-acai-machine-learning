@@ -144,7 +144,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       } catch (error: any) {
         console.error("Erro Groq:", error)
         if (error.status === 429) {
-          return NextResponse.json({ response: "⚠️ A cota de uso da API (Groq) foi excedida. Aguarde alguns segundos e tente novamente." })
+          return NextResponse.json({ response: "⚠️ A cota de uso deste modelo foi excedida. **Tente mudar para outro modelo** no menu acima para continuar usando o chat sem esperar!" })
         }
         return NextResponse.json({ response: "⚠️ Erro ao processar sua mensagem com a IA." })
       }
