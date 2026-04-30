@@ -63,6 +63,7 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
           categoria: p.categoria,
           estoqueAtual: p.quantidadeEstoque,
           unidade: p.unidadeMedida,
+          custoUnitario: p.custoUnitario,
           pontoReposicao: p.pontoReposicao,
           nomeFornecedor: fornecedorVinculado ? fornecedorVinculado.nome : "Sem fornecedor",
           status: p.quantidadeEstoque <= p.pontoReposicao ? "BAIXO" : "NORMAL"
@@ -228,29 +229,32 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
         }),
       })
 
-      const data = await response.json()
+      let data: any
+      try {
+        data = await response.json()
+      } catch {
+        data = { response: "⚠️ Resposta inválida do servidor. Tente novamente." }
+      }
 
-      if (response.ok) {
-        const finalMessages: Message[] = [...newMessages, { role: "assistant", content: data.response }]
-        setMessages(finalMessages)
+      const aiResponse = data.response || data.error || "⚠️ Resposta inesperada do servidor."
+      const finalMessages: Message[] = [...newMessages, { role: "assistant", content: aiResponse }]
+      setMessages(finalMessages)
 
-        const now = Date.now()
-        if (currentSessionId) {
-          setSessions(sessions.map(s => 
-            s.id === currentSessionId ? { ...s, messages: finalMessages, updatedAt: now } : s
-          ))
-        } else {
-          const newId = now.toString()
-          setCurrentSessionId(newId)
-          const title = userMessage.length > 35 ? userMessage.substring(0, 35) + "..." : userMessage
-          const newSession: ChatSession = { id: newId, title, messages: finalMessages, updatedAt: now }
-          setSessions([newSession, ...sessions])
-        }
+      const now = Date.now()
+      if (currentSessionId) {
+        setSessions(sessions.map(s => 
+          s.id === currentSessionId ? { ...s, messages: finalMessages, updatedAt: now } : s
+        ))
       } else {
-        setMessages([...newMessages, { role: "assistant", content: "Desculpe, ocorreu um erro ao consultar a IA." }])
+        const newId = now.toString()
+        setCurrentSessionId(newId)
+        const title = userMessage.length > 35 ? userMessage.substring(0, 35) + "..." : userMessage
+        const newSession: ChatSession = { id: newId, title, messages: finalMessages, updatedAt: now }
+        setSessions([newSession, ...sessions])
       }
     } catch (error) {
-      setMessages([...newMessages, { role: "assistant", content: "Erro de conexão." }])
+      console.error("Erro de conexão com a API:", error)
+      setMessages([...newMessages, { role: "assistant", content: "⚠️ Erro de conexão com o servidor. Verifique sua internet e tente novamente." }])
     } finally {
       setIsLoading(false)
     }
