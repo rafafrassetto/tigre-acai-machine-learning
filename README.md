@@ -1,5 +1,7 @@
 # Sistema Inteligente de Gestão de Estoque (Tigre Açaí)
 
+<img width="2560" height="1040" alt="image" src="https://github.com/user-attachments/assets/055121db-50ad-4d42-b668-e4cf73926b16" />
+
 ## 1. Introdução
 Este projeto consiste no desenvolvimento de uma aplicação web automatizada para a gestão e controle de estoque, desenvolvida com o ecossistema Next.js. O principal diferencial acadêmico e tecnológico da plataforma é a integração de um Agente de Inteligência Artificial Generativa (LLM), utilizando a API da Groq (Modelo Llama 3.3 70B). Este agente atua como um assistente autônomo capaz de realizar consultas estruturadas, analisar métricas e propor mutações de estado (inserções e exclusões) por meio de interações em linguagem natural.
 
