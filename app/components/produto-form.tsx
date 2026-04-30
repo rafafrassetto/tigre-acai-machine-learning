@@ -74,9 +74,11 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
   }
 
   const handleEdit = (produto: Produto) => {
-    setFormData({
+    console.log("Editando produto:", produto);
+    
+    const newData = {
       nome: produto.nome || "",
-      categoria: produto.categoria || "sorvete",
+      categoria: (produto.categoria || "sorvete") as Produto["categoria"],
       quantidadeEstoque: (produto.quantidadeEstoque ?? 0).toString(),
       unidadeMedida: produto.unidadeMedida || "",
       custoUnitario: (produto.custoUnitario ?? 0).toString(),
@@ -84,9 +86,15 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
       pontoReposicao: (produto.pontoReposicao ?? 0).toString(),
       dataValidade: produto.dataValidade || "",
       observacoes: produto.observacoes || "",
-    })
-    setEditingId(produto.id)
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    };
+
+    setFormData(newData);
+    setEditingId(produto.id);
+    
+    // Pequeno delay para o scroll não interferir na renderização do estado
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
   }
 
   const handleDelete = (id: string) => {
