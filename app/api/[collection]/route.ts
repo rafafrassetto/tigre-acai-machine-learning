@@ -2,11 +2,15 @@ import { NextResponse } from "next/server"
 import clientPromise from "@/app/lib/mongodb"
 import Groq from "groq-sdk"
 import { GoogleGenerativeAI } from "@google/generative-ai"
+import OpenAI from "openai"
+import Anthropic from "@anthropic-ai/sdk"
 
 export const dynamic = "force-dynamic"
 
 const groq = new Groq({ apiKey: process.env.GROK_APO || "" })
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "")
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY || "" })
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY || "" })
 
 // Sanitiza o contexto para evitar estourar o token limit do Gemini
 function sanitizarContexto(ctx: any) {
@@ -159,6 +163,46 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
           console.error("Erro Gemini:", error)
           const errorMsg = error.message || "Erro desconhecido"
           return NextResponse.json({ response: `⚠️ Erro ao processar sua mensagem com o Gemini: ${errorMsg}. Verifique se o nome do modelo está correto para a sua região.` })
+        }
+      } else if (model && model.toLowerCase().startsWith("gpt-")) {
+        if (!process.env.OPENAI_API_KEY) {
+          return NextResponse.json({ response: "⚠️ A chave de API da OpenAI (OPENAI_API_KEY) não está configurada." })
+        }
+        try {
+          const completion = await openai.chat.completions.create({
+            model: model,
+            messages: [
+              { role: "system", content: buildSystemPrompt(contextJson) },
+              ...formattedHistory,
+              { role: "user", content: message }
+            ],
+            temperature: 0.2,
+            max_tokens: 2048,
+          })
+          responseText = completion.choices[0]?.message?.content || "Sem resposta da OpenAI."
+        } catch (error: any) {
+          console.error("Erro OpenAI:", error)
+          return NextResponse.json({ response: `⚠️ Erro OpenAI: ${error.message}` })
+        }
+      } else if (model && model.toLowerCase().startsWith("claude-")) {
+        if (!process.env.ANTHROPIC_API_KEY) {
+          return NextResponse.json({ response: "⚠️ A chave de API da Anthropic (ANTHROPIC_API_KEY) não está configurada." })
+        }
+        try {
+          const completion = await anthropic.messages.create({
+            model: model,
+            system: buildSystemPrompt(contextJson),
+            messages: [
+              ...formattedHistory,
+              { role: "user", content: message }
+            ],
+            temperature: 0.2,
+            max_tokens: 2048,
+          })
+          responseText = (completion.content[0] as any).text || "Sem resposta da Anthropic."
+        } catch (error: any) {
+          console.error("Erro Anthropic:", error)
+          return NextResponse.json({ response: `⚠️ Erro Anthropic: ${error.message}` })
         }
       } else {
         try {

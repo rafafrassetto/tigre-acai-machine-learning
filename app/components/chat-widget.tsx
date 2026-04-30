@@ -36,35 +36,26 @@ interface ChatSession {
 const INITIAL_MESSAGE: Message = { 
   role: "assistant", 
   content: "Olá! Sou o 🐯 Tigre IA. Como posso ajudar você hoje?" 
-}
-
 const AVAILABLE_MODELS = [
-  // --- Google Gemini (Máximo Contexto) ---
-  { id: "gemini-3.1-pro-preview", name: "Gemini 3.1 Pro", description: "O mais potente do mundo (2026)" },
-  { id: "gemini-3.1-flash-preview", name: "Gemini 3.1 Flash", description: "Ultra-rápido e inteligente" },
-  { id: "gemini-1.5-pro", name: "Gemini 1.5 Pro", description: "O rei do contexto (2M tokens)" },
-  { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", description: "Fallback estável" },
+  // --- Elite (Top Tier 2026) ---
+  { id: "claude-4-7-opus-2026", name: "Claude 4.7 Opus", description: "O rei da lógica e codificação" },
+  { id: "gpt-5.5-preview", name: "GPT-5.5 Ultra", description: "Líder em automação e agentes" },
+  { id: "gemini-3.1-pro-preview", name: "Gemini 3.1 Pro", description: "Contexto massivo (2M tokens)" },
   
-  // --- Inteligentes / Raciocínio (Top Tier) ---
-  { id: "llama-3.1-405b-reasoning", name: "Llama 3.1 405B", description: "O mais poderoso do mundo" },
+  // --- Alta Performance ---
+  { id: "claude-4-6-sonnet-2026", name: "Claude 4.6 Sonnet", description: "Equilíbrio perfeito de inteligência" },
+  { id: "gpt-4o", name: "GPT-4o (Omni)", description: "Rápido e multimodal" },
+  { id: "llama-3.1-405b-reasoning", name: "Llama 3.1 405B", description: "O gigante open-source" },
   { id: "deepseek-r1-distill-llama-70b", name: "DeepSeek R1 70B", description: "Especialista em raciocínio" },
-  { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Potente e inteligente" },
-  { id: "openai/gpt-oss-120b", name: "GPT-OSS 120B", description: "Massivo e open-source" },
+  
+  // --- Versáteis e Rápidos ---
+  { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Potente e versátil" },
   { id: "qwen/qwen3-32b", name: "Qwen 3 32B", description: "Excelente lógica" },
-  
-  // --- Equilibrados (Versáteis) ---
-  { id: "meta-llama/llama-4-scout-17b-16e-instruct", name: "Llama 4 Scout", description: "Nova geração equilibrada" },
-  { id: "llama-3.1-70b-versatile", name: "Llama 3.1 70B", description: "Versátil para dados" },
-  { id: "deepseek-r1-distill-qwen-32b", name: "DeepSeek R1 32B", description: "Raciocínio veloz" },
-  { id: "openai/gpt-oss-20b", name: "GPT-OSS 20B", description: "Eficiente e preciso" },
-  
-  // --- Rápidos (Instante) ---
-  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Clássico veloz" },
-  { id: "gemma2-9b-it", name: "Gemma 2 9B", description: "Tecnologia Google" },
-  { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Respostas instantâneas" },
-  { id: "groq/compound", name: "Groq Compound", description: "Otimizado Groq" },
-  { id: "groq/compound-mini", name: "Groq Compound Mini", description: "Ultra-rápido" },
-  { id: "allam-2-7b", name: "Allam 2 7B", description: "Leve" },
+  { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", description: "Rápido com contexto longo" },
+  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Velocidade clássica" },
+  { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Respostas imediatas" },
+]
+tion: "Leve" },
 ]
 
 export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {
