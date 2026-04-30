@@ -16,7 +16,6 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY || "" })
 function sanitizarContexto(ctx: any) {
   const safe = { ...ctx }
 
-  // Limitar produtos — remover dados absurdos e limitar campos grandes
   if (Array.isArray(safe.produtos)) {
     safe.produtos = safe.produtos
       .filter((p: any) => p.nome && typeof p.nome === "string" && p.nome.length < 200)
@@ -32,7 +31,6 @@ function sanitizarContexto(ctx: any) {
       }))
   }
 
-  // Limitar fornecedores
   if (Array.isArray(safe.fornecedores)) {
     safe.fornecedores = safe.fornecedores.map((f: any) => ({
       nome: f.nome || "Sem nome",
@@ -43,7 +41,6 @@ function sanitizarContexto(ctx: any) {
     }))
   }
 
-  // Limitar movimentações a 15
   if (Array.isArray(safe.ultimasMovimentacoes)) {
     safe.ultimasMovimentacoes = safe.ultimasMovimentacoes.slice(0, 15)
   }
@@ -105,11 +102,7 @@ REGRAS DE SEGURANÇA E CONDUTA:
 export async function GET(request: Request, { params }: { params: Promise<{ collection: string }> }) {
   try {
     const { collection } = await params
-    
-    if (collection === "chat") {
-      return NextResponse.json([])
-    }
-
+    if (collection === "chat") return NextResponse.json([])
     const client = await clientPromise
     const db = client.db("tigre_acai")
     const data = await db.collection(collection).find({}).toArray()
@@ -126,14 +119,11 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
 
     if (collection === "chat") {
       const { message, history, estoqueContext, model } = body
-
-      // Buscar memória de longo prazo
       const client = await clientPromise
       const db = client.db("tigre_acai")
       const memoriaDocs = await db.collection("memoria_ia").find({}).toArray()
       const memoriaTexto = memoriaDocs.map(d => `- ${d.fato}`).join("\n")
 
-      // Sanitizar o contexto para evitar estourar tokens
       const ctxSanitizado = sanitizarContexto(estoqueContext || {})
       const contextJson = JSON.stringify(ctxSanitizado, null, 2)
 
@@ -142,21 +132,19 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         content: msg.content,
       }))
 
-      // Função para tentar chamar diferentes modelos em caso de erro
       async function tryAI(primaryModel: string) {
         const modelsToTry = [
           primaryModel,
-          "llama-3.3-70b-versatile", // Groq Backup
-          "gemini-1.5-flash",        // Gemini Backup
-          "gpt-4o-mini"              // OpenAI Backup
-        ].filter((m, i, self) => m && self.indexOf(m) === i) // Remover duplicatas
+          "llama-3.3-70b-versatile",
+          "gemini-1.5-flash",
+          "gpt-4o-mini"
+        ].filter((m, i, self) => m && self.indexOf(m) === i)
 
-        let lastError = null
+        let lastError: any = null
+        let errorDetails = ""
 
         for (const currentModel of modelsToTry) {
           try {
-            console.log(`Tentando modelo: ${currentModel}`)
-            
             if (currentModel.toLowerCase().includes("gemini")) {
               if (!process.env.GEMINI_API_KEY) throw new Error("Chave Gemini ausente")
               const geminiModel = genAI.getGenerativeModel({ model: currentModel })
@@ -200,7 +188,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
               return { text: (completion.content[0] as any).text || "", modelUsed: currentModel }
 
             } else {
-              // Default to Groq
               if (!process.env.GROK_APO) throw new Error("Chave Groq ausente")
               const completion = await groq.chat.completions.create({
                 messages: [
@@ -216,12 +203,12 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
             }
           } catch (error: any) {
             console.error(`Erro com o modelo ${currentModel}:`, error.message)
+            errorDetails += `[${currentModel}: ${error.message}] `
             lastError = error
-            // Se for 429 ou erro de limite, continua para o próximo. Se for outro erro, talvez valha tentar o próximo também.
             continue
           }
         }
-        throw lastError || new Error("Falha em todos os modelos")
+        throw new Error(errorDetails || "Falha em todos os modelos")
       }
 
       let aiResult
@@ -234,62 +221,39 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       let responseText = aiResult.text
       const modelUsed = aiResult.modelUsed
 
-      // Tentar parsear como comando JSON (inserção ou remoção)
       let iaCommand = null
       try {
         const cleanJsonString = responseText.replace(/```json\n?|\n?```/g, '').trim()
         if (cleanJsonString.startsWith('{') && cleanJsonString.includes('"acao"')) {
           iaCommand = JSON.parse(cleanJsonString)
         }
-      } catch (parseError) {
-        // Não é JSON — é uma resposta textual normal, continua
-      }
+      } catch (parseError) {}
 
       if (iaCommand && iaCommand.acao === "INSERIR_PRODUTO" && iaCommand.produto) {
         const p = iaCommand.produto;
-        const novoProduto = {
-          id: Date.now().toString(),
-          nome: p.nome || "Produto sem nome",
-          categoria: p.categoria || "sorvete",
-          quantidadeEstoque: Number(p.quantidadeEstoque || p.estoqueAtual) || 0,
-          unidadeMedida: p.unidadeMedida || p.unidade || "Unidades",
-          custoUnitario: Number(p.custoUnitario) || 0,
-          fornecedorId: p.fornecedorId || "",
-          pontoReposicao: Number(p.pontoReposicao) || 5,
-          observacoes: p.observacoes || "Adicionado via IA"
-        }
-        
         return NextResponse.json({ 
           response: "Por favor, confirme se deseja cadastrar este novo produto:",
           actionPending: {
             type: "INSERIR_PRODUTO",
-            payload: novoProduto
+            payload: { ...p, id: Date.now().toString(), observacoes: p.observacoes || "Adicionado via IA" }
           }
         })
       } else if (iaCommand && iaCommand.acao === "REMOVER_PRODUTO" && iaCommand.nomeProduto) {
         return NextResponse.json({ 
           response: `Por favor, confirme se deseja remover todos os produtos correspondentes a "${iaCommand.nomeProduto}":`,
-          actionPending: {
-            type: "REMOVER_PRODUTO",
-            payload: { nome: iaCommand.nomeProduto }
-          }
+          actionPending: { type: "REMOVER_PRODUTO", payload: { nome: iaCommand.nomeProduto } }
         })
       } else if (iaCommand && iaCommand.acao === "APRENDER" && iaCommand.fato) {
         try {
-          await db.collection("memoria_ia").insertOne({
-            fato: iaCommand.fato,
-            data: new Date(),
-            origem: message
-          })
+          await db.collection("memoria_ia").insertOne({ fato: iaCommand.fato, data: new Date(), origem: message })
           return NextResponse.json({ response: `✅ Entendido! Aprendi que: "${iaCommand.fato}". Vou lembrar disso nas próximas conversas.` })
         } catch (memError) {
           return NextResponse.json({ response: "⚠️ Tentei salvar esse aprendizado mas houve um erro no banco de dados." })
         }
       } else if (iaCommand) {
-        responseText = "🤖 Comando não reconhecido. Tente pedir de forma mais clara (ex: 'cadastre o produto X' ou 'remova o produto Y')."
+        responseText = "🤖 Comando não reconhecido. Tente pedir de forma mais clara."
       }
 
-      // Adicionar nota se houve fallback
       if (modelUsed !== model) {
         responseText = `*(Nota: Alternado para ${modelUsed} devido a limite de tokens no modelo original)*\n\n${responseText}`
       }
@@ -297,33 +261,17 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       return NextResponse.json({ response: responseText })
     }
 
-    // Operações genéricas de coleção (sync)
     const db = (await clientPromise).db("tigre_acai")
-
     try {
-      // Limpa a coleção atual antes de sincronizar o novo estado do frontend
       await db.collection(collection).deleteMany({})
-      
       if (Array.isArray(body) && body.length > 0) {
-        // Remove IDs do MongoDB para evitar conflitos de duplicidade na reinserção
-        const dataToInsert = body.map(({ _id, id, ...rest }: any) => ({
-          ...rest,
-          id: id || _id?.toString() // Garante que temos um campo ID consistente
-        }))
-        
+        const dataToInsert = body.map(({ _id, id, ...rest }: any) => ({ ...rest, id: id || _id?.toString() }))
         await db.collection(collection).insertMany(dataToInsert)
       }
-      
       return NextResponse.json({ success: true, count: Array.isArray(body) ? body.length : 0 })
     } catch (dbError: any) {
-      console.error(`Erro ao sincronizar coleção ${collection}:`, dbError)
-      return NextResponse.json({ 
-        success: false, 
-        error: "Erro no banco de dados", 
-        details: dbError.message 
-      }, { status: 500 })
+      return NextResponse.json({ success: false, error: "Erro no banco de dados", details: dbError.message }, { status: 500 })
     }
-    
   } catch (e) {
     console.error("Erro na API POST:", e)
     return NextResponse.json({ success: false, error: "Falha na requisição" }, { status: 500 })
