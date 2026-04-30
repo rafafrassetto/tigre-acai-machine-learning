@@ -127,7 +127,7 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
 
   return (
     <div className="space-y-6">
-      <Card>
+      <Card key={editingId || 'new'}>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Plus className="h-5 w-5" />
