@@ -71,9 +71,9 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
   const [isLoading, setIsLoading] = useState(false)
   const [selectedModel, setSelectedModel] = useState(AVAILABLE_MODELS[0].id)
   
-  const [editingSessionId, setEditingSessionId] = useState<string | null>(null)
   const [editingTitle, setEditingTitle] = useState("")
   const [activeModelName, setActiveModelName] = useState<string | null>(null)
+  const [tokenUsage, setTokenUsage] = useState<{ used: number, remaining: number, limit: number } | null>(null)
 
   const handleDownloadReport = () => {
     const reportContent = `🐯 RELATÓRIO DE AUDITORIA E TREINAMENTO IA - TIGRE AÇAÍ
@@ -345,6 +345,14 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
       if (data.modelUsed) {
         setActiveModelName(data.modelUsed)
       }
+
+      if (data.usage) {
+        setTokenUsage({
+          used: data.usage.total,
+          remaining: data.usage.remaining,
+          limit: data.usage.limit
+        })
+      }
       
       const aiResponse = data.response || data.error || "⚠️ Resposta inesperada do servidor."
       
@@ -412,13 +420,22 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
                   <ArrowLeft className="h-5 w-5" />
                 </Button>
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-[10px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[100px]">
-                      {activeModelName || "Tigre IA"}
-                    </span>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <h3 className="text-2xl font-black text-white leading-none tracking-tight">Tigre AI</h3>
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shrink-0" />
                   </div>
-                  <div className="hidden sm:block">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[80px]">
+                      {activeModelName || "NÚCLEO IA"}
+                    </span>
+                    {tokenUsage && tokenUsage.limit > 0 && (
+                      <span className="text-[8px] font-medium text-gray-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5 flex items-center gap-1">
+                        <Cpu className="w-2 h-2" />
+                        {Math.round(tokenUsage.remaining / 1000)}k DISP.
+                      </span>
+                    )}
+                  </div>
+                </div>
                     <Select value={selectedModel} onValueChange={setSelectedModel}>
                       <SelectTrigger className="w-[150px] h-6 bg-transparent border-none p-0 text-gray-400 text-[10px] focus:ring-0">
                         <SelectValue placeholder="Trocar Modelo" />

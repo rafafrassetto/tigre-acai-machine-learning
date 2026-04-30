@@ -161,7 +161,11 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
                 generationConfig: { temperature: 0.2, maxOutputTokens: 2048 },
               })
               const result = await chat.sendMessage(message)
-              return { text: result.response.text(), modelUsed: "gemini-1.5-flash" }
+              return { 
+                text: result.response.text(), 
+                modelUsed: "gemini-1.5-flash",
+                usage: { total: 0, remaining: 0, limit: 0 } // Gemini não expõe facilmente o limite no corpo
+              }
 
             } else if (currentModel.toLowerCase().startsWith("gpt-")) {
               if (!process.env.OPENAI_API_KEY) throw new Error("Chave OpenAI ausente")
@@ -175,22 +179,16 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
                 temperature: 0.2,
                 max_tokens: 2048,
               })
-              return { text: completion.choices[0]?.message?.content || "", modelUsed: currentModel }
-
-            } else if (currentModel.toLowerCase().startsWith("claude-")) {
-              if (!process.env.ANTHROPIC_API_KEY) throw new Error("Chave Anthropic ausente")
-              const completion = await anthropic.messages.create({
-                model: currentModel,
-                system: buildSystemPrompt(contextJson, memoriaTexto),
-                messages: [...formattedHistory, { role: "user", content: message }],
-                temperature: 0.2,
-                max_tokens: 2048,
-              })
-              return { text: (completion.content[0] as any).text || "", modelUsed: currentModel }
+              return { 
+                text: completion.choices[0]?.message?.content || "", 
+                modelUsed: currentModel,
+                usage: { total: completion.usage?.total_tokens || 0, remaining: 0, limit: 0 }
+              }
 
             } else {
               if (!process.env.GROK_APO) throw new Error("Chave Groq ausente")
-              const completion = await groq.chat.completions.create({
+              // Usar .withResponse() para pegar os headers de rate limit
+              const { data, response } = await groq.chat.completions.create({
                 messages: [
                   { role: "system", content: buildSystemPrompt(contextJson, memoriaTexto) },
                   ...formattedHistory,
@@ -199,8 +197,20 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
                 model: currentModel || "llama-3.3-70b-versatile",
                 temperature: 0.2,
                 max_tokens: 1024,
-              })
-              return { text: completion.choices[0]?.message?.content || "", modelUsed: currentModel }
+              }).withResponse()
+
+              const remaining = response.headers.get('x-ratelimit-remaining-tokens')
+              const limit = response.headers.get('x-ratelimit-limit-tokens')
+
+              return { 
+                text: data.choices[0]?.message?.content || "", 
+                modelUsed: currentModel,
+                usage: { 
+                  total: data.usage?.total_tokens || 0, 
+                  remaining: parseInt(remaining || "0"), 
+                  limit: parseInt(limit || "0") 
+                }
+              }
             }
           } catch (error: any) {
             console.error(`Erro com o modelo ${currentModel}:`, error.message)
@@ -221,6 +231,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
 
       let responseText = aiResult.text
       const modelUsed = aiResult.modelUsed
+      const usage = aiResult.usage
 
       let iaCommand = null
       try {
@@ -230,33 +241,38 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         }
       } catch (parseError) {}
 
+      const baseResponse = {
+        modelUsed,
+        usage
+      }
+
       if (iaCommand && iaCommand.acao === "INSERIR_PRODUTO" && iaCommand.produto) {
         const p = iaCommand.produto;
         return NextResponse.json({ 
+          ...baseResponse,
           response: "Por favor, confirme se deseja cadastrar este novo produto:",
           actionPending: {
             type: "INSERIR_PRODUTO",
             payload: { ...p, id: Date.now().toString(), observacoes: p.observacoes || "Adicionado via IA" }
-          },
-          modelUsed: modelUsed
+          }
         })
       } else if (iaCommand && iaCommand.acao === "REMOVER_PRODUTO" && iaCommand.nomeProduto) {
         return NextResponse.json({ 
+          ...baseResponse,
           response: `Por favor, confirme se deseja remover todos os produtos correspondentes a "${iaCommand.nomeProduto}":`,
-          actionPending: { type: "REMOVER_PRODUTO", payload: { nome: iaCommand.nomeProduto } },
-          modelUsed: modelUsed
+          actionPending: { type: "REMOVER_PRODUTO", payload: { nome: iaCommand.nomeProduto } }
         })
       } else if (iaCommand && iaCommand.acao === "APRENDER" && iaCommand.fato) {
         try {
           await db.collection("memoria_ia").insertOne({ fato: iaCommand.fato, data: new Date(), origem: message })
           return NextResponse.json({ 
-            response: `✅ Entendido! Aprendi que: "${iaCommand.fato}". Vou lembrar disso nas próximas conversas.`,
-            modelUsed: modelUsed
+            ...baseResponse,
+            response: `✅ Entendido! Aprendi que: "${iaCommand.fato}". Vou lembrar disso nas próximas conversas.` 
           })
         } catch (memError) {
           return NextResponse.json({ 
-            response: "⚠️ Tentei salvar esse aprendizado mas houve um erro no banco de dados.",
-            modelUsed: modelUsed
+            ...baseResponse,
+            response: "⚠️ Tentei salvar esse aprendizado mas houve um erro no banco de dados." 
           })
         }
       } else if (iaCommand) {
@@ -267,7 +283,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         responseText = `*(Nota: Alternado para ${modelUsed} devido a limite de tokens no modelo original)*\n\n${responseText}`
       }
 
-      return NextResponse.json({ response: responseText, modelUsed: modelUsed })
+      return NextResponse.json({ ...baseResponse, response: responseText })
     }
 
     const db = (await clientPromise).db("tigre_acai")
