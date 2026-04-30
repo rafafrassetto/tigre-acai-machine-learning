@@ -40,6 +40,7 @@ const INITIAL_MESSAGE: Message = {
 
 const AVAILABLE_MODELS = [
   // --- Google Gemini (Máximo Contexto) ---
+  { id: "gemini-3.1-pro", name: "Gemini 3.1 Pro", description: "O mais potente do mundo (2026)" },
   { id: "gemini-1.5-pro", name: "Gemini 1.5 Pro", description: "O rei do contexto (2M tokens)" },
   { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", description: "Veloz e com contexto gigante" },
   
