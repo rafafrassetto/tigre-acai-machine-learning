@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server"
 import clientPromise from "@/app/lib/mongodb"
-import { GoogleGenerativeAI } from "@google/generative-ai"
+import Groq from "groq-sdk"
 
 export const dynamic = "force-dynamic"
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "")
+const groq = new Groq({ apiKey: process.env.GROK_APO || "" })
 
 // Sanitiza o contexto para evitar estourar o token limit do Gemini
 function sanitizarContexto(ctx: any) {
@@ -155,46 +155,40 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
     if (collection === "chat") {
       const { message, history, estoqueContext } = body
 
-      if (!process.env.GEMINI_API_KEY) {
-        return NextResponse.json({ response: "⚠️ A chave de API do Gemini não está configurada no servidor. Contate o administrador." })
+      if (!process.env.GROK_APO) {
+        return NextResponse.json({ response: "⚠️ A chave de API da Groq (GROK_APO) não está configurada no servidor. Contate o administrador." })
       }
 
       // Sanitizar o contexto para evitar estourar tokens
       const ctxSanitizado = sanitizarContexto(estoqueContext || {})
       const contextJson = JSON.stringify(ctxSanitizado, null, 2)
 
-      const model = genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",
-        systemInstruction: buildSystemPrompt(contextJson),
-      })
-
       const formattedHistory = (history || []).map((msg: any) => ({
-        role: msg.role === "user" ? "user" : "model",
-        parts: [{ text: msg.content }],
+        role: msg.role === "user" ? "user" : "assistant",
+        content: msg.content,
       }))
 
-      // Enviar mensagem ao Gemini com tratamento de erro específico
+      // Enviar mensagem ao Groq
       let responseText: string
       try {
-        const chat = model.startChat({ history: formattedHistory })
-        const result = await chat.sendMessage(message)
-        responseText = result.response.text()
-      } catch (geminiError: any) {
-        console.error("❌ Erro do Gemini API:", geminiError?.message || geminiError)
+        const completion = await groq.chat.completions.create({
+          messages: [
+            { role: "system", content: buildSystemPrompt(contextJson) },
+            ...formattedHistory,
+            { role: "user", content: message }
+          ],
+          model: "llama-3.1-70b-versatile",
+          temperature: 0.2,
+          max_tokens: 1024,
+        })
         
-        // Verificar se é erro de safety filter
-        if (geminiError?.message?.includes("SAFETY") || geminiError?.message?.includes("blocked")) {
-          responseText = "⚠️ Não consegui processar essa mensagem porque ela foi bloqueada pelos filtros de segurança. Tente reformular sua pergunta."
-        } else if (geminiError?.message?.includes("quota") || geminiError?.message?.includes("429")) {
-          responseText = "⚠️ A cota de uso da API foi excedida. Aguarde alguns minutos e tente novamente."
-        } else if (geminiError?.message?.includes("token") || geminiError?.message?.includes("length")) {
-          responseText = "⚠️ A mensagem ou o contexto é muito longo para processar. Tente uma pergunta mais curta."
-        } else {
-          responseText = "⚠️ Ocorreu um erro ao consultar a IA. Detalhes no log do servidor. Tente novamente em instantes."
+        responseText = completion.choices[0]?.message?.content || "Desculpe, não consegui processar sua resposta."
+      } catch (error: any) {
+        console.error("Erro Groq:", error)
+        if (error.status === 429) {
+          return NextResponse.json({ response: "⚠️ A cota de uso da API (Groq) foi excedida. Aguarde alguns segundos e tente novamente." })
         }
-        
-        // Retorna 200 com mensagem de erro amigável (não 500)
-        return NextResponse.json({ response: responseText })
+        return NextResponse.json({ response: "⚠️ Erro ao processar sua mensagem com a IA." })
       }
 
       // Tentar parsear como comando JSON (inserção ou remoção)
