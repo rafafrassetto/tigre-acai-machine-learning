@@ -1,7 +1,7 @@
 # Sistema Inteligente de Gestão de Estoque (Tigre Açaí)
 
 ## 1. Introdução
-Este projeto consiste no desenvolvimento de uma aplicação web automatizada para a gestão e controle de estoque, desenvolvida com o ecossistema Next.js. O principal diferencial acadêmico e tecnológico da plataforma é a integração de um Agente de Inteligência Artificial Generativa (LLM), utilizando a API do Google Gemini. Este agente atua como um assistente autônomo capaz de realizar consultas estruturadas, analisar métricas e propor mutações de estado (inserções e exclusões) por meio de interações em linguagem natural.
+Este projeto consiste no desenvolvimento de uma aplicação web automatizada para a gestão e controle de estoque, desenvolvida com o ecossistema Next.js. O principal diferencial acadêmico e tecnológico da plataforma é a integração de um Agente de Inteligência Artificial Generativa (LLM), utilizando a API da Groq (Modelo Llama 3.3 70B). Este agente atua como um assistente autônomo capaz de realizar consultas estruturadas, analisar métricas e propor mutações de estado (inserções e exclusões) por meio de interações em linguagem natural.
 
 ## 2. Arquitetura do Sistema
 A arquitetura foi projetada utilizando o padrão cliente-servidor (Frontend/Backend) com persistência em nuvem:
@@ -16,7 +16,7 @@ O assistente virtual foi implementado aplicando técnicas rigorosas de Engenhari
 
 ## 4. Tecnologias Utilizadas
 - **Ecossistema Core:** TypeScript, Next.js, React
-- **Inteligência Artificial:** SDK `@google/generative-ai` (Gemini Flash)
+- **Inteligência Artificial:** SDK `groq-sdk` (Llama 3.3 70B)
 - **Persistência:** MongoDB (Node Driver)
 - **Interface e Componentização:** TailwindCSS, Lucide Icons
 
@@ -32,7 +32,7 @@ O assistente virtual foi implementado aplicando técnicas rigorosas de Engenhari
 3. Configure as variáveis de ambiente na raiz do projeto (`.env.local`):
    ```env
    MONGODB_URI=mongodb+srv://...
-   GEMINI_API_KEY=AIzaSy...
+   GROK_APO=gsk_...
    ```
 4. Inicie o servidor de desenvolvimento:
    ```bash
@@ -44,7 +44,7 @@ O assistente virtual foi implementado aplicando técnicas rigorosas de Engenhari
 As seguintes documentações, artigos e bibliografias fundamentaram o desenvolvimento da arquitetura e a integração da Inteligência Artificial neste projeto:
 
 1. **BROWN, Tom et al.** *Language Models are Few-Shot Learners.* In: Advances in Neural Information Processing Systems (NeurIPS), 2020. Disponível em: [https://arxiv.org/abs/2005.14165](https://arxiv.org/abs/2005.14165). *(Base teórica para as técnicas de Prompt Engineering aplicadas).*
-2. **GOOGLE DEEPMIND.** *Gemini API Documentation: Function Calling & System Instructions.* Google AI for Developers, 2024. Disponível em: [https://ai.google.dev/docs](https://ai.google.dev/docs). *(Diretrizes oficiais para limitação de contexto e definição de comportamento da IA).*
+2. **GROQ CLOUD.** *Groq API Documentation: Chat Completions & Model Quotas.* Groq Inc., 2024. Disponível em: [https://console.groq.com/docs](https://console.groq.com/docs). *(Diretrizes oficiais para integração do modelo Llama 3.3 e definição de comportamento da IA).*
 3. **NEXT.JS.** *Next.js Documentation: App Router & Route Handlers.* Vercel, 2024. Disponível em: [https://nextjs.org/docs](https://nextjs.org/docs). *(Fundamentação técnica para a construção da API Server-side e hidratação do cliente).*
 4. **MONGODB.** *MongoDB Node.js Driver Documentation.* MongoDB Inc., 2024. Disponível em: [https://www.mongodb.com/docs/drivers/node/current/](https://www.mongodb.com/docs/drivers/node/current/). *(Boas práticas para transações e modelagem de dados NoSQL).*
 5. **OWASP.** *OWASP Top 10 for Large Language Model Applications.* Open Worldwide Application Security Project, 2023. Disponível em: [https://owasp.org/www-project-top-10-for-large-language-model-applications/](https://owasp.org/www-project-top-10-for-large-language-model-applications/). *(Padrões de segurança adotados contra Prompt Injection e vazamento de System Prompts).*
