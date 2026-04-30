@@ -71,6 +71,7 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
   const [isLoading, setIsLoading] = useState(false)
   const [selectedModel, setSelectedModel] = useState(AVAILABLE_MODELS[0].id)
   
+  const [editingSessionId, setEditingSessionId] = useState<string | null>(null)
   const [editingTitle, setEditingTitle] = useState("")
   const [activeModelName, setActiveModelName] = useState<string | null>(null)
   const [tokenUsage, setTokenUsage] = useState<{ used: number, remaining: number, limit: number } | null>(null)
@@ -412,55 +413,36 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
       <div className={`fixed top-0 right-0 h-screen w-full sm:w-[30vw] min-w-[320px] sm:min-w-[400px] flex flex-col shadow-2xl z-50 bg-gray-50 transition-all duration-300 ${isClosing ? "animate-out slide-out-to-right" : "animate-in slide-in-from-right"}`}>
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 z-30" />
         
-        <div className="shrink-0 h-16 bg-slate-900 text-white flex items-center justify-between px-4 z-20">
+        <div className="shrink-0 h-20 bg-slate-900 text-white flex items-center justify-between px-4 z-20">
           {view === "chat" ? (
-            <>
-              <div className="flex items-center gap-3">
-                <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white hover:bg-slate-800">
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <h3 className="text-2xl font-black text-white leading-none tracking-tight">Tigre AI</h3>
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shrink-0" />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[80px]">
-                      {activeModelName || "NÚCLEO IA"}
-                    </span>
-                    {tokenUsage && tokenUsage.limit > 0 && (
-                      <span className="text-[8px] font-medium text-gray-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5 flex items-center gap-1">
-                        <Cpu className="w-2 h-2" />
-                        {Math.round(tokenUsage.remaining / 1000)}k DISP.
-                      </span>
-                    )}
-                  </div>
+            <div className="flex items-center gap-3">
+              <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white hover:bg-slate-800">
+                <ArrowLeft className="h-5 w-5" />
+              </Button>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <h3 className="text-2xl font-black text-white leading-none tracking-tight">Tigre AI</h3>
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shrink-0" />
                 </div>
-                    <Select value={selectedModel} onValueChange={setSelectedModel}>
-                      <SelectTrigger className="w-[150px] h-6 bg-transparent border-none p-0 text-gray-400 text-[10px] focus:ring-0">
-                        <SelectValue placeholder="Trocar Modelo" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-slate-900 border-slate-800 text-white">
-                        {AVAILABLE_MODELS.map(model => (
-                          <SelectItem 
-                            key={model.id} 
-                            value={model.id} 
-                            className="text-[10px] hover:bg-slate-800 cursor-pointer"
-                          >
-                            {model.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[9px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[80px]">
+                    {activeModelName || "NÚCLEO IA"}
+                  </span>
+                  {tokenUsage && tokenUsage.limit > 0 && (
+                    <span className="text-[8px] font-medium text-gray-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5 flex items-center gap-1">
+                      <Cpu className="w-2 h-2" />
+                      {Math.round(tokenUsage.remaining / 1000)}k DISP.
+                    </span>
+                  )}
                 </div>
               </div>
-            </>
+            </div>
           ) : (
             <div className="font-semibold flex items-center gap-2">
               <Clock className="h-5 w-5 text-purple-400" /> Histórico
             </div>
           )}
+          
           <div className="flex items-center gap-1">
             <Button
               variant="ghost"
@@ -470,13 +452,35 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
               title="Baixar Relatório de Auditoria"
             >
               <Download className="h-4 w-4" />
-              <span className="hidden sm:inline text-xs">Relatório IA</span>
+              <span className="hidden sm:inline text-xs">Relatório</span>
             </Button>
             <Button variant="ghost" size="icon" onClick={handleNewChat} className="text-white hover:bg-slate-800">
               <Plus className="h-5 w-5" />
             </Button>
           </div>
         </div>
+
+        {view === "chat" && (
+          <div className="bg-slate-800 px-4 py-2 border-b border-slate-700 flex items-center justify-between">
+            <span className="text-[10px] text-gray-400 uppercase font-semibold">Modelo:</span>
+            <Select value={selectedModel} onValueChange={setSelectedModel}>
+              <SelectTrigger className="w-[180px] h-7 bg-slate-900 border-slate-700 text-white text-[10px] focus:ring-0">
+                <SelectValue placeholder="Modelo" />
+              </SelectTrigger>
+              <SelectContent className="bg-slate-900 border-slate-800 text-white">
+                {AVAILABLE_MODELS.map(model => (
+                  <SelectItem 
+                    key={model.id} 
+                    value={model.id} 
+                    className="text-[10px] hover:bg-slate-800 cursor-pointer"
+                  >
+                    {model.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
 
         {view === "history" ? (
           <div className="flex-1 overflow-y-auto p-4 space-y-3">
