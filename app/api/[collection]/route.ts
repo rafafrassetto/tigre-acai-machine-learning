@@ -242,14 +242,29 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
     const client = await clientPromise
     const db = client.db("tigre_acai")
 
-    await db.collection(collection).deleteMany({})
-    
-    if (Array.isArray(body) && body.length > 0) {
-      const dataWithoutMongoId = body.map(({ _id, ...rest }: any) => rest)
-      await db.collection(collection).insertMany(dataWithoutMongoId)
+    try {
+      // Limpa a coleção atual antes de sincronizar o novo estado do frontend
+      await db.collection(collection).deleteMany({})
+      
+      if (Array.isArray(body) && body.length > 0) {
+        // Remove IDs do MongoDB para evitar conflitos de duplicidade na reinserção
+        const dataToInsert = body.map(({ _id, id, ...rest }: any) => ({
+          ...rest,
+          id: id || _id?.toString() // Garante que temos um campo ID consistente
+        }))
+        
+        await db.collection(collection).insertMany(dataToInsert)
+      }
+      
+      return NextResponse.json({ success: true, count: Array.isArray(body) ? body.length : 0 })
+    } catch (dbError: any) {
+      console.error(`Erro ao sincronizar coleção ${collection}:`, dbError)
+      return NextResponse.json({ 
+        success: false, 
+        error: "Erro no banco de dados", 
+        details: dbError.message 
+      }, { status: 500 })
     }
-    
-    return NextResponse.json({ success: true })
     
   } catch (e) {
     console.error("Erro na API POST:", e)
