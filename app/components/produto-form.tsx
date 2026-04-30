@@ -75,13 +75,13 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
 
   const handleEdit = (produto: Produto) => {
     setFormData({
-      nome: produto.nome,
-      categoria: produto.categoria,
-      quantidadeEstoque: produto.quantidadeEstoque.toString(),
-      unidadeMedida: produto.unidadeMedida,
-      custoUnitario: produto.custoUnitario.toString(),
-      fornecedorId: produto.fornecedorId,
-      pontoReposicao: produto.pontoReposicao.toString(),
+      nome: produto.nome || "",
+      categoria: produto.categoria || "sorvete",
+      quantidadeEstoque: (produto.quantidadeEstoque ?? 0).toString(),
+      unidadeMedida: produto.unidadeMedida || "",
+      custoUnitario: (produto.custoUnitario ?? 0).toString(),
+      fornecedorId: produto.fornecedorId || "",
+      pontoReposicao: (produto.pontoReposicao ?? 0).toString(),
       dataValidade: produto.dataValidade || "",
       observacoes: produto.observacoes || "",
     })
