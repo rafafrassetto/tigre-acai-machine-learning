@@ -38,3 +38,13 @@ O assistente virtual foi implementado aplicando técnicas rigorosas de Engenhari
    ```bash
    npm run dev
    ```
+
+## 6. Referências Bibliográficas e Tecnológicas
+
+As seguintes documentações, artigos e bibliografias fundamentaram o desenvolvimento da arquitetura e a integração da Inteligência Artificial neste projeto:
+
+1. **BROWN, Tom et al.** *Language Models are Few-Shot Learners.* In: Advances in Neural Information Processing Systems (NeurIPS), 2020. Disponível em: [https://arxiv.org/abs/2005.14165](https://arxiv.org/abs/2005.14165). *(Base teórica para as técnicas de Prompt Engineering aplicadas).*
+2. **GOOGLE DEEPMIND.** *Gemini API Documentation: Function Calling & System Instructions.* Google AI for Developers, 2024. Disponível em: [https://ai.google.dev/docs](https://ai.google.dev/docs). *(Diretrizes oficiais para limitação de contexto e definição de comportamento da IA).*
+3. **NEXT.JS.** *Next.js Documentation: App Router & Route Handlers.* Vercel, 2024. Disponível em: [https://nextjs.org/docs](https://nextjs.org/docs). *(Fundamentação técnica para a construção da API Server-side e hidratação do cliente).*
+4. **MONGODB.** *MongoDB Node.js Driver Documentation.* MongoDB Inc., 2024. Disponível em: [https://www.mongodb.com/docs/drivers/node/current/](https://www.mongodb.com/docs/drivers/node/current/). *(Boas práticas para transações e modelagem de dados NoSQL).*
+5. **OWASP.** *OWASP Top 10 for Large Language Model Applications.* Open Worldwide Application Security Project, 2023. Disponível em: [https://owasp.org/www-project-top-10-for-large-language-model-applications/](https://owasp.org/www-project-top-10-for-large-language-model-applications/). *(Padrões de segurança adotados contra Prompt Injection e vazamento de System Prompts).*
