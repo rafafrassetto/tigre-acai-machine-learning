@@ -157,7 +157,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
           responseText = result.response.text()
         } catch (error: any) {
           console.error("Erro Gemini:", error)
-          return NextResponse.json({ response: "⚠️ Erro ao processar sua mensagem com o Gemini. Verifique a chave de API e o nome do modelo." })
+          const errorMsg = error.message || "Erro desconhecido"
+          return NextResponse.json({ response: `⚠️ Erro ao processar sua mensagem com o Gemini: ${errorMsg}. Verifique se o nome do modelo está correto para a sua região.` })
         }
       } else {
         try {
