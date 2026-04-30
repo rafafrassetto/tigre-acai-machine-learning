@@ -177,7 +177,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
             ...formattedHistory,
             { role: "user", content: message }
           ],
-          model: "llama-3.1-70b-versatile",
+          model: "llama-3.3-70b-versatile",
           temperature: 0.2,
           max_tokens: 1024,
         })
