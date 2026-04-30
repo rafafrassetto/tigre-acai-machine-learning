@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock, Download, Edit2, Check, X } from "lucide-react"
+import { Sparkles, Send, User, Loader2, Trash2, MessageSquare, Plus, ArrowLeft, Clock, Download, Edit2, Check, X, Bot, Cpu } from "lucide-react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useMongoSync } from "../hooks/use-mongo-sync"
 import type { Produto, Movimentacao, Fornecedor } from "../page"
 
@@ -37,6 +38,16 @@ const INITIAL_MESSAGE: Message = {
   content: "Olá! Sou o 🐯 Tigre IA. Como posso ajudar você hoje?" 
 }
 
+const AVAILABLE_MODELS = [
+  { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Potente e inteligente" },
+  { id: "llama-3.1-70b-versatile", name: "Llama 3.1 70B", description: "Versátil para dados" },
+  { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Rápido e eficiente" },
+  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Bom raciocínio" },
+  { id: "gemma2-9b-it", name: "Gemma 2 9B", description: "Modelo do Google" },
+  { id: "llama3-70b-8192", name: "Llama 3 70B", description: "Robusto" },
+  { id: "llama3-8b-8192", name: "Llama 3 8B", description: "Leve" },
+]
+
 export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
@@ -48,6 +59,7 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
   
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [selectedModel, setSelectedModel] = useState(AVAILABLE_MODELS[0].id)
   
   const [editingSessionId, setEditingSessionId] = useState<string | null>(null)
   const [editingTitle, setEditingTitle] = useState("")
@@ -271,6 +283,7 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
           message: userMessage,
           history: messages.slice(1), 
           estoqueContext: getContextoIA(),
+          model: selectedModel
         }),
       })
 
@@ -341,9 +354,33 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
         
         <div className="shrink-0 h-16 bg-slate-900 text-white flex items-center justify-between px-4 z-20">
           {view === "chat" ? (
-            <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white hover:bg-slate-800">
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
+            <>
+              <div className="flex items-center gap-2">
+                <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white hover:bg-slate-800">
+                  <ArrowLeft className="h-5 w-5" />
+                </Button>
+                <div className="hidden sm:block">
+                  <Select value={selectedModel} onValueChange={setSelectedModel}>
+                    <SelectTrigger className="w-[180px] h-9 bg-slate-800 border-slate-700 text-white text-xs">
+                      <div className="flex items-center gap-2">
+                        <Cpu className="h-3 w-3 text-purple-400" />
+                        <SelectValue placeholder="Modelo" />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-900 border-slate-800 text-white">
+                      {AVAILABLE_MODELS.map(model => (
+                        <SelectItem key={model.id} value={model.id} className="text-xs hover:bg-slate-800 focus:bg-slate-800 cursor-pointer">
+                          <div className="flex flex-col gap-0.5">
+                            <span className="font-medium">{model.name}</span>
+                            <span className="text-[10px] text-gray-400">{model.description}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </>
           ) : (
             <div className="font-semibold flex items-center gap-2">
               <Clock className="h-5 w-5 text-purple-400" /> Histórico

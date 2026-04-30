@@ -111,7 +111,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
     const body = await request.json()
 
     if (collection === "chat") {
-      const { message, history, estoqueContext } = body
+      const { message, history, estoqueContext, model } = body
 
       if (!process.env.GROK_APO) {
         return NextResponse.json({ response: "⚠️ A chave de API da Groq (GROK_APO) não está configurada no servidor. Contate o administrador." })
@@ -135,7 +135,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
             ...formattedHistory,
             { role: "user", content: message }
           ],
-          model: "llama-3.3-70b-versatile",
+          model: model || "llama-3.3-70b-versatile",
           temperature: 0.2,
           max_tokens: 1024,
         })
