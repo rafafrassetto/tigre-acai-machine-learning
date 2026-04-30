@@ -8,7 +8,11 @@ export function useMongoSync<T>(key: string, initialValue: T) {
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
-          setStoredValue(data as unknown as T)
+          const mappedData = data.map((item: any) => ({
+            ...item,
+            id: item.id || item._id?.toString() || item._id
+          }))
+          setStoredValue(mappedData as unknown as T)
         }
       })
       .catch(err => console.error("Erro ao sincronizar do Mongo:", err))
