@@ -209,47 +209,33 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       }
 
       if (iaCommand && iaCommand.acao === "INSERIR_PRODUTO" && iaCommand.produto) {
-        try {
-          const client = await clientPromise
-          const db = client.db("tigre_acai")
-          
-          const novoProduto = {
-            id: Date.now().toString(),
-            nome: iaCommand.produto.nome || "Produto sem nome",
-            categoria: iaCommand.produto.categoria || "sorvete",
-            quantidadeEstoque: Number(iaCommand.produto.quantidadeEstoque) || 0,
-            unidadeMedida: iaCommand.produto.unidadeMedida || "Unidades",
-            custoUnitario: Number(iaCommand.produto.custoUnitario) || 0,
-            fornecedorId: iaCommand.produto.fornecedorId || "",
-            pontoReposicao: Number(iaCommand.produto.pontoReposicao) || 5,
-            observacoes: iaCommand.produto.observacoes || "Adicionado via IA"
-          }
-          
-          await db.collection("produtos").insertOne(novoProduto)
-          
-          responseText = `✅ Concluído! Registrei **${novoProduto.quantidadeEstoque} ${novoProduto.unidadeMedida} de ${novoProduto.nome}** no sistema.\n\nRecarregue a página para atualizar as tabelas.`
-          
-        } catch (dbError) {
-          console.error("Erro no MongoDB (inserção):", dbError)
-          responseText = `❌ Ocorreu um erro no banco de dados ao tentar cadastrar "${iaCommand.produto.nome}". Tente novamente.`
+        const novoProduto = {
+          id: Date.now().toString(),
+          nome: iaCommand.produto.nome || "Produto sem nome",
+          categoria: iaCommand.produto.categoria || "sorvete",
+          quantidadeEstoque: Number(iaCommand.produto.quantidadeEstoque) || 0,
+          unidadeMedida: iaCommand.produto.unidadeMedida || "Unidades",
+          custoUnitario: Number(iaCommand.produto.custoUnitario) || 0,
+          fornecedorId: iaCommand.produto.fornecedorId || "",
+          pontoReposicao: Number(iaCommand.produto.pontoReposicao) || 5,
+          observacoes: iaCommand.produto.observacoes || "Adicionado via IA"
         }
+        
+        return NextResponse.json({ 
+          response: "Por favor, confirme se deseja cadastrar este novo produto:",
+          actionPending: {
+            type: "INSERIR_PRODUTO",
+            payload: novoProduto
+          }
+        })
       } else if (iaCommand && iaCommand.acao === "REMOVER_PRODUTO" && iaCommand.nomeProduto) {
-        try {
-          const client = await clientPromise
-          const db = client.db("tigre_acai")
-          
-          const regex = new RegExp(iaCommand.nomeProduto, "i")
-          const deleteResult = await db.collection("produtos").deleteMany({ nome: regex })
-          
-          if (deleteResult.deletedCount > 0) {
-            responseText = `🗑️ Concluído! Removi **${deleteResult.deletedCount} produto(s)** correspondente(s) a "${iaCommand.nomeProduto}" do seu estoque.\n\nRecarregue a página para atualizar as tabelas.`
-          } else {
-            responseText = `⚠️ Não encontrei nenhum produto com o nome parecido com "${iaCommand.nomeProduto}" para remover. Verifique o nome e tente novamente.`
+        return NextResponse.json({ 
+          response: `Por favor, confirme se deseja remover todos os produtos correspondentes a "${iaCommand.nomeProduto}":`,
+          actionPending: {
+            type: "REMOVER_PRODUTO",
+            payload: { nome: iaCommand.nomeProduto }
           }
-        } catch (dbError) {
-          console.error("Erro no MongoDB (remoção):", dbError)
-          responseText = `❌ Ocorreu um erro no banco de dados ao tentar remover o produto. Tente novamente.`
-        }
+        })
       } else if (iaCommand) {
         responseText = "🤖 Comando não reconhecido. Tente pedir de forma mais clara (ex: 'cadastre o produto X' ou 'remova o produto Y')."
       }

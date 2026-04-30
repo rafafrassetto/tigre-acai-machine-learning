@@ -9,6 +9,7 @@ import type { Produto, Movimentacao, Fornecedor } from "../page"
 
 interface ChatWidgetProps {
   produtos: Produto[]
+  setProdutos?: (produtos: Produto[]) => void
   movimentacoes: Movimentacao[]
   fornecedores: Fornecedor[]
 }
@@ -17,6 +18,11 @@ interface ChatWidgetProps {
 interface Message {
   role: "user" | "assistant"
   content: string
+  actionPending?: {
+    type: "INSERIR_PRODUTO" | "REMOVER_PRODUTO"
+    payload: any
+    status: "pending" | "confirmed" | "cancelled"
+  }
 }
 
 interface ChatSession {
@@ -31,7 +37,7 @@ const INITIAL_MESSAGE: Message = {
   content: "Olá! Sou seu assistente de IA. Como posso ajudar com a gestão de estoque hoje?" 
 }
 
-export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidgetProps) {
+export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
   const [view, setView] = useState<"history" | "chat">("history")
@@ -207,6 +213,45 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
     printWindow.document.close()
   }
 
+  const handleConfirmAction = (messageIndex: number, action: NonNullable<Message["actionPending"]>) => {
+    if (!setProdutos) return;
+    
+    let novoTexto = "";
+    if (action.type === "INSERIR_PRODUTO") {
+      setProdutos([...produtos, action.payload]);
+      novoTexto = `✅ Produto **${action.payload.nome}** inserido com sucesso! A tabela já foi atualizada.`;
+    } else if (action.type === "REMOVER_PRODUTO") {
+      const regex = new RegExp(action.payload.nome, "i");
+      const filtered = produtos.filter(p => !regex.test(p.nome));
+      const removedCount = produtos.length - filtered.length;
+      setProdutos(filtered);
+      novoTexto = `🗑️ Foram removidos **${removedCount}** produto(s) correspondente(s) a "${action.payload.nome}".`;
+    }
+
+    const updatedMessages = [...messages];
+    updatedMessages[messageIndex].actionPending = { ...action, status: "confirmed" };
+    updatedMessages.push({ role: "assistant", content: novoTexto });
+    setMessages(updatedMessages);
+
+    if (currentSessionId) {
+      setSessions(sessions.map(s => s.id === currentSessionId ? { ...s, messages: updatedMessages, updatedAt: Date.now() } : s));
+    }
+  }
+
+  const handleCancelAction = (messageIndex: number) => {
+    const updatedMessages = [...messages];
+    const action = updatedMessages[messageIndex].actionPending;
+    if (action) {
+      updatedMessages[messageIndex].actionPending = { ...action, status: "cancelled" };
+      updatedMessages.push({ role: "assistant", content: "❌ Ação cancelada pelo usuário." });
+      setMessages(updatedMessages);
+
+      if (currentSessionId) {
+        setSessions(sessions.map(s => s.id === currentSessionId ? { ...s, messages: updatedMessages, updatedAt: Date.now() } : s));
+      }
+    }
+  }
+
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!input.trim() || isLoading) return
@@ -237,7 +282,13 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
       }
 
       const aiResponse = data.response || data.error || "⚠️ Resposta inesperada do servidor."
-      const finalMessages: Message[] = [...newMessages, { role: "assistant", content: aiResponse }]
+      
+      const newAssistantMessage: Message = { role: "assistant", content: aiResponse }
+      if (data.actionPending) {
+        newAssistantMessage.actionPending = { ...data.actionPending, status: "pending" }
+      }
+      
+      const finalMessages: Message[] = [...newMessages, newAssistantMessage]
       setMessages(finalMessages)
 
       const now = Date.now()
@@ -372,6 +423,43 @@ export function ChatWidget({ produtos, movimentacoes, fornecedores }: ChatWidget
                     </div>
                     <div className={`p-3 px-4 rounded-2xl text-sm shadow-sm whitespace-pre-wrap ${msg.role === "user" ? "bg-slate-800 text-white rounded-tr-none" : "bg-white border text-gray-800 rounded-tl-none"}`}>
                       {formatMessage(msg.content)}
+                      
+                      {msg.actionPending && (
+                        <div className="mt-4 p-4 border rounded-xl bg-gray-50 border-purple-200">
+                          <div className="font-semibold text-purple-700 mb-2 flex items-center gap-2">
+                            <Sparkles className="h-4 w-4" /> 
+                            {msg.actionPending.type === "INSERIR_PRODUTO" ? "Inserir Produto" : "Remover Produto"}
+                          </div>
+                          
+                          <div className="text-xs space-y-1 mb-4 text-gray-600 bg-white p-3 rounded border">
+                            {msg.actionPending.type === "INSERIR_PRODUTO" ? (
+                              <>
+                                <div><strong>Nome:</strong> {msg.actionPending.payload.nome}</div>
+                                <div><strong>Categoria:</strong> {msg.actionPending.payload.categoria}</div>
+                                <div><strong>Quantidade:</strong> {msg.actionPending.payload.quantidadeEstoque} {msg.actionPending.payload.unidadeMedida}</div>
+                                <div><strong>Custo:</strong> R$ {msg.actionPending.payload.custoUnitario}</div>
+                              </>
+                            ) : (
+                              <div><strong>Produto alvo:</strong> {msg.actionPending.payload.nome}</div>
+                            )}
+                          </div>
+
+                          {msg.actionPending.status === "pending" ? (
+                            <div className="flex gap-2">
+                              <Button size="sm" onClick={() => handleConfirmAction(index, msg.actionPending!)} className="bg-green-600 hover:bg-green-700 text-white flex-1">
+                                Confirmar Ação
+                              </Button>
+                              <Button size="sm" variant="outline" onClick={() => handleCancelAction(index)} className="flex-1">
+                                Cancelar
+                              </Button>
+                            </div>
+                          ) : (
+                            <div className={`text-center font-medium text-xs py-2 rounded-lg ${msg.actionPending.status === 'confirmed' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                              {msg.actionPending.status === 'confirmed' ? 'Ação Confirmada' : 'Ação Cancelada'}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

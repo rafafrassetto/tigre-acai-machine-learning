@@ -248,7 +248,7 @@ export default function Dashboard() {
 
         </Tabs>
       </div>
-          <ChatWidget produtos={produtos} movimentacoes={movimentacoes} fornecedores={fornecedores} />
+          <ChatWidget produtos={produtos} setProdutos={setProdutos} movimentacoes={movimentacoes} fornecedores={fornecedores} />
     </div>
   )
 }
