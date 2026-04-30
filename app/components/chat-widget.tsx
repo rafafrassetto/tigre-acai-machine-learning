@@ -39,6 +39,10 @@ const INITIAL_MESSAGE: Message = {
 }
 
 const AVAILABLE_MODELS = [
+  // --- Google Gemini (Máximo Contexto) ---
+  { id: "gemini-1.5-pro", name: "Gemini 1.5 Pro", description: "O rei do contexto (2M tokens)" },
+  { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", description: "Veloz e com contexto gigante" },
+  
   // --- Inteligentes / Raciocínio (Top Tier) ---
   { id: "llama-3.1-405b-reasoning", name: "Llama 3.1 405B", description: "O mais poderoso do mundo" },
   { id: "deepseek-r1-distill-llama-70b", name: "DeepSeek R1 70B", description: "Especialista em raciocínio" },
