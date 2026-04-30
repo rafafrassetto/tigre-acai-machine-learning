@@ -136,6 +136,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         const modelsToTry = [
           primaryModel,
           "llama-3.3-70b-versatile",
+          "llama-3.1-8b-instant",
           "gemini-1.5-flash",
           "gpt-4o-mini"
         ].filter((m, i, self) => m && self.indexOf(m) === i)
