@@ -39,17 +39,26 @@ const INITIAL_MESSAGE: Message = {
 }
 
 const AVAILABLE_MODELS = [
+  // --- Inteligentes / Raciocínio (Top Tier) ---
+  { id: "llama-3.1-405b-reasoning", name: "Llama 3.1 405B", description: "O mais poderoso do mundo" },
+  { id: "deepseek-r1-distill-llama-70b", name: "DeepSeek R1 70B", description: "Especialista em raciocínio" },
   { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Potente e inteligente" },
-  { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Rápido e eficiente" },
-  { id: "qwen/qwen3-32b", name: "Qwen 3 32B", description: "Excelente raciocínio" },
-  { id: "meta-llama/llama-4-scout-17b-16e-instruct", name: "Llama 4 Scout", description: "Nova geração Llama" },
-  { id: "openai/gpt-oss-120b", name: "GPT-OSS 120B", description: "Modelo massivo open-source" },
-  { id: "openai/gpt-oss-20b", name: "GPT-OSS 20B", description: "Equilibrado e rápido" },
-  { id: "groq/compound", name: "Groq Compound", description: "Otimizado pela Groq" },
-  { id: "groq/compound-mini", name: "Groq Compound Mini", description: "Ultra-rápido" },
-  { id: "allam-2-7b", name: "Allam 2 7B", description: "Leve e focado" },
-  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Clássico e confiável" },
+  { id: "openai/gpt-oss-120b", name: "GPT-OSS 120B", description: "Massivo e open-source" },
+  { id: "qwen/qwen3-32b", name: "Qwen 3 32B", description: "Excelente lógica" },
+  
+  // --- Equilibrados (Versáteis) ---
+  { id: "meta-llama/llama-4-scout-17b-16e-instruct", name: "Llama 4 Scout", description: "Nova geração equilibrada" },
+  { id: "llama-3.1-70b-versatile", name: "Llama 3.1 70B", description: "Versátil para dados" },
+  { id: "deepseek-r1-distill-qwen-32b", name: "DeepSeek R1 32B", description: "Raciocínio veloz" },
+  { id: "openai/gpt-oss-20b", name: "GPT-OSS 20B", description: "Eficiente e preciso" },
+  
+  // --- Rápidos (Instante) ---
+  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Clássico veloz" },
   { id: "gemma2-9b-it", name: "Gemma 2 9B", description: "Tecnologia Google" },
+  { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Respostas instantâneas" },
+  { id: "groq/compound", name: "Groq Compound", description: "Otimizado Groq" },
+  { id: "groq/compound-mini", name: "Groq Compound Mini", description: "Ultra-rápido" },
+  { id: "allam-2-7b", name: "Allam 2 7B", description: "Leve" },
 ]
 
 export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {
