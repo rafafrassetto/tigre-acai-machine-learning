@@ -164,7 +164,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       const contextJson = JSON.stringify(ctxSanitizado, null, 2)
 
       const model = genAI.getGenerativeModel({
-        model: "gemini-2.5-flash",
+        model: "gemini-1.5-flash",
         systemInstruction: buildSystemPrompt(contextJson),
       })
 
