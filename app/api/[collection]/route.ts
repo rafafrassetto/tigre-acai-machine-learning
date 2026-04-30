@@ -148,7 +148,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
           try {
             if (currentModel.toLowerCase().includes("gemini")) {
               if (!process.env.GEMINI_API_KEY) throw new Error("Chave Gemini ausente")
-              const geminiModel = genAI.getGenerativeModel({ model: currentModel })
+              const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
               const chat = geminiModel.startChat({
                 history: [
                   { role: "user", parts: [{ text: buildSystemPrompt(contextJson, memoriaTexto) }] },
@@ -161,7 +161,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
                 generationConfig: { temperature: 0.2, maxOutputTokens: 2048 },
               })
               const result = await chat.sendMessage(message)
-              return { text: result.response.text(), modelUsed: currentModel }
+              return { text: result.response.text(), modelUsed: "gemini-1.5-flash" }
 
             } else if (currentModel.toLowerCase().startsWith("gpt-")) {
               if (!process.env.OPENAI_API_KEY) throw new Error("Chave OpenAI ausente")
@@ -237,19 +237,27 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
           actionPending: {
             type: "INSERIR_PRODUTO",
             payload: { ...p, id: Date.now().toString(), observacoes: p.observacoes || "Adicionado via IA" }
-          }
+          },
+          modelUsed: modelUsed
         })
       } else if (iaCommand && iaCommand.acao === "REMOVER_PRODUTO" && iaCommand.nomeProduto) {
         return NextResponse.json({ 
           response: `Por favor, confirme se deseja remover todos os produtos correspondentes a "${iaCommand.nomeProduto}":`,
-          actionPending: { type: "REMOVER_PRODUTO", payload: { nome: iaCommand.nomeProduto } }
+          actionPending: { type: "REMOVER_PRODUTO", payload: { nome: iaCommand.nomeProduto } },
+          modelUsed: modelUsed
         })
       } else if (iaCommand && iaCommand.acao === "APRENDER" && iaCommand.fato) {
         try {
           await db.collection("memoria_ia").insertOne({ fato: iaCommand.fato, data: new Date(), origem: message })
-          return NextResponse.json({ response: `✅ Entendido! Aprendi que: "${iaCommand.fato}". Vou lembrar disso nas próximas conversas.` })
+          return NextResponse.json({ 
+            response: `✅ Entendido! Aprendi que: "${iaCommand.fato}". Vou lembrar disso nas próximas conversas.`,
+            modelUsed: modelUsed
+          })
         } catch (memError) {
-          return NextResponse.json({ response: "⚠️ Tentei salvar esse aprendizado mas houve um erro no banco de dados." })
+          return NextResponse.json({ 
+            response: "⚠️ Tentei salvar esse aprendizado mas houve um erro no banco de dados.",
+            modelUsed: modelUsed
+          })
         }
       } else if (iaCommand) {
         responseText = "🤖 Comando não reconhecido. Tente pedir de forma mais clara."
@@ -259,7 +267,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         responseText = `*(Nota: Alternado para ${modelUsed} devido a limite de tokens no modelo original)*\n\n${responseText}`
       }
 
-      return NextResponse.json({ response: responseText })
+      return NextResponse.json({ response: responseText, modelUsed: modelUsed })
     }
 
     const db = (await clientPromise).db("tigre_acai")

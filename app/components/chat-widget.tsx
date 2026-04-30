@@ -73,6 +73,7 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
   
   const [editingSessionId, setEditingSessionId] = useState<string | null>(null)
   const [editingTitle, setEditingTitle] = useState("")
+  const [activeModelName, setActiveModelName] = useState<string | null>(null)
 
   const handleDownloadReport = () => {
     const reportContent = `🐯 RELATÓRIO DE AUDITORIA E TREINAMENTO IA - TIGRE AÇAÍ
@@ -341,6 +342,10 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
         data = { response: "⚠️ Resposta inválida do servidor. Tente novamente." }
       }
 
+      if (data.modelUsed) {
+        setActiveModelName(data.modelUsed)
+      }
+      
       const aiResponse = data.response || data.error || "⚠️ Resposta inesperada do servidor."
       
       const newAssistantMessage: Message = { role: "assistant", content: aiResponse }
@@ -402,35 +407,35 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
         <div className="shrink-0 h-16 bg-slate-900 text-white flex items-center justify-between px-4 z-20">
           {view === "chat" ? (
             <>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <Button variant="ghost" size="icon" onClick={() => setView("history")} className="text-white hover:bg-slate-800">
                   <ArrowLeft className="h-5 w-5" />
                 </Button>
-                <div className="hidden sm:block">
-                  <Select value={selectedModel} onValueChange={setSelectedModel}>
-                    <SelectTrigger className="w-[180px] h-9 bg-slate-800 border-slate-700 text-white text-xs overflow-hidden">
-                      <div className="flex items-center gap-2 max-w-full overflow-hidden">
-                        <Cpu className="h-3 w-3 text-purple-400 shrink-0" />
-                        <div className="truncate flex-1 text-left">
-                          <SelectValue placeholder="Modelo" />
-                        </div>
-                      </div>
-                    </SelectTrigger>
-                    <SelectContent className="bg-slate-900 border-slate-800 text-white">
-                      {AVAILABLE_MODELS.map(model => (
-                        <SelectItem 
-                          key={model.id} 
-                          value={model.id} 
-                          className="text-xs hover:bg-slate-800 focus:bg-slate-800 focus:text-white data-[highlighted]:bg-slate-800 data-[highlighted]:text-white cursor-pointer"
-                        >
-                          <div className="flex flex-col gap-0.5">
-                            <span className="font-medium text-inherit">{model.name}</span>
-                            <span className="text-[10px] text-gray-400 group-focus:text-gray-300">{model.description}</span>
-                          </div>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-[10px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[100px]">
+                      {activeModelName || "Tigre IA"}
+                    </span>
+                  </div>
+                  <div className="hidden sm:block">
+                    <Select value={selectedModel} onValueChange={setSelectedModel}>
+                      <SelectTrigger className="w-[150px] h-6 bg-transparent border-none p-0 text-gray-400 text-[10px] focus:ring-0">
+                        <SelectValue placeholder="Trocar Modelo" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-slate-900 border-slate-800 text-white">
+                        {AVAILABLE_MODELS.map(model => (
+                          <SelectItem 
+                            key={model.id} 
+                            value={model.id} 
+                            className="text-[10px] hover:bg-slate-800 cursor-pointer"
+                          >
+                            {model.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
               </div>
             </>
