@@ -425,9 +425,11 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shrink-0" />
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[80px]">
-                    {activeModelName || "NÚCLEO IA"}
-                  </span>
+                  {activeModelName && (
+                    <span className="text-[9px] font-mono text-purple-400 uppercase tracking-tighter truncate max-w-[120px]">
+                      {activeModelName}
+                    </span>
+                  )}
                   {tokenUsage && tokenUsage.limit > 0 && (
                     <span className="text-[8px] font-medium text-gray-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5 flex items-center gap-1">
                       <Cpu className="w-2 h-2" />
