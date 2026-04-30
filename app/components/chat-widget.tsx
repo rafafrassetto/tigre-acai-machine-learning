@@ -36,6 +36,8 @@ interface ChatSession {
 const INITIAL_MESSAGE: Message = { 
   role: "assistant", 
   content: "Olá! Sou o 🐯 Tigre IA. Como posso ajudar você hoje?" 
+}
+
 const AVAILABLE_MODELS = [
   // --- Elite (Top Tier 2026) ---
   { id: "claude-4-7-opus-2026", name: "Claude 4.7 Opus", description: "O rei da lógica e codificação" },
@@ -54,8 +56,6 @@ const AVAILABLE_MODELS = [
   { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", description: "Rápido com contexto longo" },
   { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Velocidade clássica" },
   { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Respostas imediatas" },
-]
-tion: "Leve" },
 ]
 
 export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {
