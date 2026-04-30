@@ -374,10 +374,12 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
                 </Button>
                 <div className="hidden sm:block">
                   <Select value={selectedModel} onValueChange={setSelectedModel}>
-                    <SelectTrigger className="w-[180px] h-9 bg-slate-800 border-slate-700 text-white text-xs">
-                      <div className="flex items-center gap-2">
-                        <Cpu className="h-3 w-3 text-purple-400" />
-                        <SelectValue placeholder="Modelo" />
+                    <SelectTrigger className="w-[180px] h-9 bg-slate-800 border-slate-700 text-white text-xs overflow-hidden">
+                      <div className="flex items-center gap-2 max-w-full overflow-hidden">
+                        <Cpu className="h-3 w-3 text-purple-400 shrink-0" />
+                        <div className="truncate flex-1 text-left">
+                          <SelectValue placeholder="Modelo" />
+                        </div>
                       </div>
                     </SelectTrigger>
                     <SelectContent className="bg-slate-900 border-slate-800 text-white">
