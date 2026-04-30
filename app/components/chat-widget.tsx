@@ -359,7 +359,7 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
     <>
       <div className={`fixed inset-0 bg-slate-900/40 backdrop-blur-[1px] z-40 transition-opacity duration-100 ${isClosing ? "opacity-0" : "opacity-100"}`} onClick={() => { setIsClosing(true); setTimeout(() => { setIsOpen(false); setIsClosing(false); }, 300); }} />
 
-      <div className={`fixed top-0 right-0 h-screen w-full sm:w-[30vw] min-w-[400px] flex flex-col shadow-2xl z-50 bg-gray-50 transition-all duration-300 ${isClosing ? "animate-out slide-out-to-right" : "animate-in slide-in-from-right"}`}>
+      <div className={`fixed top-0 right-0 h-screen w-full sm:w-[30vw] min-w-[320px] sm:min-w-[400px] flex flex-col shadow-2xl z-50 bg-gray-50 transition-all duration-300 ${isClosing ? "animate-out slide-out-to-right" : "animate-in slide-in-from-right"}`}>
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 z-30" />
         
         <div className="shrink-0 h-16 bg-slate-900 text-white flex items-center justify-between px-4 z-20">
@@ -467,7 +467,7 @@ export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores 
           </div>
         ) : (
           <>
-            <div className="flex-1 overflow-y-auto p-4 space-y-6 bg-gray-50">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-6 bg-gray-50">
               {messages.map((msg, index) => (
                 <div key={index} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div className={`flex items-start gap-3 max-w-[85%] ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
