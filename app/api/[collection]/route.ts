@@ -17,11 +17,11 @@ function sanitizarContexto(ctx: any) {
       .map((p: any) => ({
         nome: p.nome,
         categoria: p.categoria || "sem categoria",
-        estoqueAtual: Math.min(Number(p.estoqueAtual) || 0, 999999),
-        unidade: p.unidade || "Unidades",
+        quantidadeEstoque: Math.min(Number(p.quantidadeEstoque || p.estoqueAtual) || 0, 999999),
+        unidadeMedida: p.unidadeMedida || p.unidade || "Unidades",
         pontoReposicao: Math.min(Number(p.pontoReposicao) || 0, 999999),
         custoUnitario: p.custoUnitario !== undefined ? Math.min(Number(p.custoUnitario) || 0, 999999) : undefined,
-        nomeFornecedor: p.nomeFornecedor || "Sem fornecedor",
+        fornecedorId: p.fornecedorId || "",
         status: p.status || "NORMAL"
       }))
   }
@@ -203,16 +203,17 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       }
 
       if (iaCommand && iaCommand.acao === "INSERIR_PRODUTO" && iaCommand.produto) {
+        const p = iaCommand.produto;
         const novoProduto = {
           id: Date.now().toString(),
-          nome: iaCommand.produto.nome || "Produto sem nome",
-          categoria: iaCommand.produto.categoria || "sorvete",
-          quantidadeEstoque: Number(iaCommand.produto.quantidadeEstoque) || 0,
-          unidadeMedida: iaCommand.produto.unidadeMedida || "Unidades",
-          custoUnitario: Number(iaCommand.produto.custoUnitario) || 0,
-          fornecedorId: iaCommand.produto.fornecedorId || "",
-          pontoReposicao: Number(iaCommand.produto.pontoReposicao) || 5,
-          observacoes: iaCommand.produto.observacoes || "Adicionado via IA"
+          nome: p.nome || "Produto sem nome",
+          categoria: p.categoria || "sorvete",
+          quantidadeEstoque: Number(p.quantidadeEstoque || p.estoqueAtual) || 0,
+          unidadeMedida: p.unidadeMedida || p.unidade || "Unidades",
+          custoUnitario: Number(p.custoUnitario) || 0,
+          fornecedorId: p.fornecedorId || "",
+          pontoReposicao: Number(p.pontoReposicao) || 5,
+          observacoes: p.observacoes || "Adicionado via IA"
         }
         
         return NextResponse.json({ 

@@ -79,8 +79,8 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
     const newData = {
       nome: produto.nome || "",
       categoria: (produto.categoria || "sorvete") as Produto["categoria"],
-      quantidadeEstoque: (produto.quantidadeEstoque ?? 0).toString(),
-      unidadeMedida: produto.unidadeMedida || "",
+      quantidadeEstoque: (produto.quantidadeEstoque ?? (produto as any).estoqueAtual ?? 0).toString(),
+      unidadeMedida: produto.unidadeMedida || (produto as any).unidade || "",
       custoUnitario: (produto.custoUnitario ?? 0).toString(),
       fornecedorId: produto.fornecedorId || "",
       pontoReposicao: (produto.pontoReposicao ?? 0).toString(),
