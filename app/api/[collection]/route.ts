@@ -257,10 +257,15 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       const usage = aiResult.usage
 
       let iaCommand = null
+      let filteredResponse = responseText
+
       try {
-        const cleanJsonString = responseText.replace(/```json\n?|\n?```/g, '').trim()
-        if (cleanJsonString.startsWith('{') && cleanJsonString.includes('"acao"')) {
-          iaCommand = JSON.parse(cleanJsonString)
+        const jsonMatch = responseText.match(/\{[\s\S]*"acao"[\s\S]*\}/)
+        if (jsonMatch) {
+          const jsonString = jsonMatch[0]
+          iaCommand = JSON.parse(jsonString)
+          // Remove o JSON do texto para não mostrar ao usuário
+          filteredResponse = responseText.replace(jsonString, "").replace(/```json\n?|\n?```/g, "").trim()
         }
       } catch (parseError) {}
 
@@ -302,11 +307,9 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         responseText = "🤖 Comando não reconhecido. Tente pedir de forma mais clara."
       }
 
-      if (modelUsed !== model) {
-        responseText = `*(Nota: Alternado para ${modelUsed} devido a limite de tokens no modelo original)*\n\n${responseText}`
-      }
+      // Removida a nota de alternância de modelo a pedido do usuário
 
-      return NextResponse.json({ ...baseResponse, response: responseText })
+      return NextResponse.json({ ...baseResponse, response: filteredResponse || responseText })
     }
 
     const db = (await clientPromise).db("tigre_acai")

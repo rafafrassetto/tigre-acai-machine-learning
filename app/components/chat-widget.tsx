@@ -355,6 +355,10 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
 
       if (data.modelUsed) {
         setActiveModelName(data.modelUsed)
+        // Sincroniza o seletor com o modelo real em caso de fallback
+        if (data.modelUsed !== selectedModel) {
+          setSelectedModel(data.modelUsed)
+        }
       }
 
       if (data.usage) {
@@ -469,16 +473,7 @@ Relatório gerado automaticamente pelo núcleo Tigre AI.
           )}
           
           <div className="flex items-center gap-1">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleDownloadReport}
-              className="text-white hover:bg-slate-800 gap-2 px-3"
-              title="Baixar Relatório de Auditoria"
-            >
-              <Download className="h-4 w-4" />
-              <span className="hidden sm:inline text-xs">Relatório</span>
-            </Button>
+            {/* Botão Relatório removido a pedido do usuário */}
             <Button variant="ghost" size="icon" onClick={handleNewChat} className="text-white hover:bg-slate-800">
               <Plus className="h-5 w-5" />
             </Button>
