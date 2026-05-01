@@ -1,0 +1,802 @@
+[
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99276, Requested 2774. Please try again in 29m31.2s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99273, Requested 2776. Please try again in 29m30.336s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 10x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99271, Requested 2777. Please try again in 29m29.472s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99269, Requested 2773. Please try again in 29m24.288s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99264, Requested 2770. Please try again in 29m17.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99261, Requested 2772. Please try again in 29m16.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 11x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99259, Requested 2773. Please try again in 29m15.648s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99257, Requested 2770. Please try again in 29m11.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99254, Requested 2773. Please try again in 29m11.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99252, Requested 2775. Please try again in 29m11.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 12x Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99250, Requested 2776. Please try again in 29m10.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99248, Requested 2771. Please try again in 29m4.416s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99245, Requested 2773. Please try again in 29m3.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99243, Requested 2775. Please try again in 29m3.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 13x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99241, Requested 2776. Please try again in 29m2.688s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99239, Requested 2773. Please try again in 28m58.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99237, Requested 2774. Please try again in 28m57.504s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99234, Requested 2776. Please try again in 28m56.639999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 14x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99232, Requested 2777. Please try again in 28m55.776s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99230, Requested 2770. Please try again in 28m48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99221, Requested 2770. Please try again in 28m40.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99219, Requested 2772. Please try again in 28m40.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 15x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99217, Requested 2773. Please try again in 28m39.36s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99214, Requested 2771. Please try again in 28m35.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99211, Requested 2773. Please try again in 28m34.176s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99208, Requested 2775. Please try again in 28m33.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 16x Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99206, Requested 2776. Please try again in 28m32.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99204, Requested 2773. Please try again in 28m28.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99202, Requested 2773. Please try again in 28m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99199, Requested 2775. Please try again in 28m25.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 17x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99197, Requested 2776. Please try again in 28m24.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99195, Requested 2770. Please try again in 28m17.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99193, Requested 2774. Please try again in 28m19.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99191, Requested 2776. Please try again in 28m19.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 18x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99188, Requested 2777. Please try again in 28m17.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99186, Requested 2771. Please try again in 28m10.848s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99184, Requested 2770. Please try again in 28m8.255999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99182, Requested 2772. Please try again in 28m8.255999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 19x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99180, Requested 2773. Please try again in 28m7.391999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99177, Requested 2773. Please try again in 28m4.8s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99169, Requested 2773. Please try again in 27m57.888s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99167, Requested 2775. Please try again in 27m57.888s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 20x Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99165, Requested 2776. Please try again in 27m57.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99163, Requested 2770. Please try again in 27m50.112s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99160, Requested 2773. Please try again in 27m50.112s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99158, Requested 2775. Please try again in 27m50.112s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 21x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99156, Requested 2776. Please try again in 27m49.248s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99154, Requested 2771. Please try again in 27m43.2s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99151, Requested 2774. Please try again in 27m43.2s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99149, Requested 2776. Please try again in 27m43.2s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 22x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99147, Requested 2777. Please try again in 27m42.336s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99145, Requested 2773. Please try again in 27m37.151999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99143, Requested 2770. Please try again in 27m32.832s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99140, Requested 2772. Please try again in 27m31.968s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 23x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99138, Requested 2773. Please try again in 27m31.103999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99136, Requested 2770. Please try again in 27m26.784s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99134, Requested 2773. Please try again in 27m27.648s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99132, Requested 2775. Please try again in 27m27.648s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 24x Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99130, Requested 2776. Please try again in 27m26.784s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99127, Requested 2771. Please try again in 27m19.872s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99119, Requested 2773. Please try again in 27m14.687999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99117, Requested 2775. Please try again in 27m14.687999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 25x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99115, Requested 2776. Please try again in 27m13.824s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99113, Requested 2773. Please try again in 27m9.504s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99111, Requested 2774. Please try again in 27m8.639999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99108, Requested 2776. Please try again in 27m7.775999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 26x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99106, Requested 2777. Please try again in 27m6.912s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99104, Requested 2770. Please try again in 26m59.136s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99102, Requested 2770. Please try again in 26m57.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99099, Requested 2772. Please try again in 26m56.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 27x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99097, Requested 2773. Please try again in 26m55.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99095, Requested 2771. Please try again in 26m52.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99093, Requested 2773. Please try again in 26m52.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99091, Requested 2775. Please try again in 26m52.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 28x Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99088, Requested 2776. Please try again in 26m50.496s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99086, Requested 2773. Please try again in 26m46.176s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99084, Requested 2773. Please try again in 26m44.447999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99082, Requested 2775. Please try again in 26m44.447999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 29x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99080, Requested 2776. Please try again in 26m43.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99077, Requested 2770. Please try again in 26m35.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual da Polpa de Açaí 10kg é de 25 balde(s)."
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor da Polpa de Açaí 10kg é a Distribuidora Amazônia, com CNPJ 11.111.111/0001-11 e telefone 91 98888-0001."
+  },
+  {
+    "q": "Custo de 30x Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo de 30x Polpa de Açaí 10kg, precisamos saber o custo unitário do produto e a quantidade desejada.\n\nNo JSON fornecido, o custo unitário da Polpa de Açaí 10kg é R$ 145,00.\n\nPortanto, o custo de 30x Polpa de Açaí 10kg seria:\n\n30 x R$ 145,00 = R$ 4.350,00\n\nLembre-se de que este cálculo não leva em conta outros custos, como frete, impostos ou descontos, que podem afetar o preço final.\n\nSe você precisar de mais informações ou tiver alguma outra pergunta, estou aqui para ajudar!"
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99019, Requested 2771. Please try again in 25m46.56s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5917, Requested 2771. Please try again in 26.88s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual de Copo 400ml é de 1200 unidades."
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor do Copo 400ml é a Embalagens Sul."
+  },
+  {
+    "q": "Custo de 31x Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo de 31x Copo 400ml, precisamos saber o custo unitário do produto e a quantidade desejada.\n\nNo JSON, o custo unitário do Copo 400ml é R$ 0,42.\n\nPortanto, o custo de 31x Copo 400ml é:\n\n31 x R$ 0,42 = R$ 13,02\n\nSe você quiser saber o valor total com imposto ou outros custos adicionais, por favor forneça mais informações."
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nDesculpe, mas não encontrei o CNPJ da Distribuidora Amazônia no sistema. Apenas encontrei o nome e o telefone. Além disso, como mencionado anteriormente, os produtos não possuem CNPJ. A Distribuidora Amazônia é um fornecedor, não um produto. Se você precisar do CNPJ, sugiro verificar na lista de fornecedores."
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual do Leite Condensado 5kg é de 12 unidades."
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98881, Requested 2775. Please try again in 23m50.784s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5951, Requested 1865. Please try again in 18.159999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 32x Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo de 32x Leite Condensado 5kg, precisamos saber o custo unitário do produto. De acordo com os dados atuais do sistema, o custo unitário do Leite Condensado 5kg é de R$ 82.\n\nPortanto, o custo de 32x Leite Condensado 5kg seria:\n\n32 x R$ 82 = R$ 2.624\n\nLembre-se de que este é apenas um cálculo baseado nos dados atuais do sistema e pode não refletir a realidade atual, pois os preços podem ter mudado desde a última atualização dos dados."
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Embalagens Sul é um fornecedor e, portanto, o CNPJ é um dado relevante. No entanto, não está disponível no momento. Se você precisar dele, recomendo verificar diretamente com o fornecedor ou verificar se ele foi adicionado ao sistema posteriormente."
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98781, Requested 2773. Please try again in 22m22.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4178, Requested 2773. Please try again in 9.51s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Morango Congelado 1kg é fornecido pela Distribuidora Amazônia, que tem o ID \"f_amazon\" no sistema."
+  },
+  {
+    "q": "Custo de 33x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98738, Requested 2776. Please try again in 21m48.096s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4898, Requested 1901. Please try again in 7.989999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98707, Requested 2771. Please try again in 21m16.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4156, Requested 1913. Please try again in 690ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual da Polpa de Açaí 10kg é de 25 balde(s)."
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor da Polpa de Açaí 10kg é a Distribuidora Amazônia, com CNPJ 11.111.111/0001-11 e telefone 91 98888-0001."
+  },
+  {
+    "q": "Custo de 34x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98594, Requested 2777. Please try again in 19m44.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5931, Requested 1902. Please try again in 18.33s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ da Distribuidora Amazônia nos dados atuais do sistema. Além disso, como mencionado anteriormente, produtos não possuem CNPJ. A Distribuidora Amazônia é um fornecedor, não um produto. Se você precisar do CNPJ do fornecedor, posso verificar no JSON de fornecedores."
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual de Copo 400ml é de 1200 unidades."
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor do Copo 400ml é a Embalagens Sul."
+  },
+  {
+    "q": "Custo de 35x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98480, Requested 2773. Please try again in 18m2.591999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4970, Requested 1808. Please try again in 7.78s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Embalagens Sul é um fornecedor e, portanto, o CNPJ é um dado relevante. No entanto, não há essa informação disponível no JSON fornecido."
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98429, Requested 2773. Please try again in 17m18.528s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5787, Requested 1808. Please try again in 15.95s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Leite Condensado 5kg é fornecido pela Laticínios Central."
+  },
+  {
+    "q": "Custo de 36x Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo de 36x Leite Condensado 5kg, precisamos saber o custo unitário do produto. Segundo os dados atuais, o custo unitário do Leite Condensado 5kg é de R$ 82.\n\nPortanto, o custo de 36x Leite Condensado 5kg seria:\n\n36 x R$ 82 = R$ 2.952\n\nLembre-se de que isso é apenas uma estimativa baseada nos dados atuais e pode variar dependendo de outros fatores, como descontos ou mudanças nos preços."
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98345, Requested 2771. Please try again in 16m4.223999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5836, Requested 1871. Please try again in 17.07s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98303, Requested 2773. Please try again in 15m29.664s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4461, Requested 1874. Please try again in 3.35s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98261, Requested 2775. Please try again in 14m55.103999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4110, Requested 1900. Please try again in 100ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 37x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98236, Requested 2776. Please try again in 14m34.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3860, Requested 2776. Please try again in 6.359999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nDesculpe, mas não posso fornecer o CNPJ da Distribuidora Amazônia. Segundo as regras de distinção, produtos não possuem CNPJ e a Distribuidora Amazônia é um fornecedor, não um produto. Se você precisar do CNPJ do fornecedor, por favor, pergunte sobre os fornecedores."
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98189, Requested 2774. Please try again in 13m52.031999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5003, Requested 1874. Please try again in 8.77s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98162, Requested 2776. Please try again in 13m30.431999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4113, Requested 1901. Please try again in 140ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 38x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98132, Requested 2777. Please try again in 13m5.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5837, Requested 1902. Please try again in 17.39s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ da Embalagens Sul no sistema. Embalagens Sul é um fornecedor e não um produto."
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual de Copo 400ml é de 1200 unidades."
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98085, Requested 2772. Please try again in 12m20.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4965, Requested 2772. Please try again in 17.369999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 39x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98056, Requested 2773. Please try again in 11m56.256s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5928, Requested 1868. Please try again in 17.96s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ do Laticínios Central no sistema. Produtos não possuem CNPJ, apenas fornecedores. O Laticínios Central é um fornecedor, mas não um produto."
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual do Leite Condensado 5kg é de 12 unidades."
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Leite Condensado 5kg é fornecido pela Laticínios Central."
+  },
+  {
+    "q": "Custo de 40x Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo de 40x Leite Condensado 5kg, precisamos saber o custo unitário do produto. De acordo com os dados atuais do sistema, o custo unitário do Leite Condensado 5kg é de R$ 82.\n\nPortanto, o custo de 40x Leite Condensado 5kg seria:\n\n40 x R$ 82 = R$ 3.280\n\nLembre-se de que isso é apenas uma estimativa baseada nos dados atuais do sistema e pode variar dependendo de outros fatores, como descontos ou mudanças nos preços."
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nDesculpe, mas não encontrei o CNPJ da Distribuidora Amazônia nos dados atuais do sistema. Além disso, como mencionado anteriormente, produtos não possuem CNPJ. A Distribuidora Amazônia é um fornecedor, não um produto. Se você precisar do CNPJ do fornecedor, posso tentar ajudar com isso."
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97872, Requested 2773. Please try again in 9m17.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4945, Requested 2773. Please try again in 17.18s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Morango Congelado 1kg é fornecido pela Distribuidora Amazônia, que tem o ID \"f_amazon\" no sistema."
+  },
+  {
+    "q": "Custo de 41x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97840, Requested 2776. Please try again in 8m52.223999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5937, Requested 1982. Please try again in 19.19s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97796, Requested 2770. Please try again in 8m9.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3260, Requested 2770. Please try again in 300ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual da Polpa de Açaí 10kg é de 25 balde(s)."
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor da Polpa de Açaí 10kg é a Distribuidora Amazônia, com CNPJ 11.111.111/0001-11 e telefone 91 98888-0001."
+  },
+  {
+    "q": "Custo de 42x Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo total de 42x Polpa de Açaí 10kg, precisamos saber o custo unitário do produto.\n\nNo JSON, o custo unitário da Polpa de Açaí 10kg é R$ 145.\n\nPortanto, o custo total de 42x Polpa de Açaí 10kg é:\n\n42 x R$ 145 = R$ 6.090\n\nSe você quiser saber o valor parado em estoque, precisamos saber a quantidade atual em estoque. No JSON, a quantidade atual da Polpa de Açaí 10kg é 25 balde.\n\nPortanto, o valor parado em estoque é:\n\n25 x R$ 145 = R$ 3.625\n\nSe você quiser saber o custo de reposição, precisamos saber o ponto de reposição do produto. No JSON, o ponto de reposição da Polpa de Açaí 10kg é 5.\n\nPortanto, o custo de reposição é:\n\n5 x R$ 145 = R$ 725\n\nAqui está a resposta em formato JSON:\n\n{\n  \"acao\": \"CALCULO\",\n  \"produto\": \"Polpa de Açaí 10kg\",\n  \"quantidade\": 42,\n  \"custoTotal\": 6090,\n  \"valorParado\": 3625,\n  \"custoReposicao\": 725\n}"
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97663, Requested 2771. Please try again in 6m14.976s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5943, Requested 2771. Please try again in 27.139999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97649, Requested 2770. Please try again in 6m2.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5008, Requested 1990. Please try again in 9.98s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor do Copo 400ml é a Embalagens Sul."
+  },
+  {
+    "q": "Custo de 43x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97560, Requested 2773. Please try again in 4m47.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5021, Requested 2773. Please try again in 17.939999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97512, Requested 2773. Please try again in 4m6.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5981, Requested 2773. Please try again in 27.54s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual do Leite Condensado 5kg é de 12 unidades."
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97458, Requested 2775. Please try again in 3m21.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3910, Requested 2775. Please try again in 6.85s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 44x Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo de 44x Leite Condensado 5kg, precisamos saber o custo unitário do produto.\n\nNo JSON, o custo unitário do Leite Condensado 5kg é R$ 82,00.\n\nPortanto, o custo de 44x Leite Condensado 5kg é:\n\n44 x R$ 82,00 = R$ 3.608,00\n\nSe você quiser saber o valor total em estoque, precisamos saber a quantidade atual em estoque. No JSON, a quantidade em estoque é 12 caixas.\n\nPortanto, o valor total em estoque é:\n\n12 caixas x R$ 82,00 = R$ 984,00\n\nSe você quiser saber o valor total de reposição, precisamos saber o ponto de reposição do produto. No JSON, o ponto de reposição é 5 caixas.\n\nPortanto, o valor total de reposição é:\n\n(44 - 12) caixas = 32 caixas\n32 caixas x R$ 82,00 = R$ 2.624,00\n\nAqui está a resposta em formato JSON:\n\n{\n  \"acao\": \"CALCULO\",\n  \"produto\": \"Leite Condensado 5kg\",\n  \"quantidade\": 44,\n  \"custoUnitario\": 82,\n  \"quantidadeEstoque\": 12,\n  \"pontoReposicao\": 5,\n  \"valorTotal\": 3608,\n  \"valorTotalEstoque\": 984,\n  \"valorTotalReposicao\": 2624\n}"
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Embalagens Sul é um fornecedor e, portanto, você pode procurar o CNPJ em suas informações de contato."
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97407, Requested 2773. Please try again in 2m35.519999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3954, Requested 2076. Please try again in 300ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Morango Congelado 1kg é fornecido pela Distribuidora Amazônia."
+  },
+  {
+    "q": "Custo de 45x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97369, Requested 2776. Please try again in 2m5.279999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3940, Requested 2776. Please try again in 7.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97331, Requested 2771. Please try again in 1m28.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4931, Requested 1932. Please try again in 8.63s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "O estoque atual de Polpa de Açaí 10kg é de 25 unidades, medidos em baldes. O ponto de reposição é de 5 baldes."
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor da Polpa de Açaí 10kg é a Distribuidora Amazônia."
+  },
+  {
+    "q": "Custo de 46x Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo total da Polpa de Açaí 10kg, precisamos saber o custo unitário e a quantidade desejada.\n\nNo JSON, o custo unitário da Polpa de Açaí 10kg é de R$ 145,00.\n\nSe você deseja saber o custo de 46 unidades (46x) da Polpa de Açaí 10kg, podemos calcular assim:\n\nCusto total = Custo unitário x Quantidade\nCusto total = R$ 145,00 x 46\nCusto total = R$ 6.670,00\n\nEntão, o custo total da Polpa de Açaí 10kg para 46 unidades é de R$ 6.670,00."
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99980, Requested 2773. Please try again in 39m38.592s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5111, Requested 1993. Please try again in 11.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual de Copo 400ml é de 1200 unidades."
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor do Copo 400ml é a Embalagens Sul."
+  },
+  {
+    "q": "Custo de 47x Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo do Copo 400ml, precisamos saber o custo unitário do produto e a quantidade desejada.\n\nNo JSON, o custo unitário do Copo 400ml é R$ 0,42 e a quantidade de estoque é 1200 unidades.\n\nSe você deseja calcular o custo de 47 unidades do Copo 400ml, podemos fazer a seguinte operação:\n\nCusto = Custo unitário x Quantidade\nCusto = R$ 0,42 x 47\nCusto = R$ 19,74\n\nPortanto, o custo de 47 unidades do Copo 400ml é R$ 19,74."
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Embalagens Sul é um fornecedor e não um produto. Se você precisar do CNPJ, recomendo verificar a interface de gerenciamento de fornecedores."
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual do Leite Condensado 5kg é de 12 unidades."
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Leite Condensado 5kg é fornecido pela Laticínios Central."
+  },
+  {
+    "q": "Custo de 48x Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99826, Requested 2776. Please try again in 37m28.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5686, Requested 2077. Please try again in 17.63s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ do Laticínios Central nos dados atuais do sistema."
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque de Morango Congelado 1kg é de 40 pacotes."
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Morango Congelado 1kg é fornecido pela Distribuidora Amazônia."
+  },
+  {
+    "q": "Custo de 49x Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo total do Morango Congelado 1kg, precisamos saber o custo unitário e a quantidade desejada.\n\nO custo unitário do Morango Congelado 1kg é de R$ 21,50 (informação presente no JSON).\n\nA quantidade desejada é 49 unidades.\n\nPortanto, o custo total seria:\n\n49 x R$ 21,50 = R$ 1.052,50\n\nSe você deseja saber o valor do estoque atual, basta me perguntar."
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nDesculpe, mas não encontrei o CNPJ da Distribuidora Amazônia nos dados atuais do sistema. Além disso, como mencionado anteriormente, os produtos não possuem CNPJ. A Distribuidora Amazônia é um fornecedor e não um produto. Se você precisar do CNPJ do fornecedor, posso verificar nos dados de fornecedores. O CNPJ da Distribuidora Amazônia é 11.111.111/0001-11."
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nVocê está procurando saber o estoque atual da Polpa de Açaí 10kg.\n\nDe acordo com os dados atuais do sistema, o estoque da Polpa de Açaí 10kg é de 25 balde(s).\n\nSe você precisar de mais informações, como o custo unitário ou o fornecedor, basta perguntar!"
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor da Polpa de Açaí 10kg é a Distribuidora Amazônia, com o ID \"f_amazon\"."
+  },
+  {
+    "q": "Custo de 50x Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo de 50x Polpa de Açaí 10kg, precisamos saber o custo unitário do produto.\n\nNo JSON, o custo unitário da Polpa de Açaí 10kg é R$ 145.\n\nPortanto, o custo de 50x Polpa de Açaí 10kg é:\n\n50 x R$ 145 = R$ 7.250\n\nAlém disso, precisamos verificar se há estoque suficiente para realizar a compra. No JSON, a quantidade de estoque da Polpa de Açaí 10kg é de 25 balde.\n\nSe você quiser realizar a compra, precisamos verificar se o fornecedor tem estoque suficiente para atender à demanda. No JSON, o fornecedor da Polpa de Açaí 10kg é a Distribuidora Amazônia.\n\nPara realizar a compra, você precisaria entrar em contato com a Distribuidora Amazônia para verificar se eles têm estoque suficiente e se podem entregar a quantidade solicitada.\n\nAqui está a resposta no formato solicitado:\n\n{\"acao\": \"CUSTO_PRODUTO\", \"nomeProduto\": \"Polpa de Açaí 10kg\", \"quantidade\": 50, \"custo\": 7250, \"estoque\": 25, \"fornecedor\": \"Distribuidora Amazônia\"}"
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Embalagens Sul é um fornecedor e, portanto, não possui CNPJ. O CNPJ é um dado de identificação de empresas, não de produtos ou fornecedores."
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99582, Requested 2770. Please try again in 33m52.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5631, Requested 2006. Please try again in 16.369999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor do Copo 400ml é a Embalagens Sul."
+  },
+  {
+    "q": "Custo de 51x Copo 400ml?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99541, Requested 2773. Please try again in 33m19.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5688, Requested 2074. Please try again in 17.62s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ do Laticínios Central nos dados atuais do sistema."
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual do Leite Condensado 5kg é de 12 unidades."
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Leite Condensado 5kg é fornecido pela Laticínios Central."
+  },
+  {
+    "q": "Custo de 52x Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99433, Requested 2776. Please try again in 31m48.575999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5964, Requested 2077. Please try again in 20.41s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nDesculpe, mas não posso fornecer o CNPJ da Distribuidora Amazônia. Como Assistente de Estoque, posso informar que a Distribuidora Amazônia é um fornecedor, mas não tenho acesso a informações de identificação pessoal ou empresarial. Além disso, produtos não possuem CNPJ. Se você precisar de informações sobre o fornecedor, posso tentar ajudar com isso."
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque de Morango Congelado 1kg é de 40 pacotes."
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Morango Congelado 1kg é fornecido pela Distribuidora Amazônia, que tem o ID \"f_amazon\" no sistema."
+  },
+  {
+    "q": "Custo de 53x Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo total do Morango Congelado 1kg, precisamos saber a quantidade desejada e o custo unitário do produto.\n\nNo momento, o estoque tem 40 pacotes de Morango Congelado 1kg, com um custo unitário de R$ 21,50 cada.\n\nSe você deseja saber o custo de 53x Morango Congelado 1kg, podemos calcular assim:\n\nCusto total = Quantidade desejada x Custo unitário\nCusto total = 53 x R$ 21,50\nCusto total = R$ 1.144,50\n\nEntão, o custo total de 53x Morango Congelado 1kg é de R$ 1.144,50."
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Produtos não possuem CNPJ. Embalagens Sul é um fornecedor. Se você precisar do CNPJ, por favor, verifique o cadastro do fornecedor."
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99277, Requested 2774. Please try again in 29m32.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5847, Requested 2774. Please try again in 26.21s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99235, Requested 2776. Please try again in 28m57.504s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3736, Requested 2776. Please try again in 5.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 54x Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo total do produto \"Polpa de Açaí 10kg\" em quantidade de 54 unidades, precisamos saber o custo unitário do produto.\n\nNo JSON fornecido, o custo unitário do \"Polpa de Açaí 10kg\" é de R$ 145,00.\n\nPortanto, o custo total de 54 unidades do produto \"Polpa de Açaí 10kg\" é:\n\n54 x R$ 145,00 = R$ 7.830,00\n\nSe você quiser saber o valor do estoque atual, basta perguntar!"
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ do Laticínios Central nos dados atuais do sistema."
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque de Copo 400ml é de 1200 unidades."
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor do Copo 400ml é a Embalagens Sul, com o código fornecedor \"f_sul\"."
+  },
+  {
+    "q": "Custo de 55x Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo total do Copo 400ml, precisamos saber o custo unitário e a quantidade de unidades.\n\nNo JSON, o custo unitário do Copo 400ml é R$ 0,42 e a quantidade de unidades em estoque é 1200.\n\nPortanto, o custo total do Copo 400ml é:\n\nCusto total = Custo unitário x Quantidade de unidades\n= R$ 0,42 x 1200\n= R$ 504,00\n\nAlém disso, precisamos calcular o custo de reposição, que é o ponto de reposição multiplicado pelo custo unitário.\n\nO ponto de reposição do Copo 400ml é 200 unidades. Portanto, o custo de reposição é:\n\nCusto de reposição = Ponto de reposição x Custo unitário\n= 200 x R$ 0,42\n= R$ 84,00\n\nPortanto, o custo total do Copo 400ml é R$ 504,00 e o custo de reposição é R$ 84,00."
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99086, Requested 2773. Please try again in 26m46.176s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5620, Requested 1993. Please try again in 16.129999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Estoque de Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual do Leite Condensado 5kg é de 12 unidades."
+  },
+  {
+    "q": "Quem fornece Leite Condensado 5kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99014, Requested 2775. Please try again in 25m45.696s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5852, Requested 2775. Please try again in 26.27s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Custo de 56x Leite Condensado 5kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nPara calcular o custo total do Leite Condensado 5kg, precisamos saber o custo unitário e a quantidade desejada.\n\nO custo unitário do Leite Condensado 5kg é de R$ 82,00.\n\nSe você deseja comprar 56 unidades, o custo total seria:\n\n56 x R$ 82,00 = R$ 4.592,00\n\nLembre-se de que o ponto de reposição do Leite Condensado 5kg é crítico (mínimo 5 caixas). Se você estiver comprando 56 unidades, é provável que você esteja repondo o estoque, então é importante verificar se você tem espaço suficiente para armazenar o produto.\n\nVocê gostaria de saber mais sobre o estoque atual ou sobre o fornecedor do Leite Condensado 5kg?"
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Embalagens Sul é um fornecedor, e os fornecedores não possuem CNPJ no sistema. Se você precisar do CNPJ, recomendo verificar a documentação ou contato com o fornecedor diretamente."
+  },
+  {
+    "q": "Estoque de Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98946, Requested 2773. Please try again in 24m45.216s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3830, Requested 2773. Please try again in 6.03s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "Quem fornece Morango Congelado 1kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO Morango Congelado 1kg é fornecido pela Distribuidora Amazônia, com o ID \"f_amazon\"."
+  },
+  {
+    "q": "Custo de 57x Morango Congelado 1kg?",
+    "a": "⚠️ Todos os modelos de IA falharam ou excederam o limite: [llama-3.3-70b-versatile: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98903, Requested 2776. Please try again in 24m10.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [llama-3.1-8b-instant: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kqfja3d7exervc9f1gnncnps` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5553, Requested 1970. Please try again in 15.23s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}] [gemini-1.5-flash: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.] [gpt-4o-mini: Chave OpenAI ausente] "
+  },
+  {
+    "q": "CNPJ de Laticínios Central?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ do Laticínios Central na informação disponível. O Laticínios Central é um fornecedor, e os fornecedores não possuem CNPJ. Se você está procurando por informações de um produto, por favor, forneça o nome do produto."
+  },
+  {
+    "q": "Estoque de Polpa de Açaí 10kg?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO estoque atual da Polpa de Açaí 10kg é de 25 balde(s)."
+  },
+  {
+    "q": "Quem fornece Polpa de Açaí 10kg?",
+    "a": "⚠️ Todas as IAs estão sobrecarregadas ou atingiram o limite de uso diário. Por favor, aguarde alguns minutos e tente novamente."
+  },
+  {
+    "q": "Custo de 58x Polpa de Açaí 10kg?",
+    "a": "⚠️ Todas as IAs estão sobrecarregadas ou atingiram o limite de uso diário. Por favor, aguarde alguns minutos e tente novamente."
+  },
+  {
+    "q": "CNPJ de Distribuidora Amazônia?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nDesculpe, mas não encontrei o CNPJ da Distribuidora Amazônia no sistema. Produtos não possuem CNPJ, e a Distribuidora Amazônia é um fornecedor, não um produto. Se você precisar do CNPJ de um fornecedor, por favor, pergunte o nome do fornecedor e eu posso verificar se ele está no sistema."
+  },
+  {
+    "q": "Estoque de Copo 400ml?",
+    "a": "⚠️ Todas as IAs estão sobrecarregadas ou atingiram o limite de uso diário. Por favor, aguarde alguns minutos e tente novamente."
+  },
+  {
+    "q": "Quem fornece Copo 400ml?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nO fornecedor do Copo 400ml é a Embalagens Sul."
+  },
+  {
+    "q": "Custo de 59x Copo 400ml?",
+    "a": "⚠️ Todas as IAs estão sobrecarregadas ou atingiram o limite de uso diário. Por favor, aguarde alguns minutos e tente novamente."
+  },
+  {
+    "q": "CNPJ de Embalagens Sul?",
+    "a": "*(Nota: Alternado para llama-3.1-8b-instant devido a limite de tokens no modelo original)*\n\nNão encontrei o CNPJ de Embalagens Sul no sistema. Embalagens Sul é um fornecedor e, portanto, não possui CNPJ. O CNPJ é um dado de identificação de empresas, e os fornecedores são empresas ou pessoas jurídicas/físicas."
+  }
+]

@@ -50,3 +50,44 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false, error: "Falha no Sheets" }, { status: 500 });
   }
 }
+
+export async function GET() {
+  try {
+    const clientEmail = (process.env.GOOGLE_CLIENT_EMAIL || "").replace(/^"|"$/g, "");
+    const privateKey = (process.env.GOOGLE_PRIVATE_KEY || "")
+      .replace(/^"|"$/g, "")
+      .replace(/\\n/g, "\n");
+    const spreadsheetId = (process.env.GOOGLE_SHEET_ID || "").replace(/^"|"$/g, "");
+
+    if (!clientEmail || !privateKey || !spreadsheetId) {
+      return NextResponse.json({ success: false, error: "Credenciais ausentes" }, { status: 500 });
+    }
+
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: clientEmail,
+        private_key: privateKey,
+      },
+      scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+    });
+
+    const sheets = google.sheets({ version: "v4", auth });
+
+    // Busca as últimas 20 linhas para não estourar o contexto
+    // Assumindo que os dados estão nas colunas A, B e C
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: spreadsheetId,
+      range: "A:C",
+    });
+
+    const rows = response.data.values || [];
+    // Pega os últimos 10 chats arquivados
+    const lastChats = rows.slice(-10).reverse(); 
+
+    return NextResponse.json({ success: true, history: lastChats });
+
+  } catch (error) {
+    console.error("Erro ao ler Sheets:", error);
+    return NextResponse.json({ success: false, error: "Falha ao ler histórico" }, { status: 500 });
+  }
+}

@@ -4,6 +4,8 @@ import Groq from "groq-sdk"
 import { GoogleGenerativeAI } from "@google/generative-ai"
 import OpenAI from "openai"
 import Anthropic from "@anthropic-ai/sdk"
+import { getHistoricalContext } from "@/lib/google-sheets"
+
 
 export const dynamic = "force-dynamic"
 
@@ -48,7 +50,7 @@ function sanitizarContexto(ctx: any) {
   return safe
 }
 
-function buildSystemPrompt(contextJson: string, memoria: string): string {
+function buildSystemPrompt(contextJson: string, memoria: string, historico?: string): string {
   return `Você é a Tigre IA, o núcleo de inteligência da açaiteria/sorveteria Tigre Açaí.
 Você tem acesso total aos dados de estoque, fornecedores e movimentações do sistema.
 
@@ -60,8 +62,11 @@ ESTRUTURA DE DADOS (CONTEXTO):
 DADOS ATUAIS DO SISTEMA (JSON):
 ${contextJson}
 
-MEMÓRIA DE LONGO PRAZO (Aprendizados anteriores):
+MEMÓRIA DE LONGO PRAZO (Fatos aprendidos):
 ${memoria || "Nenhum aprendizado prévio."}
+
+HISTÓRICO DE CHATS ANTERIORES (Arquivado):
+${historico || "Nenhum histórico relevante encontrado para esta pergunta."}
 
 REGRAS CRÍTICAS DE DISTINÇÃO:
 1. NUNCA confunda Produtos com Fornecedores. Se um item (ex: Copo) está na lista de produtos mas não na de fornecedores, ele NÃO é um fornecedor.
@@ -124,6 +129,9 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       const memoriaDocs = await db.collection("memoria_ia").find({}).toArray()
       const memoriaTexto = memoriaDocs.map(d => `- ${d.fato}`).join("\n")
 
+      // Busca contexto histórico do Google Sheets
+      const historicoExtra = await getHistoricalContext(message)
+
       const ctxSanitizado = sanitizarContexto(estoqueContext || {})
       const contextJson = JSON.stringify(ctxSanitizado, null, 2)
 
@@ -151,7 +159,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
               const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
               const chat = geminiModel.startChat({
                 history: [
-                  { role: "user", parts: [{ text: buildSystemPrompt(contextJson, memoriaTexto) }] },
+                  { role: "user", parts: [{ text: buildSystemPrompt(contextJson, memoriaTexto, historicoExtra) }] },
                   { role: "model", parts: [{ text: "Entendido. Sou a Tigre IA e estou pronta para gerenciar o estoque com base no contexto e memórias fornecidas." }] },
                   ...formattedHistory.map((m: any) => ({
                     role: m.role === "user" ? "user" : "model",
@@ -171,7 +179,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
               const completion = await openai.chat.completions.create({
                 model: currentModel,
                 messages: [
-                  { role: "system", content: buildSystemPrompt(contextJson, memoriaTexto) },
+                  { role: "system", content: buildSystemPrompt(contextJson, memoriaTexto, historicoExtra) },
                   ...formattedHistory,
                   { role: "user", content: message }
                 ],
@@ -187,7 +195,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
             } else if (currentModel.toLowerCase().startsWith("claude-")) {
               const completion = await anthropic.messages.create({
                 model: currentModel as any,
-                system: buildSystemPrompt(contextJson, memoriaTexto),
+                system: buildSystemPrompt(contextJson, memoriaTexto, historicoExtra),
                 messages: [...formattedHistory, { role: "user", content: message }],
                 temperature: 0.2,
                 max_tokens: 2048,
@@ -202,7 +210,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
               if (!process.env.GROK_APO) throw new Error("Chave Groq ausente")
               const { data, response } = await groq.chat.completions.create({
                 messages: [
-                  { role: "system", content: buildSystemPrompt(contextJson, memoriaTexto) },
+                  { role: "system", content: buildSystemPrompt(contextJson, memoriaTexto, historicoExtra) },
                   ...formattedHistory,
                   { role: "user", content: message }
                 ],
