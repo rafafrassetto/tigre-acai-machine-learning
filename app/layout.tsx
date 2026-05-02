@@ -6,9 +6,11 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sistema de Gestão - Sorveteria",
-  description: "Sistema completo de gestão de estoque para sorveteria",
-    
+  title: "Tigre Açaí - Gestão",
+  description: "Sistema inteligente de gestão de estoque - Tigre Açaí",
+  icons: {
+    icon: "/icon.png",
+  },
 }
 
 export default function RootLayout({
