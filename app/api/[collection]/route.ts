@@ -16,49 +16,30 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY || "" })
 
 // Sanitiza o contexto para evitar estourar o token limit do Gemini
 function sanitizarContexto(ctx: any) {
-  const safe: any = { ...ctx }
+  const safe = { ...ctx }
 
   if (Array.isArray(safe.produtos)) {
-    const todosProdutos = safe.produtos
+    safe.produtos = safe.produtos
       .filter((p: any) => p.nome && typeof p.nome === "string" && p.nome.length < 200)
       .map((p: any) => ({
         nome: p.nome,
         categoria: p.categoria || "sem categoria",
-        quantidadeEstoque: Number(p.quantidadeEstoque || p.estoqueAtual) || 0,
+        quantidadeEstoque: Math.min(Number(p.quantidadeEstoque || p.estoqueAtual) || 0, 999999),
         unidadeMedida: p.unidadeMedida || p.unidade || "Unidades",
-        pontoReposicao: Number(p.pontoReposicao) || 0,
-        custoUnitario: p.custoUnitario !== undefined ? Number(p.custoUnitario) || 0 : undefined,
-        status: p.status || (Number(p.quantidadeEstoque || p.estoqueAtual) <= Number(p.pontoReposicao) ? "BAIXO" : "NORMAL")
-      }));
-
-    // Geração de Resumo para economizar tokens
-    const resumo = {
-      totalProdutos: todosProdutos.length,
-      categorias: [...new Set(todosProdutos.map((p: any) => p.categoria))],
-      estoqueBaixo: todosProdutos.filter((p: any) => p.status === "BAIXO").length,
-      valorTotalEstoque: todosProdutos.reduce((acc: number, p: any) => acc + (p.quantidadeEstoque * (p.custoUnitario || 0)), 0)
-    };
-
-    // Filtra apenas o que é CRÍTICO para o contexto detalhado
-    // 1. Itens com estoque baixo
-    // 2. Os primeiros 40 itens para dar uma noção do catálogo
-    const criticos = todosProdutos.filter((p: any) => p.status === "BAIXO");
-    const amostragem = todosProdutos.slice(0, 40);
-    
-    // Remove duplicatas se houver
-    const detalhados = [...new Map([...criticos, ...amostragem].map(item => [item.nome, item])).values()];
-
-    safe.resumoEstoque = resumo;
-    safe.produtos = detalhados;
-    safe.totalOcultos = Math.max(0, todosProdutos.length - detalhados.length);
+        pontoReposicao: Math.min(Number(p.pontoReposicao) || 0, 999999),
+        custoUnitario: p.custoUnitario !== undefined ? Math.min(Number(p.custoUnitario) || 0, 999999) : undefined,
+        fornecedorId: p.fornecedorId || "",
+        status: p.status || "NORMAL"
+      }))
   }
 
   if (Array.isArray(safe.fornecedores)) {
-    safe.fornecedores = safe.fornecedores.slice(0, 15).map((f: any) => ({
+    safe.fornecedores = safe.fornecedores.map((f: any) => ({
       nome: f.nome || "Sem nome",
       telefone: f.telefone || "Não cadastrado",
       cnpj: f.cnpj || "Não cadastrado",
-      condicoesPagamento: f.condicoesPagamento || "Não informado"
+      condicoesPagamento: f.condicoesPagamento || "Não informado",
+      observacoes: f.observacoes || "Nenhuma"
     }))
   }
 
@@ -74,12 +55,9 @@ function buildSystemPrompt(contextJson: string, memoria: string, historico?: str
 Você tem acesso total aos dados de estoque, fornecedores e movimentações do sistema.
 
 ESTRUTURA DE DADOS (CONTEXTO):
-- PRODUTOS: Itens vendidos ou usados (campos: nome, categoria, quantidadeEstoque, unidadeMedida, custoUnitario, status).
-- FORNECEDORES: Empresas/Pessoas que vendem para nós (campos: nome, telefone, cnpj, condicoesPagamento).
+- PRODUTOS: Itens vendidos ou usados (campos: nome, categoria, quantidadeEstoque, unidadeMedida, custoUnitario, fornecedorId, status).
+- FORNECEDORES: Empresas/Pessoas que vendem para nós (campos: nome, telefone, cnpj, condicoesPagamento, observacoes).
 - MOVIMENTAÇÕES: Histórico de entradas e saídas (campos: produto, tipo, quantidade, data).
-- RESUMO DO ESTOQUE: Estatísticas globais (totalProdutos, valorTotalEstoque, categorias, estoqueBaixo). Use isso para responder perguntas sobre quantidades totais.
-
-NOTA DE PERFORMANCE: Se a lista de PRODUTOS for muito longa, ela será resumida. Use o RESUMO DO ESTOQUE para dados consolidados.
 
 DADOS ATUAIS DO SISTEMA (JSON):
 ${contextJson}
