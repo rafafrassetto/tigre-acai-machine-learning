@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-export default function ChatWidget() {
+export function ChatWidget() {
   const [selectedModel, setSelectedModel] = useState("gemini-1.5-flash");
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
