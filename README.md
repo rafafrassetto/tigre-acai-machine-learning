@@ -3,50 +3,37 @@
 <img width="2560" height="1040" alt="image" src="https://github.com/user-attachments/assets/055121db-50ad-4d42-b668-e4cf73926b16" />
 
 ## 1. Introdução
-Este projeto consiste no desenvolvimento de uma aplicação web automatizada para a gestão e controle de estoque, desenvolvida com o ecossistema Next.js. O principal diferencial acadêmico e tecnológico da plataforma é a integração de um Agente de Inteligência Artificial Generativa (LLM), utilizando a API da Groq (Modelo Llama 3.3 70B). Este agente atua como um assistente autônomo capaz de realizar consultas estruturadas, analisar métricas e propor mutações de estado (inserções e exclusões) por meio de interações em linguagem natural.
+Este projeto é uma aplicação web avançada para gestão de estoque da açaiteria Tigre Açaí. O diferencial do sistema é o **Tigre AI**, um núcleo de inteligência híbrido que utiliza modelos de última geração (**Google Gemini 1.5 Flash** e **Groq/Llama 3.3**) para processar comandos em linguagem natural, analisar dados de estoque e automatizar processos logísticos.
 
-## 2. Arquitetura do Sistema
-A arquitetura foi projetada utilizando o padrão cliente-servidor (Frontend/Backend) com persistência em nuvem:
-- **Frontend (Client-side):** Desenvolvido em React (TypeScript) com estilização via TailwindCSS. Implementa sincronização reativa de estado para refletir imediatamente as alterações de dados na interface gráfica (SPA).
-- **Backend (Server-side):** Rotas de API no Next.js (App Router) responsáveis pela comunicação segura com o banco de dados e pela orquestração das requisições ao modelo de IA.
-- **Persistência de Dados:** Banco de dados NoSQL MongoDB (hospedado no Atlas), estruturado para acomodar as coleções independentes de `produtos`, `fornecedores` e `movimentacoes`.
+## 2. Arquitetura do Sistema e Otimização (RAG)
+Para garantir alta performance e baixo custo operacional, o sistema utiliza uma arquitetura de **Retrieval-Augmented Generation (RAG) Simples**:
+- **Filtragem de Contexto:** O backend não envia o banco de dados inteiro para a IA. Ele filtra apenas os produtos e movimentações relevantes para a pergunta do usuário, reduzindo o uso de tokens de 50k para menos de 5k por requisição.
+- **Orquestração Híbrida:** O sistema prioriza o Gemini 1.5 Flash por seu contexto massivo, com fallback automático para o Groq (Llama 3.3 70B) em caso de falhas ou limites de cota.
+- **Frontend Reativo:** Desenvolvido em React/Next.js com TailwindCSS, oferecendo uma experiência de chat fluida com visualização de métricas em tempo real.
 
-## 3. Agente Autônomo e Segurança (Human-in-the-loop)
-O assistente virtual foi implementado aplicando técnicas rigorosas de Engenharia de Prompt (*Prompt Engineering*) para mitigar riscos de *hallucination* (geração de dados irreais) e *prompt injection*:
-- **Sanitização de Contexto:** O banco de dados passa por um pipeline de limpeza no backend antes de ser enviado à IA, limitando caracteres e registros para não exceder o limite de *tokens* do modelo.
-- **Delegação de Execução:** A arquitetura de segurança impede que a IA altere o banco de dados diretamente. Ao receber uma intenção de inserção ou remoção, a IA gera um *payload* JSON abstrato. O frontend processa este *payload* e exige confirmação explícita do usuário humano através de uma interface de botões antes de consolidar a transação na base de dados.
+## 3. Agente Autônomo e Segurança
+O Tigre AI opera sob o conceito de *Human-in-the-loop*:
+- **Ações Pendentes:** A IA propõe inserções ou exclusões, mas o sistema exige que o usuário confirme a ação através de botões na interface antes de alterar o MongoDB.
+- **Memória de Longo Prazo:** Fatos importantes ("O fornecedor X só entrega às quartas") são aprendidos pela IA e persistidos em uma coleção de memória para consultas futuras.
 
 ## 4. Tecnologias Utilizadas
-- **Ecossistema Core:** TypeScript, Next.js, React
-- **Inteligência Artificial:** SDK `groq-sdk` (Llama 3.3 70B)
-- **Persistência:** MongoDB (Node Driver)
-- **Interface e Componentização:** TailwindCSS, Lucide Icons
+- **IA:** Google Generative AI (Gemini 1.5 Flash), Groq SDK (Llama 3.3 70B)
+- **Framework:** Next.js 15 (App Router), TypeScript
+- **Banco de Dados:** MongoDB Atlas
+- **Integrações:** Google Sheets API (Histórico Externo), Google Drive API (Backup de Chats)
 
 ## 5. Configuração e Execução
-1. Clone o repositório localmente:
-   ```bash
-   git clone https://github.com/rafafrassetto/tigre-acai-machine-learning.git
-   ```
-2. Instale as dependências (resolvendo conflitos legados, se necessário):
-   ```bash
-   npm install --legacy-peer-deps
-   ```
-3. Configure as variáveis de ambiente na raiz do projeto (`.env.local`):
+1. Clone o repositório.
+2. Instale as dependências: `npm install --legacy-peer-deps`.
+3. Configure o arquivo `.env.local` com as chaves:
    ```env
    MONGODB_URI=mongodb+srv://...
+   GEMINI_API_KEY=...
    GROK_APO=gsk_...
+   GOOGLE_CLIENT_EMAIL=...
+   GOOGLE_PRIVATE_KEY=...
    ```
-4. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
+4. Execute localmente: `npm run dev`.
 
-## 6. Referências Bibliográficas e Tecnológicas
-
-As seguintes documentações, artigos e bibliografias fundamentaram o desenvolvimento da arquitetura e a integração da Inteligência Artificial neste projeto:
-
-1. **BROWN, Tom et al.** *Language Models are Few-Shot Learners.* In: Advances in Neural Information Processing Systems (NeurIPS), 2020. Disponível em: [https://arxiv.org/abs/2005.14165](https://arxiv.org/abs/2005.14165). *(Base teórica para as técnicas de Prompt Engineering aplicadas).*
-2. **GROQ CLOUD.** *Groq API Documentation: Chat Completions & Model Quotas.* Groq Inc., 2024. Disponível em: [https://console.groq.com/docs](https://console.groq.com/docs). *(Diretrizes oficiais para integração do modelo Llama 3.3 e definição de comportamento da IA).*
-3. **NEXT.JS.** *Next.js Documentation: App Router & Route Handlers.* Vercel, 2024. Disponível em: [https://nextjs.org/docs](https://nextjs.org/docs). *(Fundamentação técnica para a construção da API Server-side e hidratação do cliente).*
-4. **MONGODB.** *MongoDB Node.js Driver Documentation.* MongoDB Inc., 2024. Disponível em: [https://www.mongodb.com/docs/drivers/node/current/](https://www.mongodb.com/docs/drivers/node/current/). *(Boas práticas para transações e modelagem de dados NoSQL).*
-5. **OWASP.** *OWASP Top 10 for Large Language Model Applications.* Open Worldwide Application Security Project, 2023. Disponível em: [https://owasp.org/www-project-top-10-for-large-language-model-applications/](https://owasp.org/www-project-top-10-for-large-language-model-applications/). *(Padrões de segurança adotados contra Prompt Injection e vazamento de System Prompts).*
+## 6. Referências
+O projeto aplica conceitos de *Prompt Engineering* e arquiteturas modernas de LLMs documentadas pela Google AI, Meta e Vercel.
