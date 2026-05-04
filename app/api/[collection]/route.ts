@@ -173,8 +173,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         for (const currentModel of modelsToTry) {
           try {
             if (currentModel.toLowerCase().includes("gemini")) {
-              // Tenta usar gemini-1.5-flash ou fallback para gemini-pro
-              const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+              // Forçamos a API v1 estável para evitar o 404 da v1beta
+              const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }, { apiVersion: 'v1' })
               const chat = geminiModel.startChat({
                 history: [
                   { role: "user", parts: [{ text: buildSystemPrompt(contextJson, memoriaTexto, historicoExtra) }] },
