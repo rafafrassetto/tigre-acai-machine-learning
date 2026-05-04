@@ -192,8 +192,8 @@ export function FornecedorForm({ fornecedores, setFornecedores }: FornecedorForm
             <div className="space-y-4">
               {fornecedores.map((fornecedor) => (
                 <div key={fornecedor.id} className="border rounded-lg p-4">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
+                  <div className="flex flex-col md:flex-row items-start justify-between gap-4">
+                    <div className="flex-1 w-full">
                       <h3 className="font-semibold text-lg mb-2">{fornecedor.nome}</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
                         <div className="flex items-center gap-2">
@@ -222,7 +222,7 @@ export function FornecedorForm({ fornecedores, setFornecedores }: FornecedorForm
                         </div>
                       )}
                     </div>
-                    <div className="flex gap-2 ml-4">
+                    <div className="flex gap-2 w-full md:w-auto md:ml-4 justify-end mt-4 md:mt-0">
                       <Button size="sm" variant="outline" onClick={() => handleEdit(fornecedor)}>
                         <Edit className="h-4 w-4" />
                       </Button>

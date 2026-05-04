@@ -291,7 +291,7 @@ export function EstoqueManager({
 
                       return (
                         <div key={mov.id} className="border rounded-lg p-4">
-                          <div className="flex items-start justify-between mb-2">
+                          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-2 gap-2">
                             <div>
                               <h4 className="font-medium">{produto?.nome || "Produto não encontrado"}</h4>
                               <p className="text-sm text-gray-600">
@@ -358,7 +358,7 @@ export function EstoqueManager({
 
                     return (
                       <div key={produto.id} className="border rounded-lg p-4">
-                        <div className="flex items-start justify-between mb-2">
+                        <div className="flex flex-col md:flex-row items-start justify-between mb-2 gap-2">
                           <div>
                             <h4 className="font-medium">{produto.nome}</h4>
                             <p className="text-sm text-gray-600">Fornecedor: {fornecedor?.nome || "Não definido"}</p>

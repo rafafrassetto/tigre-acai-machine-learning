@@ -82,12 +82,17 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-purple-50 via-gray-50 to-orange-50/30">
       <div className="container mx-auto p-6">
-        <div className="mb-8 flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">Tigre Açaí - Sistema de Gestão</h1>
-            <p className="text-gray-600 mt-2">Controle completo do seu estoque e pedidos</p>
+        <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/40 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="bg-primary/10 p-2 rounded-xl">
+              <img src="/logo.png" alt="Tigre Açaí Logo" className="h-12 w-12 object-contain" />
+            </div>
+            <div>
+              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">Tigre Açaí</h1>
+              <p className="text-gray-500 font-medium text-sm md:text-base">Sistema de Gestão Inteligente</p>
+            </div>
           </div>
           <Button variant="outline" onClick={() => setIsAuthenticated(false)}>
             <LogOut className="h-4 w-4 mr-2" />
@@ -96,7 +101,7 @@ export default function Dashboard() {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 h-auto p-1 gap-1">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="produtos">Produtos</TabsTrigger>
             <TabsTrigger value="fornecedores">Fornecedores</TabsTrigger>
@@ -109,13 +114,15 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Dialog>
                 <DialogTrigger asChild>
-                  <Card className="cursor-pointer hover:bg-gray-50 transition-colors">
+                  <Card className="cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-none bg-gradient-to-br from-white to-purple-50/50 shadow-md">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <CardTitle className="text-sm font-medium">Total de Produtos</CardTitle>
-                      <Package className="h-4 w-4 text-muted-foreground" />
+                      <CardTitle className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Total de Produtos</CardTitle>
+                      <div className="bg-primary/10 p-2 rounded-lg">
+                        <Package className="h-4 w-4 text-primary" />
+                      </div>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold">{totalProdutos}</div>
+                      <div className="text-3xl font-black text-primary">{totalProdutos}</div>
                     </CardContent>
                   </Card>
                 </DialogTrigger>
@@ -151,13 +158,15 @@ export default function Dashboard() {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <Card className="cursor-pointer hover:bg-gray-50 transition-colors">
+                  <Card className="cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-none bg-gradient-to-br from-white to-orange-50/50 shadow-md">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <CardTitle className="text-sm font-medium">Fornecedores</CardTitle>
-                      <Users className="h-4 w-4 text-muted-foreground" />
+                      <CardTitle className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Fornecedores</CardTitle>
+                      <div className="bg-orange-100 p-2 rounded-lg">
+                        <Users className="h-4 w-4 text-orange-600" />
+                      </div>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold">{totalFornecedores}</div>
+                      <div className="text-3xl font-black text-orange-600">{totalFornecedores}</div>
                     </CardContent>
                   </Card>
                 </DialogTrigger>
@@ -231,7 +240,7 @@ export default function Dashboard() {
                       return (
                         <div
                           key={produto.id}
-                          className="flex items-center justify-between p-3 bg-white rounded-lg border"
+                          className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 bg-white rounded-lg border gap-3"
                         >
                           <div>
                             <h4 className="font-medium">{produto.nome}</h4>
@@ -272,7 +281,7 @@ export default function Dashboard() {
                       .map((mov) => {
                         const produto = produtos.find((p) => p.id === mov.produtoId)
                         return (
-                          <div key={mov.id} className="flex items-center justify-between p-3 border rounded-lg">
+                          <div key={mov.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 border rounded-lg gap-3">
                             <div>
                               <h4 className="font-medium">{produto?.nome || "Produto não encontrado"}</h4>
                               <p className="text-sm text-gray-600">
