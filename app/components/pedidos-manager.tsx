@@ -142,7 +142,7 @@ export function PedidosManager({ produtos, fornecedores, produtosEstoqueBaixo }:
                 const fornecedor = fornecedores.find((f) => f.id === produto.fornecedorId)
 
                 return (
-                  <div key={produto.id} className="flex items-center justify-between p-3 border rounded-lg">
+                  <div key={produto.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 border rounded-lg gap-4">
                     <div className="flex items-center space-x-3">
                       <Checkbox
                         checked={!!itemExistente}
@@ -246,7 +246,7 @@ export function PedidosManager({ produtos, fornecedores, produtosEstoqueBaixo }:
                     </pre>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <Button onClick={() => abrirWhatsApp(fornecedorId, itens)} className="flex-1">
                       <MessageCircle className="h-4 w-4 mr-2" />
                       Enviar via WhatsApp

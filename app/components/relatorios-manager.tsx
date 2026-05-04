@@ -189,7 +189,7 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
       </Card>
 
       <Tabs defaultValue="estoque-baixo" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 h-auto p-1 gap-1">
           <TabsTrigger value="estoque-baixo">Estoque Baixo</TabsTrigger>
           <TabsTrigger value="compras-fornecedor">Compras</TabsTrigger>
           <TabsTrigger value="variacao-precos">Preços</TabsTrigger>
@@ -198,7 +198,7 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
 
         <TabsContent value="estoque-baixo">
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <Package className="h-5 w-5" />
@@ -222,7 +222,7 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
 
                     return (
                       <div key={produto.id} className="border rounded-lg p-4">
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2">
                           <h4 className="font-medium">{produto.nome}</h4>
                           <Badge variant="destructive">{percentualEstoque.toFixed(0)}% do mínimo</Badge>
                         </div>
@@ -262,7 +262,7 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
 
         <TabsContent value="compras-fornecedor">
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <Users className="h-5 w-5" />
@@ -288,7 +288,7 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
 
                       return (
                         <div key={fornecedorId} className="border rounded-lg p-4">
-                          <div className="flex items-center justify-between mb-2">
+                          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2">
                             <h4 className="font-medium text-lg">{fornecedor.nome}</h4>
                             <Badge variant="outline">{dados.itens} compra(s)</Badge>
                           </div>
@@ -353,7 +353,7 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
 
                       return (
                         <div key={produtoId} className="border rounded-lg p-4">
-                          <div className="flex items-center justify-between mb-2">
+                          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2">
                             <h4 className="font-medium">{produto.nome}</h4>
                             <Badge variant={isAumento ? "destructive" : "default"}>
                               {iconeVariacao} {Math.abs(dados.variacao).toFixed(1)}%
@@ -413,7 +413,7 @@ export function RelatoriosManager({ produtos, fornecedores, movimentacoes }: Rel
 
                     return (
                       <div key={produto.id} className="border rounded-lg p-4">
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2">
                           <h4 className="font-medium">{produto.nome}</h4>
                           <Badge
                             variant={

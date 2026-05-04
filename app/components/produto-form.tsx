@@ -289,9 +289,9 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
 
                 return (
                   <div key={produto.id} className="border rounded-lg p-4">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
+                    <div className="flex flex-col md:flex-row items-start justify-between gap-4">
+                      <div className="flex-1 w-full">
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
                           <h3 className="font-semibold">{produto.nome}</h3>
                           <Badge className={getCategoriaColor(produto.categoria)}>
                             {getCategoriaLabel(produto.categoria)}
@@ -299,7 +299,7 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
                           {estoqueStatus === "baixo" && <Badge variant="destructive">Estoque Baixo</Badge>}
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600 mt-4">
                           <div>
                             <span className="font-medium">Estoque:</span> {produto.quantidadeEstoque}{" "}
                             {produto.unidadeMedida}
@@ -331,7 +331,7 @@ export function ProdutoForm({ produtos, setProdutos, fornecedores }: ProdutoForm
                         )}
                       </div>
 
-                      <div className="flex gap-2 ml-4">
+                      <div className="flex gap-2 w-full md:w-auto md:ml-4 justify-end">
                         <Button size="sm" variant="outline" onClick={() => handleEdit(produto)}>
                           <Edit className="h-4 w-4" />
                         </Button>
