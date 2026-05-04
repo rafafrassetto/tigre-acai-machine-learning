@@ -2,8 +2,6 @@ import { NextResponse } from "next/server"
 import clientPromise from "@/app/lib/mongodb"
 import Groq from "groq-sdk"
 import { GoogleGenerativeAI } from "@google/generative-ai"
-import OpenAI from "openai"
-import Anthropic from "@anthropic-ai/sdk"
 import { getHistoricalContext } from "@/lib/google-sheets"
 
 
@@ -11,8 +9,6 @@ export const dynamic = "force-dynamic"
 
 const groq = new Groq({ apiKey: process.env.GROK_APO || "" })
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "")
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY || "" })
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY || "" })
 
 // Sanitiza o contexto para evitar estourar o token limit do Gemini
 function sanitizarContexto(ctx: any) {
@@ -141,17 +137,13 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       }))
 
       async function tryAI(primaryModel: string) {
-        // Filtrar modelos que possuem chave configurada
+        // Prioriza o modelo selecionado, depois fallback para Llama 3.3 e Gemini Flash
         const modelsToTry = [
           primaryModel,
           "llama-3.3-70b-versatile",
-          "llama-3.1-8b-instant",
-          process.env.GEMINI_API_KEY ? "gemini-1.5-flash" : null,
-          process.env.OPENAI_API_KEY ? "gpt-4o-mini" : null,
-          process.env.ANTHROPIC_API_KEY ? "claude-3-5-sonnet-latest" : null
+          "gemini-1.5-flash",
+          "llama-3.1-8b-instant"
         ].filter((m, i, self) => m && self.indexOf(m) === i) as string[]
-
-        let errorDetails = ""
 
         for (const currentModel of modelsToTry) {
           try {
@@ -172,37 +164,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
               return { 
                 text: result.response.text(), 
                 modelUsed: "gemini-1.5-flash",
-                usage: { total: 0, remaining: 0, limit: 0 }
-              }
-
-            } else if (currentModel.toLowerCase().startsWith("gpt-")) {
-              const completion = await openai.chat.completions.create({
-                model: currentModel,
-                messages: [
-                  { role: "system", content: buildSystemPrompt(contextJson, memoriaTexto, historicoExtra) },
-                  ...formattedHistory,
-                  { role: "user", content: message }
-                ],
-                temperature: 0.2,
-                max_tokens: 2048,
-              })
-              return { 
-                text: completion.choices[0]?.message?.content || "", 
-                modelUsed: currentModel,
-                usage: { total: completion.usage?.total_tokens || 0, remaining: 0, limit: 0 }
-              }
-
-            } else if (currentModel.toLowerCase().startsWith("claude-")) {
-              const completion = await anthropic.messages.create({
-                model: currentModel as any,
-                system: buildSystemPrompt(contextJson, memoriaTexto, historicoExtra),
-                messages: [...formattedHistory, { role: "user", content: message }],
-                temperature: 0.2,
-                max_tokens: 2048,
-              })
-              return { 
-                text: (completion.content[0] as any).text || "", 
-                modelUsed: currentModel,
                 usage: { total: 0, remaining: 0, limit: 0 }
               }
 
@@ -234,7 +195,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
             }
           } catch (error: any) {
             console.error(`Erro com o modelo ${currentModel}:`, error.message)
-            errorDetails += `[${currentModel}: ${error.message}] `
             continue
           }
         }

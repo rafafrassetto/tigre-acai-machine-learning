@@ -39,23 +39,9 @@ const INITIAL_MESSAGE: Message = {
 }
 
 const AVAILABLE_MODELS = [
-  // --- Elite (Top Tier 2026) ---
-  { id: "claude-4-7-opus-2026", name: "Claude 4.7 Opus", description: "O rei da lógica e codificação" },
-  { id: "gpt-5.5-preview", name: "GPT-5.5 Ultra", description: "Líder em automação e agentes" },
-  { id: "gemini-3.1-pro-preview", name: "Gemini 3.1 Pro", description: "Contexto massivo (2M tokens)" },
-  
-  // --- Alta Performance ---
-  { id: "claude-4-6-sonnet-2026", name: "Claude 4.6 Sonnet", description: "Equilíbrio perfeito de inteligência" },
-  { id: "gpt-4o", name: "GPT-4o (Omni)", description: "Rápido e multimodal" },
-  { id: "llama-3.1-405b-reasoning", name: "Llama 3.1 405B", description: "O gigante open-source" },
-  { id: "deepseek-r1-distill-llama-70b", name: "DeepSeek R1 70B", description: "Especialista em raciocínio" },
-  
-  // --- Versáteis e Rápidos ---
-  { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Potente e versátil" },
-  { id: "qwen/qwen3-32b", name: "Qwen 3 32B", description: "Excelente lógica" },
-  { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", description: "Rápido com contexto longo" },
-  { id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", description: "Velocidade clássica" },
-  { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Respostas imediatas" },
+  { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash", description: "Rápido e Inteligente (Google)" },
+  { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", description: "Poderoso e Versátil (Groq)" },
+  { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", description: "Velocidade Instantânea (Groq)" },
 ]
 
 export function ChatWidget({ produtos, setProdutos, movimentacoes, fornecedores }: ChatWidgetProps) {
