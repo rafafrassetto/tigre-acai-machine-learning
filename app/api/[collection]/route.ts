@@ -210,10 +210,10 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       try {
         aiResult = await tryAI(model)
       } catch (error: any) {
-        // MENSAGEM AMIGÁVEL PARA O USUÁRIO
+        console.error("❌ ERRO CRÍTICO NO BACKEND:", error.message)
         return NextResponse.json({ 
-          response: "⚠️ Todas as IAs estão sobrecarregadas ou atingiram o limite de uso diário. Por favor, aguarde alguns minutos e tente novamente.",
-          modelUsed: "ERRO DE COTA"
+          response: `⚠️ Ocorreu um erro no sistema: ${error.message}. Verifique os logs da Vercel.`,
+          modelUsed: "ERRO DE SISTEMA"
         })
       }
 
