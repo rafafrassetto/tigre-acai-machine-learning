@@ -120,6 +120,11 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
 
     if (collection === "chat") {
       const { message, history, estoqueContext, model } = body
+
+      // Log de verificação de chaves (sem expor o conteúdo)
+      if (!process.env.GEMINI_API_KEY) console.warn("⚠️ [AVISO] Chave GEMINI_API_KEY não encontrada no .env")
+      if (!process.env.GROK_APO) console.warn("⚠️ [AVISO] Chave GROK_APO não encontrada no .env")
+
       const client = await clientPromise
       const db = client.db("tigre_acai")
       const memoriaDocs = await db.collection("memoria_ia").find({}).toArray()
@@ -194,7 +199,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
               }
             }
           } catch (error: any) {
-            console.error(`Erro com o modelo ${currentModel}:`, error.message)
+            console.error(`❌ ERRO NO MODELO [${currentModel}]:`, error.response?.data || error.message)
             continue
           }
         }
