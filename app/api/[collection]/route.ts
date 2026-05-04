@@ -10,37 +10,54 @@ export const dynamic = "force-dynamic"
 const groq = new Groq({ apiKey: process.env.GROK_APO || "" })
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "")
 
-// Sanitiza o contexto para evitar estourar o token limit do Gemini
-function sanitizarContexto(ctx: any) {
+// Sanitiza e filtra o contexto (RAG simples) para evitar estourar o limite de tokens
+function filtrarContextoPorRelevancia(ctx: any, query: string) {
   const safe = { ...ctx }
+  const termoBusca = (query || "").toLowerCase()
 
   if (Array.isArray(safe.produtos)) {
-    safe.produtos = safe.produtos
-      .filter((p: any) => p.nome && typeof p.nome === "string" && p.nome.length < 200)
-      .map((p: any) => ({
+    // Se o usuário fizer uma pergunta específica, filtramos os produtos relacionados
+    // Se for uma pergunta geral, mandamos apenas os primeiros 20 produtos para economizar
+    let produtosFiltrados = safe.produtos.filter((p: any) => 
+      p.nome?.toLowerCase().includes(termoBusca) || 
+      p.categoria?.toLowerCase().includes(termoBusca)
+    )
+
+    if (produtosFiltrados.length === 0 || produtosFiltrados.length > 20) {
+      produtosFiltrados = safe.produtos.slice(0, 20)
+    }
+
+    safe.produtos = produtosFiltrados.map((p: any) => ({
         nome: p.nome,
         categoria: p.categoria || "sem categoria",
         quantidadeEstoque: Math.min(Number(p.quantidadeEstoque || p.estoqueAtual) || 0, 999999),
         unidadeMedida: p.unidadeMedida || p.unidade || "Unidades",
         pontoReposicao: Math.min(Number(p.pontoReposicao) || 0, 999999),
         custoUnitario: p.custoUnitario !== undefined ? Math.min(Number(p.custoUnitario) || 0, 999999) : undefined,
-        fornecedorId: p.fornecedorId || "",
         status: p.status || "NORMAL"
       }))
   }
 
   if (Array.isArray(safe.fornecedores)) {
-    safe.fornecedores = safe.fornecedores.map((f: any) => ({
+    // Filtra fornecedores apenas se o termo de busca bater, senão manda os 5 primeiros
+    let fornecedoresFiltrados = safe.fornecedores.filter((f: any) => 
+      f.nome?.toLowerCase().includes(termoBusca)
+    )
+    
+    if (fornecedoresFiltrados.length === 0) {
+      fornecedoresFiltrados = safe.fornecedores.slice(0, 5)
+    }
+
+    safe.fornecedores = fornecedoresFiltrados.map((f: any) => ({
       nome: f.nome || "Sem nome",
       telefone: f.telefone || "Não cadastrado",
       cnpj: f.cnpj || "Não cadastrado",
-      condicoesPagamento: f.condicoesPagamento || "Não informado",
-      observacoes: f.observacoes || "Nenhuma"
+      condicoesPagamento: f.condicoesPagamento || "Não informado"
     }))
   }
 
   if (Array.isArray(safe.ultimasMovimentacoes)) {
-    safe.ultimasMovimentacoes = safe.ultimasMovimentacoes.slice(0, 15)
+    safe.ultimasMovimentacoes = safe.ultimasMovimentacoes.slice(0, 5) // Reduzido de 15 para 5
   }
 
   return safe
@@ -130,10 +147,13 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
       const memoriaDocs = await db.collection("memoria_ia").find({}).toArray()
       const memoriaTexto = memoriaDocs.map(d => `- ${d.fato}`).join("\n")
 
-      // Busca contexto histórico do Google Sheets
-      const historicoExtra = await getHistoricalContext(message)
+      // Busca contexto histórico do Google Sheets (limitado para não estourar tokens)
+      let historicoExtra = await getHistoricalContext(message)
+      if (historicoExtra.length > 1000) {
+        historicoExtra = historicoExtra.substring(0, 1000) + "... (resumido)"
+      }
 
-      const ctxSanitizado = sanitizarContexto(estoqueContext || {})
+      const ctxSanitizado = filtrarContextoPorRelevancia(estoqueContext || {}, message)
       const contextJson = JSON.stringify(ctxSanitizado, null, 2)
 
       const formattedHistory = (history || []).map((msg: any) => ({
@@ -153,6 +173,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ col
         for (const currentModel of modelsToTry) {
           try {
             if (currentModel.toLowerCase().includes("gemini")) {
+              // Tenta usar gemini-1.5-flash ou fallback para gemini-pro
               const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
               const chat = geminiModel.startChat({
                 history: [
